@@ -6,7 +6,7 @@ from builder.theme_builder import ThemeBuilder
 from builder.app_builder_bottom import AppBuilderBottom
 from builder.app_builder_right import AppBuilderRight
 from builder.app_builder_center import AppBuilderCenter
-from builder.template_app.main import MainWidget
+###from builder.template_app.main import MainWidget
 from qt_core import *
 
 	
