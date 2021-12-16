@@ -1,0 +1,252 @@
+/*
+
+"app_color" : {
+        "dark_one" : "#1b1e23",
+        "dark_two" : "#1e2229",
+        "dark_three" : "#21252d",
+        "dark_four" : "#272c36",
+        "bg_one" : "#2c313c",
+        "bg_two" : "#343b48",
+        "bg_three" : "#3c4454",
+        "icon_color" : "#c3ccdf",
+        "icon_hover" : "#dce1ec",
+        "icon_pressed" : "#6c99f4",
+        "icon_active" : "#f5f6f9",
+        "context_color" : "#568af2",
+        "context_hover" : "#6c99f4",
+        "context_pressed" : "#3f6fd1",
+        "text_title" : "#dce1ec",
+        "text_foreground" : "#8a95aa",
+        "text_description" : "#4f5b6e",
+        "text_active" : "#dce1ec",
+        "white" : "#f5f6f9",
+        "pink" : "#ff007f",
+        "green" : "#00ff7f",
+        "red" : "#ff5555",
+        "yellow" : "#f1fa8c"
+    }
+*/
+
+/* GLABAL */
+*{ font-family: "Segoe UI"; font-size: 14px }
+
+/* MENU WIDGET */
+QWidget#menu{
+    border-right: 1px solid #222;
+    background: #2c313c;
+}
+
+QWidget#menu QPushButton{
+    padding: 20px;
+}
+
+QPushButton{
+   background: #2c313c;
+   color: #c3ccdf;
+}
+
+QPushButton:hover{
+   color: #dce1ec;
+}
+
+QPushButton:pressed{
+   color: #6c99f4;
+}
+
+
+#logo_text_pre, #logo_text_post{
+	color: #ccc;
+	font-size: 36px;
+	font-weight: 700;
+	font-style: italic;
+}
+
+#logowidget{
+	border: 1px solid #8a95aa;
+	border-radius: 3px;
+}
+
+/* Settings Widget */
+#settingsheader{
+    background-color: royalblue;
+}
+
+#settingsheadertext{
+    color: seashell;
+}
+
+#settingscontent{
+    background-color: rgb(27, 32, 44);
+}
+/* WRAPPER WIDGET */
+#wrapper{ background: #272c36; }
+
+/* HEDAER WIDGET */
+QWidget#header{
+    border-bottom: 1px solid #222;
+    background: #1e2229;
+}
+
+#header QPushButton{
+    background: #1e2229;
+    border: none;
+    padding:10px;
+}
+
+#header QPushButton:hover{
+    background: #444;
+}
+
+#header QPushButton#closewindow:hover{
+    background: red;
+}
+
+/* FOOTER WIDGET */
+QWidget#footer{
+    border-top: 1px solid #222;
+    background: #1e2229;
+}
+
+QWidget#footer QLabel{
+    color: #8a95aa;
+}
+
+/* CONTENT WIDGET */
+/* content Header */
+#headertitle{
+	font-size: 20px;
+	color: #dce1ec;
+}
+/* Content */
+/* Tabs */
+/*
+#tabscontent{
+    background: #272c36;
+}
+*/
+QTabWidget::pane {
+  border: 1px solid #222;
+  top:-1px;
+  background: #272c36;
+}
+
+QTabBar::tab {
+  background: #1e2229;
+  border: 1px solid #222;
+  padding: 10px;
+  color: #8a95aa;
+}
+
+QTabBar::tab:selected {
+  background: #272c36;
+  margin-bottom: -1px;
+  color: #dce1ec;
+  border-bottom: none;
+}
+
+QProgressBar{
+    background: #272c36;
+    color: #fff;
+}
+
+QScrollArea, #scrollAreaWidgetContents{
+    background: #272c36;
+    border: 1px solid #272c36;
+}
+
+#scrollAreaWidgetContents{
+    margin-left: 0;
+}
+
+QScrollArea {
+    border: none;
+}
+
+QScrollBar {
+    background: #2c313c;
+    border-radius: 5px;
+}
+
+QScrollBar:horizontal {
+    height: 13px;
+}
+
+QScrollBar:vertical {
+    width: 13px;
+}
+
+QScrollBar::handle {
+    background: #1e2229;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal {
+    height: 25px;
+    min-width: 10px;
+}
+
+QScrollBar::handle:vertical {
+    width: 25px;
+    min-height: 10px;
+}
+
+QScrollBar::add-line {
+    border: none;
+    background: none;
+}
+
+QScrollBar::sub-line {
+    border: none;
+    background: none;
+}
+
+/* Table */
+QTableView{
+    background: #272c36;
+    border: 1px solid #222;
+    color: #dce1ec;
+}
+
+QHeaderView{
+    background-color: #2c313c;
+}
+
+QHeaderView::section, QTableCornerButton::section{
+    background-color: #2c313c;
+    padding: 4px;
+    border-style: none;
+    border-bottom: 1px solid #222;
+    border-right: 1px solid #222;
+    color: #8a95aa;
+}
+
+QHeaderView::section:horizontal{
+    border-top: 1px solid #2c313c;
+}
+
+QHeaderView::section:vertical{
+    border-left: 1px solid #2c313c;
+    background-color: #2c313c;
+}
+
+QLineEdit{
+    background-color: #2c313c;
+    color: #dce1ec;
+}
+
+/* MODULES */
+/* Football */
+#row{
+    border: 1px solid #222;
+    border-radius: 3px;
+    background: #2c313c;
+    color: #dce1ec;
+}
+#row:hover{background: #1e2229;}
+#row QPushButton{
+    color: #f1fa8c;
+    font-weight: #00ff7f;
+}
+#row QLabel{
+    color: #dce1ec;
+}

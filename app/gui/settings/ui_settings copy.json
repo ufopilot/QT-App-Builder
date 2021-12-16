@@ -1,0 +1,97 @@
+{
+    "app_name": "UFOADMIN",
+    "description": "Python-QT Application Theme",
+    "version": "Version: 1.0.0",
+    "author": "By UFOPILOT",
+    "year": 2021,
+    "theme_name": "dark",
+    "custom_title_bar": true,
+    "icon": {
+        "png": "gui/resources/imgs/appicon.png",
+        "ico": "gui/resources/imgs/appicon.ico"
+    },
+    "initial_size": [
+        1400,
+        850
+    ],
+    "minimum_size": [
+        1400,
+        850
+    ],
+    "window": {
+        "app_name": "UFOADMIN",
+        "description": "Python-QT Application Theme",
+        "version": "Version: 1.0.0",
+        "author": "By UFOPILOT",
+        "year": 2021,
+        "theme_name": "dark",
+        "icon": "gui/resources/imgs/appicon.ico",
+        "initial_size": [
+            1600,
+            850
+        ],
+        "minimum_size": [
+            1400,
+            850
+        ]
+    },
+    "title_bar": {
+        "visible": true,
+        "window_icons": true,
+        "icon": "gui/resources/imgs/appicon.png"
+    },
+    "footer_bar": {
+        "visible": true
+    },
+    "panel1": {
+        "visible": true,
+        "minimum": 30,
+        "maximum": 300,
+        "toggle": true,
+        "content_margins": 3,
+        "direction": "rtl",
+        "show_onstart": true,
+        "title": "Navigation Menu"
+    },
+    "panel2": {
+        "visible": false,
+        "minimum": 30,
+        "maximum": 300,
+        "toggle": true,
+        "content_margins": 3,
+        "direction": "rtl",
+        "show_onstart": false,
+        "title": "Settings"
+    },
+    "panel3": {
+        "minimum": 30,
+        "maximum": 432,
+        "toggle": false,
+        "content_margins": 3,
+        "direction": "rtl",
+        "show_onstart": false,
+        "title": "Content"
+        
+    },
+    "panel4": {
+        "visible": false,
+        "minimum": 30,
+        "maximum": 300,
+        "toggle": true,
+        "content_margins": 3,
+        "direction": "ltr",
+        "show_onstart": false,
+        "title": "Theming & Customizing"
+    },
+    "panel5": {
+        "visible": true,
+        "minimum": 30,
+        "maximum": 200,
+        "toggle": true,
+        "content_margins": 3,
+        "direction": "ttb",
+        "show_onstart": true,
+        "title": "What ever!"
+    },
+    "time_animation": 300 
+}

@@ -1,0 +1,109 @@
+[
+    {   
+        "name": "Home",
+        "icon": "home.svg",
+        "widget": "HomeWidget",
+        "start": true
+    },
+    {   
+        "name": "Dashboard",
+        "icon": "activity.svg",
+        "children":[{
+            "name":"Modern",
+            "icon": {
+                "expanded": "folder-minus.svg",
+                "collapsed": "folder-plus.svg"
+            },
+            "children":[{
+                "name":"Modern3",
+                "icon": "circle.svg",
+                "widget":"TemplatePage"
+            },
+            {
+                "name":"Modern4",
+                "icon": "circle.svg",
+                "widget":"TemplatePage"
+            }]
+        },
+        {
+            "name":"Modern",
+            "icon": "circle.svg",
+            "widget":"Dashboard"
+        }]
+    },
+    {   
+        "name": "Cards",
+        "icon": "credit-card.svg",
+        "children":[{
+            "name":"Cards",
+            "icon": "circle.svg",
+            "widget":"TemplatePage"
+        },
+        {
+            "name":"Cards Advanced",
+            "icon": "circle.svg",
+            "widget":"TemplatePage"
+        },
+        {
+            "name":"Cards Extented",
+            "icon": "circle.svg",
+            "widget":"TemplatePage"
+        }]
+    },
+    {   
+        "name": "Tabs",
+        "icon": "folder.svg",
+        "children":[{
+            "name":"Top",
+            "icon": "circle.svg",
+            "widget":"TabsNorth"
+        },
+        {
+            "name":"Right",
+            "icon": "circle.svg",
+            "widget":"TabsEast"
+        },
+        {
+            "name":"Bottom",
+            "icon": "circle.svg",
+            "widget":"TabsSouth"
+        },
+        {
+            "name":"Left",
+            "icon": "circle.svg",
+            "widget":"TabsWest"
+        }]
+    },
+    {   
+        "name": "Tables",
+        "icon": "database.svg",
+        "children":[{
+            "name":"FileSystem View",
+            "icon": "file.svg",
+            "widget":"FileSystemView"
+        },{
+            "name":"QTableView",
+            "icon": "file.svg",
+            "widget":"SampleQTableView"
+        },
+        {
+            "name":"QTableWidget",
+            "icon": "file.svg",
+            "widget":"SampelQTableWidget"
+        }]
+    },
+    {   
+        "name": "Trees",
+        "icon": "database.svg",
+        "children":[{
+            "name":"QTreeView",
+            "icon": "file.svg",
+            "widget":"SampleQTreeView"
+        },
+        {
+            "name":"QTreeWidget",
+            "icon": "file.svg",
+            "widget":"SampelQTreeWidget"
+        }]
+    }
+]

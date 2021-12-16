@@ -1,0 +1,15 @@
+
+
+
+# create app from TEMPLATE(under builder)
+#   - copy template_app.py to top 
+#   - import template_qpp.py
+#   - create app folder from template 
+#   - structure
+#   - settings
+#   
+
+# test team and settings in app 
+# on create create app save all settigs(ui and theme)
+
+

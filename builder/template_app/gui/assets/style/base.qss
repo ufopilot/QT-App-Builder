@@ -1,0 +1,473 @@
+* { 
+	color: var(content[first_text]); 
+	font-size: var(font[text_size])px;
+	font-family: var(font[family]);
+}
+
+/*******************************************
+* CONTENT
+*******************************************/
+#mainFrame{
+	border: 1px solid var(content[border]);
+	background:  var(content[background]);
+	border-radius: 5px;
+}
+
+/* HEADER                                  */
+/*-----------------------------------------*/
+#logo{
+	background:  var(header[background]);
+	
+}
+
+#mainHeader{
+	background:  var(header[background]);
+	color: var(header[second_text]);
+	border-bottom: 2px solid var(header[border]);
+}
+
+#mainHeader QLabel{
+	background:  var(header[background]);
+}
+
+#appTitle{
+	font-weight: bold;
+}
+
+#appDescription, #appTitle{
+	color: var(header[second_text]);
+}
+/*******************************************/
+/* WINDOWACTIONS TOPICONS                  */
+/*******************************************/
+#windowicons{
+	border: none
+}
+
+#windowicons QLabel{
+	background:  var(header[background]); 
+}
+
+#windowicons QPushButton{
+	background: transparent;
+	border: none;
+}
+#windowicons QPushButton#restorewindow:hover,
+#windowicons QPushButton#maximizewindow:hover,
+#windowicons QPushButton#minimizewindow:hover{ 
+	border: none;
+	background: var(header[hover]);
+}
+
+#windowicons QPushButton#closewindow:hover{ 
+	background: red;
+}
+
+QLabel#appLogo{
+	background:  var(header[background]);
+}
+/*******************************************/
+/* FOOTER                                  */
+/*******************************************/
+#mainFooter QFrame{
+	border: none;
+}
+
+#mainFooter{
+	background:  var(footer[background]);
+	color: var(footer[second_text]);
+}
+
+#footerActions QPushButton,
+#mainFooter QPushButton{ 
+	border: none;
+	background: var(footer[background]);
+	color: var(footer[first_text]);
+}
+
+#footerActions QPushButton:hover{
+    background: var(footer[hover]);
+	color: var(footer[first_text]);
+}
+
+#mainFooter QLabel{
+	color: var(footer[second_text]);
+}
+
+
+/*******************************************/
+/* PANELS                                  */
+/*******************************************/
+
+#controllerPanel1, 
+#controllerPanel2, 
+#controllerPanel3,
+#controllerPanel4, 
+#controllerPanel5, 
+#controllerPanel6{
+ 	background: var(controller[background]);
+    /*border-left: 1px solid var(controller[border]);*/
+	border-top: none;
+	
+}
+#controllerPanel1, 
+#controllerPanel2, 
+#controllerPanel3,
+#controllerPanel4, 
+#controllerPanel5, 
+#controllerPanel6{
+    border-left: 1px solid var(controller[border]);	
+}
+
+#controllerPanel5{
+    border-top: 1px solid var(controller[border]);	
+}
+
+#controllerPanel1 QPushButton, 
+#controllerPanel2 QPushButton, 
+#controllerPanel3 QPushButton,
+#controllerPanel4 QPushButton, 
+#controllerPanel5 QPushButton, 
+#controllerPanel6 QPushButton{
+	background: transparent;
+	border: none;
+}
+
+#controllerPanel1 QPushButton:hover, 
+#controllerPanel2 QPushButton:hover, 
+#controllerPanel3 QPushButton:hover,
+#controllerPanel4 QPushButton:hover, 
+#controllerPanel5 QPushButton:hover, 
+#controllerPanel6 QPushButton:hover{
+	background: var(controller[hover]);
+}
+
+LabelHorizontal, LabelVertical, #controllerPanel5 QLabel{
+	font-weight: bold;
+	color: var(controller[first_text]);
+	font-size: 16px;
+	padding-left: 20px;
+}
+
+#panel1, #panel2, #panel3, #panel5, #panel6{
+ 	background: var(content[background]);
+	color: var(content[first_text]);
+}
+
+#controllerPanel5{
+    border-bottom: 1px solid var(controller[border]);
+}
+#controllerPanel1, #controllerPanel2{
+    border-left: 1px solid var(controller[border]);
+}
+
+/*
+#controllerPanel3, #controllerPanel4, #controllerPanel5, #controllerPanel6{
+    border-right: 1px solid var(controller[border]);
+}
+*/
+
+#panel6{
+    border-right: 1px solid var(controller[border]);
+}
+
+#controllerPanel1 QFrame,
+#controllerPanel2 QFrame,
+#controllerPanel3 QFrame,
+#controllerPanel4 QFrame,
+#controllerPanel5 QFrame{
+	border: none;
+}
+
+/*******************************************/
+/* BUTTONS                                 */
+/*******************************************/
+QPushButton{
+	padding: 5px;
+    background: var(content[header]);
+	border: 1px solid var(content[border]);
+	color: var(content[second_text]);
+}
+
+ QPushButton:hover{
+    background: var(content[hover]);
+	border: 1px solid var(content[border]);
+	color: var(content[first_text]);
+}
+
+
+/*******************************************/
+/* SCROLLBAR                               */
+/*******************************************/
+QScrollBar {
+    background: var(content[border]);
+    width: 8px;   
+}
+
+QScrollBar::handle {
+    background:  var(content[header]);
+}
+
+QScrollBar::add-line:vertical, 
+QScrollBar::add-line:horizontal  {
+    border: none;
+    background: none;
+}
+
+QScrollBar::sub-line:vertical, 
+QScrollBar::sub-line:horizontal  {
+    border: none;
+    background: none;
+  }
+
+QScrollBar::handle:hover:vertical, 
+QScrollBar::handle:hover:horizontal {
+    /*background: var(content[background]);*/
+    border-radius: 3px;
+}
+
+/*******************************************/
+/* TREEVIEW                                */
+/*******************************************/
+QTreeView, QTreeWidget{
+    alternate-background-color: var(content[background_alternate]);
+	background:  var(content[background]);
+	border: none;
+}
+
+QTreeView::Item{
+    height:20px;
+}
+
+QHeaderView::section, QHeaderWidget::section {
+    color: var(content[first_text]);
+	font-weight: bold;
+    background: var(content[header]);
+	padding: 2px;	
+	border: none;
+	border-bottom: 1px solid var(content[border]);
+}
+/*******************************************/
+/* TOOLBOX                            */
+/*******************************************/
+
+
+/*******************************************/
+/* TOOLTIP                            */
+/*******************************************/
+QToolTip { 
+	background-color: var(content[background]); 
+	color: var(content[first_text]); 
+	border: 1px solid var(content[border]); 
+	border-radius: 3px;
+}
+
+/*******************************************/
+/* LINEEDIT                            */
+/*******************************************/
+/*
+QLineEdit{
+    background-color: var(content[background]);
+    color: #dce1ec;
+}
+*/
+/*
+QLineEdit {
+	background-color: var(content[background_alternate]);
+	border: 1px solid transparent;
+	padding-left: 10px;
+    padding-right: 10px;
+	selection-background-color: var(content[hover]);
+    color: var(content[third_text]);
+}
+QLineEdit:focus {
+	border: 1px solid var(content[border]);
+    background-color: var(content[background_alternate]);
+	color: var(content[second_text]);
+}
+*/
+/*******************************************/
+/* ToolBox                                 */
+/*******************************************/
+
+/*******************************************/
+/* TABS                                    */
+/*******************************************/
+QTabBar::tab {
+	background: var(content[header]);
+	border: 1px solid var(content[border]);
+	padding: 5px 20px;
+	/*
+	font-weight: bold;
+	*/
+	/*min-width: 100px;*/
+  }
+
+#panel3 QTabBar::scroller{
+	width: 0px;
+}
+
+QTabBar::tab:selected {
+	background: var(content[hover]);
+	margin-bottom: -1px;
+	color: var(content[second_text]);
+	border-bottom: 2px solid var(content[header]); 
+}
+
+QTabBar::tab:!selected:hover {
+	background: var(content[hover]);
+}
+
+QTabWidget::pane {
+	/*border: 1px solid var(content[background]);*/
+	top:0px;
+	background: transparent;
+	border: 1px solid var(content[border]);
+}
+
+QTabBar::tab:right,
+QTabBar::tab:left {
+	padding: 20px 5px;
+}
+
+
+/*******************************************/
+/* SCROLLAREA                            */
+/*******************************************/
+QScrollArea, #scrollArea2, #scrollArea1, #scrollArea2 QFrame, #scrollArea1 QFrame{
+	border: none
+}
+
+#scrollAreaWidgetContents{
+    background: var(content[background]);
+    border: 1px solid var(content[background]);
+}
+#scrollAreaWidgetContents2{
+    background: var(content[background]);
+    border: 1px solid var(content[background]);
+}
+/*******************************************/
+/* TABLE                            */
+/*******************************************/
+QTableView, QTableWidget{
+	alternate-background-color: var(content[background_alternate]);
+    border: 1px solid var(content[border]);
+    color: var(content[first_text]);
+	background:  var(content[background]);
+}
+
+QTableCornerButton::section{
+    background-color: var(content[header]);
+    border-bottom: 1px solid #222;
+    border-right: 1px solid #222;
+    color: #8a95aa;
+}
+
+#pageHeader QLabel, #settingsHeader QLabel, #contentMenu QLabel{
+	border-bottom: 1px solid var(content[border]);
+	font-weight: bold;
+    background: var(content[header]);
+	padding-right: 30px;	
+	font-style: italic;
+	color: var(content[first_text]);
+	font-size: var(font[title_size])px;
+	
+}
+
+/*******************************************/
+/* NAVIGATION MENU                         */
+/*******************************************/
+#contentMenu QTreeWidget{
+	font-weight: bold;
+	show-decoration-selected: 1;
+}
+
+#contentMenu QTreeWidget::Item{
+    height:30px;
+	font-weight: bold;
+	border-bottom:0px solid;
+	/*padding-top: 5px;*/
+	padding-left: 10px;
+	margin-right: 10px;
+}
+
+#contentMenu QTreeWidget::Item:selected{
+	color: var(content[third_text]);	
+
+}
+
+#contentMenu QTreeWidget::item:hover {
+    color: var(content[third_text]);
+	border: 0px solid;
+}
+
+#contentMenu QTreeWidget::branch::vertical{
+	background: var(content[background]);
+}
+
+#contentMenu QTreeWidget::Item:!has-children:selected{
+	/*border-left:5px solid var(content[border]);*/
+	color: var(content[third_text]);
+}
+
+
+#contentMenu QTreeWidget::branch  {
+    border-image: none;
+    image: none;
+	
+	background: var(content[background]);
+}
+
+/*
+#contentMenu QTreeWidget::item {
+	padding: 0;
+  }
+*/	
+/*******************************************/
+/* LISTVIEW                            */
+/*******************************************/
+
+QTreeView, 
+QListView {
+	show-decoration-selected: 1;
+}
+QTreeView::item:selected, 
+QListView::item:selected {
+	  background: var(content[hover]);
+	  color: var(content[third_text]);
+	  border: 0px solid var(content[background])
+}
+QTreeView::item:selected:!active, 
+QListView::item:selected:!active {
+	  background: transparent;
+	  border: 0px solid;
+}
+QTreeView::item:selected:active,
+QListView::item:selected:active {
+	 background: transparent;
+	 border: 0px solid;
+}
+/*******************************************/
+/* PROGRESS                            */
+/*******************************************/
+QProgressBar{
+	background: var(content[background_alternate]);
+	color: var(content[third_text]);
+}
+
+QProgressBar{
+    border: 2px solid var(footer[border]);
+    border-radius: 5px;
+    text-align: center
+}
+
+QProgressBar::chunk {
+    background-color: var(footer[background]);
+    width: 10px;
+    margin: 1px;
+}
+
+#mainFooter QProgressBar::chunk {
+    background-color: red;
+}
+
