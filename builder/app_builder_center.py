@@ -26,20 +26,10 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		self.move(399, 0)	
 	
 		if self.builder_settings.items['apps_path'].strip() == "":
-			self.setAppsPath()
+			self.parent.setAppsPath()
 
 		self.searchApps()
 	
-	def setAppsPath(self):
-		dialog = QFileDialog(self)
-		dialog.setFileMode(QFileDialog.Directory)  # ExistingFile
-		dialog.setOption(QFileDialog.DontUseNativeDialog, True)
-		dialog.setOption(QFileDialog.ShowDirsOnly, True)
-		nMode = dialog.exec_()
-		names = dialog.selectedFiles()
-		self.builder_settings.items['apps_path'] = os.path.abspath(names[0])
-		self.builder_settings.serialize()
-		
 		
 	def searchApps(self):
 		apps_path = self.builder_settings.items['apps_path']

@@ -78,6 +78,11 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		#self.compileApp.clicked.connect(self.create_new_app)
 		self.add_icon(self.compileApp, "ph.buildings-bold")
 		
+		#self.setAppsPath.setCheckable(True)
+		self.setAppsPath.setToolTip('Set applications path ')
+		self.setAppsPath.setCursor(QCursor(Qt.PointingHandCursor))
+		self.setAppsPath.clicked.connect(self.parent.setAppsPath)
+		self.add_icon(self.setAppsPath, "mdi.folder-table-outline")
 
 		self.closeAppBuilder.setCursor(QCursor(Qt.PointingHandCursor))
 		

@@ -9,7 +9,7 @@
                 "text1": "#ffffff",
                 "text2": "#ffffff",
                 "text3": "#ffffff",
-                "icons": "#ffffff"
+                "icons": "#Ded6D0"
             },
             "panel1": {
                 "hover": "#0000ff",
@@ -70,7 +70,7 @@
             "footerbar": {
                 "hover": "#0000ff",
                 "background": "#131313",
-                "border": "#3C3C3C",
+                "border": "#5555ff",
                 "text1": "#aa007f",
                 "text2": "#00557f",
                 "text3": "#55ff00",
@@ -83,7 +83,7 @@
                 "text1": "#ffffff",
                 "text2": "#ffffff",
                 "text3": "#55ff00",
-                "icons": "#ffffff"
+                "icons": "#c8c8c8"
             },
             "icons": {
                 "background": "#0055ff"
@@ -168,13 +168,13 @@
             "icons": "#00557f"
         },
         "panel3": {
-            "hover": "#0000ff",
+            "hover": "#ffffff",
             "background": "#282828",
             "header": "#303030",
             "footer": "#242424",
             "border": "#303030",
             "text1": "#ffffff",
-            "text2": "#00557f",
+            "text2": "#ff0000",
             "text3": "#55ff00",
             "icons": "#00557f",
             "bgalternate": "#242424"
@@ -202,13 +202,13 @@
             "icons": "#00557f"
         },
         "footerbar": {
-            "hover": "#0000ff",
+            "hover": "#55557f",
             "background": "#131313",
             "border": "#5555ff",
             "text1": "#aa007f",
             "text2": "#00557f",
             "text3": "#55ff00",
-            "icons": "#00557f"
+            "icons": "#ffff7f"
         },
         "dividers": {
             "hover": "#7171A9",

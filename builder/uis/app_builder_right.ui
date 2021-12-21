@@ -466,7 +466,7 @@ QToolTip {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushhButton">
+        <widget class="QPushButton" name="setAppsPath">
          <property name="minimumSize">
           <size>
            <width>50</width>

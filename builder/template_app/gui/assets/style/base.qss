@@ -352,6 +352,7 @@ QTabBar::tab:selected {
 
 QTabBar::tab:!selected:hover {
 	background: var(panel3[hover]);
+	color: var(panel3[text2]);
 }
 
 QTabWidget::pane {

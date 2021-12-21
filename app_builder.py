@@ -52,7 +52,17 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.builder__window__icon.doubleClicked.connect(self.selectIcon)
 		self.builder__title_bar__icon.doubleClicked.connect(self.selectIcon)
 
-
+	def setAppsPath(self):
+		dialog = QFileDialog(self)
+		dialog.setFileMode(QFileDialog.Directory)  # ExistingFile
+		dialog.setOption(QFileDialog.DontUseNativeDialog, True)
+		dialog.setOption(QFileDialog.ShowDirsOnly, True)
+		nMode = dialog.exec_()
+		names = dialog.selectedFiles()
+		self.builder_settings.items['apps_path'] = os.path.abspath(names[0])
+		self.builder_settings.serialize()
+	
+	
 	def loadApp(self, app_name):
 		
 		self.app_name = app_name
