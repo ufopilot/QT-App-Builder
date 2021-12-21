@@ -4,7 +4,7 @@ import pyperclip
 import requests
 from bs4 import BeautifulSoup
 from qt_core import *
-from app.gui.content.football.ui_functions import *
+from builder.template_app.gui.content.football.ui_functions import *
 
 Gen_Class, Base_Class = loadUiType(resource_path("gui/content/football/tabs/hesgoal.ui"))
 

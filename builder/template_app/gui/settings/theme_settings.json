@@ -1,148 +1,93 @@
 {
-    "default_theme": "blue",
+    "default_theme": "",
     "themes": {
-        "danger": {
-            "font": {
-                "family": "Segoe UI",
-                "title_size": 16,
-                "text_size": 14
-            },
-            "header": {
-                "background": "#dc3545",
-                "hover": "#dc3545",
-                "first_text": "#111111",
-                "second_text": "#111111",
-                "third_text": "#111111",
-                "background_alternate": "#c8303f",
-                "border": "#dc3545"
-            },
-            "footer": {
-                "background": "#3ca2d9",
-                "hover": "#3ca2d9",
-                "first_text": "#111111",
-                "second_text": "#111111",
-                "third_text": "#111111",
-                "background_alternate": "#3793c5",
-                "border": "#3ca2d9"
-            },
-            "content": {
-                "background": "#313648",
-                "background_alternate": "#2d3141",
-                "header": "#313648",
-                "footer": "#313648",
-                "first_text": "#ffffff",
-                "second_text": "#ffffff",
-                "third_text": "#dddddd",
-                "border": "#313648",
-                "hover": "#313648"
-            },
-            "controller": {
-                "background": "#1b202c",
-                "background_alternate": "#191d28",
-                "header": "#666",
-                "footer": "#888",
-                "first_text": "#ffffff",
-                "second_text": "#ffffff",
-                "third_text": "#ffffff",
-                "border": "#151922",
-                "hover": "#1b202c"
-            }
-        },
-        "blue": {
-            "font": {
-                "family": "Segoe UI",
-                "title_size": 16,
-                "text_size": 14
-            },
-            "header": {
-                "background": "#3ca2d9",
-                "hover": "#3ca2d9",
-                "first_text": "#111111",
-                "second_text": "#111111",
-                "third_text": "#111111",
-                "background_alternate": "#3793c5",
-                "border": "#3ca2d9"
-            },
-            "footer": {
-                "background": "#3ca2d9",
-                "hover": "#3ca2d9",
-                "first_text": "#111111",
-                "second_text": "#111111",
-                "third_text": "#111111",
-                "background_alternate": "#3793c5",
-                "border": "#3ca2d9"
-            },
-            "content": {
-                "background": "#313648",
-                "background_alternate": "#2d3141",
-                "header": "#313648",
-                "footer": "#313648",
-                "first_text": "#ffffff",
-                "second_text": "#ffffff",
-                "third_text": "#dddddd",
-                "border": "#313648",
-                "hover": "#313648"
-            },
-            "controller": {
-                "background": "#1b202c",
-                "background_alternate": "#191d28",
-                "header": "#666",
-                "footer": "#888",
-                "first_text": "#ffffff",
-                "second_text": "#ffffff",
-                "third_text": "#ffffff",
-                "border": "#151922",
-                "hover": "#1b202c"
-            }
-        },
-        "light": {
-            "font": {
-                "family": "Segoe UI",
-                "title_size": 16,
-                "text_size": 14
-            },
-            "header": {
-                "background": "#eceef2",
-                "hover": "#eceef2",
-                "first_text": "#111111",
-                "second_text": "#111111",
-                "third_text": "#111111",
-                "background_alternate": "#d7d8dc",
-                "border": "#eceef2"
-            },
-            "footer": {
-                "background": "#3ca2d9",
-                "hover": "#3ca2d9",
-                "first_text": "#111111",
-                "second_text": "#111111",
-                "third_text": "#111111",
-                "background_alternate": "#3793c5",
-                "border": "#3ca2d9"
-            },
-            "content": {
-                "background": "#313648",
-                "background_alternate": "#2d3141",
-                "header": "#313648",
-                "footer": "#313648",
-                "first_text": "#ffffff",
-                "second_text": "#ffffff",
-                "third_text": "#dddddd",
-                "border": "#313648",
-                "hover": "#313648"
-            },
-            "controller": {
-                "background": "#1b202c",
-                "background_alternate": "#191d28",
-                "header": "#666",
-                "footer": "#888",
-                "first_text": "#ffffff",
-                "second_text": "#ffffff",
-                "third_text": "#ffffff",
-                "border": "#151922",
-                "hover": "#1b202c"
-            }
-        },
         "dark": {
+            "titlebar": {
+                "background": "#151515",
+                "border": "#3C3C3C",
+                "hover": "#7c7c7c",
+                "text1": "#ffffff",
+                "text2": "#ffffff",
+                "text3": "#ffffff",
+                "icons": "#ffffff"
+            },
+            "panel1": {
+                "hover": "#0000ff",
+                "background": "#282828",
+                "header": "#aa55ff",
+                "footer": "#ff0000",
+                "border": "#ffff7f",
+                "text1": "#55aa7f",
+                "text2": "#ffffff",
+                "text3": "#ffffff",
+                "icons": "#00557f"
+            },
+            "panel2": {
+                "hover": "#0000ff",
+                "background": "#282828",
+                "header": "#ffaaff",
+                "footer": "#ffaa00",
+                "border": "#ff5500",
+                "text1": "#aa007f",
+                "text2": "#00557f",
+                "text3": "#55ff00",
+                "icons": "#00557f"
+            },
+            "panel3": {
+                "hover": "#0000ff",
+                "background": "#282828",
+                "header": "#303030",
+                "footer": "#242424",
+                "border": "#303030",
+                "text1": "#ffffff",
+                "text2": "#00557f",
+                "text3": "#55ff00",
+                "icons": "#00557f",
+                "bgalternate": "#242424"
+            },
+            "panel4": {
+                "hover": "#0000ff",
+                "background": "#1C1C1C",
+                "header": "#ffaaff",
+                "footer": "#ffaa00",
+                "border": "#ff5500",
+                "text1": "#aa007f",
+                "text2": "#00557f",
+                "text3": "#55ff00",
+                "icons": "#00557f"
+            },
+            "panel5": {
+                "hover": "#0000ff",
+                "background": "#1C1C1C",
+                "header": "#ffaaff",
+                "footer": "#ffaa00",
+                "border": "#303030",
+                "text1": "#aa007f",
+                "text2": "#00557f",
+                "text3": "#55ff00",
+                "icons": "#00557f"
+            },
+            "footerbar": {
+                "hover": "#0000ff",
+                "background": "#131313",
+                "border": "#3C3C3C",
+                "text1": "#aa007f",
+                "text2": "#00557f",
+                "text3": "#55ff00",
+                "icons": "#00557f"
+            },
+            "dividers": {
+                "hover": "#7171A9",
+                "background": "#55557f",
+                "border": "#666666",
+                "text1": "#ffffff",
+                "text2": "#ffffff",
+                "text3": "#55ff00",
+                "icons": "#ffffff"
+            },
+            "icons": {
+                "background": "#0055ff"
+            },
             "font": {
                 "family": "Segoe UI",
                 "title_size": 16,
@@ -191,6 +136,92 @@
         }
     },
     "theme": {
+        "titlebar": {
+            "background": "#151515",
+            "border": "#3C3C3C",
+            "hover": "#7c7c7c",
+            "text1": "#ffffff",
+            "text2": "#ffffff",
+            "text3": "#ffffff",
+            "icons": "#Ded6D0"
+        },
+        "panel1": {
+            "hover": "#0000ff",
+            "background": "#282828",
+            "header": "#aa55ff",
+            "footer": "#ff0000",
+            "border": "#ffff7f",
+            "text1": "#55aa7f",
+            "text2": "#ffffff",
+            "text3": "#ffffff",
+            "icons": "#00557f"
+        },
+        "panel2": {
+            "hover": "#0000ff",
+            "background": "#282828",
+            "header": "#ffaaff",
+            "footer": "#ffaa00",
+            "border": "#ff5500",
+            "text1": "#aa007f",
+            "text2": "#00557f",
+            "text3": "#55ff00",
+            "icons": "#00557f"
+        },
+        "panel3": {
+            "hover": "#0000ff",
+            "background": "#282828",
+            "header": "#303030",
+            "footer": "#242424",
+            "border": "#303030",
+            "text1": "#ffffff",
+            "text2": "#00557f",
+            "text3": "#55ff00",
+            "icons": "#00557f",
+            "bgalternate": "#242424"
+        },
+        "panel4": {
+            "hover": "#0000ff",
+            "background": "#1C1C1C",
+            "header": "#ffaaff",
+            "footer": "#ffaa00",
+            "border": "#ff5500",
+            "text1": "#aa007f",
+            "text2": "#00557f",
+            "text3": "#55ff00",
+            "icons": "#00557f"
+        },
+        "panel5": {
+            "hover": "#0000ff",
+            "background": "#1C1C1C",
+            "header": "#ffaaff",
+            "footer": "#ffaa00",
+            "border": "#303030",
+            "text1": "#aa007f",
+            "text2": "#00557f",
+            "text3": "#55ff00",
+            "icons": "#00557f"
+        },
+        "footerbar": {
+            "hover": "#0000ff",
+            "background": "#131313",
+            "border": "#5555ff",
+            "text1": "#aa007f",
+            "text2": "#00557f",
+            "text3": "#55ff00",
+            "icons": "#00557f"
+        },
+        "dividers": {
+            "hover": "#7171A9",
+            "background": "#55557f",
+            "border": "#666666",
+            "text1": "#ffffff",
+            "text2": "#ffffff",
+            "text3": "#55ff00",
+            "icons": "#c8c8c8"
+        },
+        "icons": {
+            "background": "#0055ff"
+        },
         "font": {
             "family": "Segoe UI",
             "title_size": 16,

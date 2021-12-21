@@ -1,8 +1,8 @@
 
 from qt_core import *
-from app.gui.content import *
-from app.gui.functions.settings import Settings
-from app.gui.functions.ui_functions import UIFunctions
+from builder.template_app.gui.content import *
+from builder.template_app.gui.functions.settings import Settings
+from builder.template_app.gui.functions.ui_functions import UIFunctions
 
 class TitleBar(QWidget):
 	def __init__(self, parent=None):
@@ -13,8 +13,9 @@ class TitleBar(QWidget):
 		self.settings = settings.items
 		settings = Settings('theme')
 		self.theme_settings = settings.items
-		self.icon = QIcon()
-        
+		#self.icon = QIcon()
+		self.icon_color = self.theme_settings['theme']['titlebar']['icons']
+		
 		self.ui.appTitle.setText(self.settings['window']['app_name'])
 		self.ui.appDescription.setText(self.settings['window']['description'])
 		self.ui.appLogo.setPixmap(QPixmap(UIFunctions().resource_path(self.settings['window']['icon'])))
@@ -22,12 +23,12 @@ class TitleBar(QWidget):
 		if  not self.settings['window']['frameless']:
 			self.ui.windowicons.hide()
 		else:
-			self.icon.addPixmap(QPixmap(UIFunctions().set_svg_icon("chrome-maximize.svg", self.theme_settings['colors']['header_icon_color'])))
-			self.ui.maximizewindow.setIcon(self.icon)
-			self.icon.addPixmap(QPixmap(UIFunctions().set_svg_icon("chrome-close.svg", self.theme_settings['colors']['header_icon_color'])))
-			self.ui.closewindow.setIcon(self.icon)
-			self.icon.addPixmap(QPixmap(UIFunctions().set_svg_icon("chrome-minimize.svg", self.theme_settings['colors']['header_icon_color'])))
-			self.ui.minimizewindow.setIcon(self.icon)
+			icon = qta.icon("msc.chrome-maximize", color=self.icon_color)
+			self.ui.maximizewindow.setIcon(icon)
+			icon = qta.icon("msc.chrome-close", color=self.icon_color)
+			self.ui.closewindow.setIcon(icon)
+			icon = qta.icon("msc.chrome-minimize", color=self.icon_color)
+			self.ui.minimizewindow.setIcon(icon)
 			
 		
 		self.ui.maximizewindow.clicked.connect(self.icon_maximize_restore)		
@@ -38,17 +39,18 @@ class TitleBar(QWidget):
 	def icon_maximize_restore(self):
 		self.ui.window().showMaximized
 		button = self.sender()
+		
 		if self.ui.window().isMaximized():
-			self.icon.addPixmap(QPixmap(UIFunctions().set_svg_icon("chrome-maximize.svg", self.theme_settings['colors']['header_icon_color'])))
-			button.setIcon(self.icon)
+			icon = qta.icon("msc.chrome-maximize", color=self.icon_color)
+			button.setIcon(icon)
 			self.ui.window().showNormal()
 		else:
-			self.icon.addPixmap(QPixmap(UIFunctions().set_svg_icon("chrome-restore.svg", self.theme_settings['colors']['header_icon_color'])))
-			button.setIcon(self.icon)
+			icon = qta.icon("msc.chrome-restore", color=self.icon_color)
+			button.setIcon(icon)
 			self.ui.window().showMaximized()
 			
 
 	def dbclick_maximize_restore(self, event=None):
-		if self.settings['custom_title_bar']:
+		if self.settings['window']['frameless']:
 			QTimer.singleShot(0, self.ui.maximizewindow.clicked.emit)
 			

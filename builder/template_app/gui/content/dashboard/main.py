@@ -1,9 +1,9 @@
 from types import FunctionType
-from app.gui.widgets.py_icon_button.py_icon_button import PyIconButton
+from builder.template_app.gui.widgets.py_icon_button.py_icon_button import PyIconButton
 from qt_core import *
-from app.gui.functions.ui_functions import *
+from builder.template_app.gui.functions.ui_functions import *
 	
-Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./app/gui/content/dashboard/main.ui"))
+Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("builder/template_app/gui/content/dashboard/main.ui"))
 
 
 class Dashboard(Base_Class, Gen_Class):

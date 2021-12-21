@@ -10,15 +10,16 @@ Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/uis/ap
 
 
 class AppBuilderBottom(Base_Class, Gen_Class):
-	def __init__(self, parent=None, ui=None):
+	def __init__(self, parent=None, ui=None, apps_path=None, app_name=None):
 		super(self.__class__, self).__init__(parent)
 		self.ui = ui
 		self.parent = parent
-
+		self.apps_path = apps_path
+		self.app_name = app_name
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
-		settings = Settings('ui')
-		self.settings = settings
+		#settings = Settings('ui')
+		#self.settings = settings
 		
 		
 		screen = QApplication.primaryScreen()
@@ -51,10 +52,12 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		
 		btn.toggle()
 		name = btn.objectName()
-		app_theme_settings = Settings('theme')
-		app_theme_settings.items['default_theme'] = name
+		
+		theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
+	
+		theme_settings.items['default_theme'] = name
 		#app_theme_settings.items['theme'] = app_theme_settings.items['themes'][name]
-		app_theme_settings.serialize()
+		theme_settings.serialize()
 		#
 		#builder_theme_settings = Settings('builder_theme')
 		#builder_theme_settings.items['theme'] = app_theme_settings.items['themes'][name]
@@ -75,7 +78,7 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 			childframe.deleteLater()
 
 		i = 0
-		for file_path in glob.glob("app/gui/resources/imgs/themes/*.png"):
+		for file_path in glob.glob(f"{self.apps_path}/{self.app_name}/gui/resources/imgs/themes/*.png"):
 			name = Path(file_path).stem #.capitalize() 
 			frame = QFrame(self.scrollFrame)
 			frame.setObjectName(u"frame")

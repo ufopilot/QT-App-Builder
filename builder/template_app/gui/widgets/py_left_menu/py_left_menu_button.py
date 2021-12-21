@@ -24,7 +24,7 @@ from qt_core import *
 
 # IMPORT FUNCTIONS
 # ///////////////////////////////////////////////////////////////
-from app.gui.core.functions import *
+from builder.template_app.gui.core.functions import *
 
 # CUSTOM LEFT MENU
 # ///////////////////////////////////////////////////////////////

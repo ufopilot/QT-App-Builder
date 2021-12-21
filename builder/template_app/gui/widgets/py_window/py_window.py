@@ -23,7 +23,7 @@ from qt_core import *
 
 # IMPORT SETTINGS
 # ///////////////////////////////////////////////////////////////
-from app.gui.core.json_settings import Settings
+from builder.template_app.gui.core.json_settings import Settings
 
 # IMPORT STYLES
 # ///////////////////////////////////////////////////////////////

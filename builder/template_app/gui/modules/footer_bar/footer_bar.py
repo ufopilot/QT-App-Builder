@@ -1,8 +1,8 @@
 
 from qt_core import *
-from app.gui.content import *
-from app.gui.functions.settings import Settings
-from app.gui.functions.ui_functions import UIFunctions
+from builder.template_app.gui.content import *
+from builder.template_app.gui.functions.settings import Settings
+from builder.template_app.gui.functions.ui_functions import UIFunctions
 
 class FooterBar(QWidget):
 	def __init__(self, parent=None):

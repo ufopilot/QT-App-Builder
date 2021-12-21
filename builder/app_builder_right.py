@@ -11,20 +11,22 @@ Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/uis/ap
 
 
 class AppBuilderRight(Base_Class, Gen_Class):
-	def __init__(self, parent=None, ui=None):
+	def __init__(self, parent=None, ui=None, apps_path=None, app_name=None):
 		super(self.__class__, self).__init__(parent)
+		
 		self.ui = ui
 		self.parent = parent
-
+		self.apps_path = apps_path
+		self.app_name = app_name
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
-		settings = Settings('ui')
-		self.settings = settings
+		#settings = Settings('ui')
+		#self.settings = settings
 		
 		screen = QApplication.primaryScreen()
 		self.size = screen.size()
-		self.resize(50, self.size.height()-200)
-		self.move(self.size.width()-50, 0)
+		self.resize(65, self.size.height()-200)
+		self.move(self.size.width()-65, 0)
 		#self.ui.move(399, -1)
 		
 		self.themeSaver = AppBuilderSaveTheme(self, self.ui)
@@ -51,7 +53,7 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.saveCurrentTheme.setToolTip("Save current style as theme")
 		self.saveCurrentTheme.setCursor(QCursor(Qt.PointingHandCursor))
 		self.saveCurrentTheme.clicked.connect(self.save_current_theme)
-		self.add_icon(self.saveCurrentTheme, "fa5.save")
+		self.add_icon(self.saveCurrentTheme, "ei.css")
 
 
 		self.saveAppBuilder.setToolTip('Save all changes')
@@ -70,16 +72,19 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.createNewApp.clicked.connect(self.create_new_app)
 		self.add_icon(self.createNewApp, "mdi.new-box")
 
+		self.compileApp.setCheckable(True)
+		self.compileApp.setToolTip('Build selectedb app')
+		self.compileApp.setCursor(QCursor(Qt.PointingHandCursor))
+		#self.compileApp.clicked.connect(self.create_new_app)
+		self.add_icon(self.compileApp, "ph.buildings-bold")
 		
 
 		self.closeAppBuilder.setCursor(QCursor(Qt.PointingHandCursor))
 		
 	def add_icon(self, btn, icon_name):
 		icon = qta.icon(icon_name, color="cyan")
-		#icon = QIcon()
-		#icon.addFile(f"builder/icons/cyan/{icon_name}.svg", QSize(), QIcon.Normal, QIcon.Off)
 		btn.setIcon(icon)
-		btn.setIconSize(QSize(24, 24))
+		btn.setIconSize(QSize(40, 40))
 
 	def save_current_theme(self):
 		if self.themeSaver.isVisible():
@@ -98,12 +103,13 @@ class AppBuilderRight(Base_Class, Gen_Class):
 				self.ui.width(), 
 				self.ui.height()
 			)
-		screenshot.save(f'app/gui/resources/imgs/themes/{name}.png', 'png')
+		screenshot.save(f'{self.apps_path}/{self.app_name}/gui/resources/imgs/themes/{name}.png', 'png')
 		
-		builder_theme_settings = Settings('builder_theme')
-		app_theme_settings = Settings('theme')
-		app_theme_settings.items['themes'][name] = builder_theme_settings.items['theme']
-		app_theme_settings.serialize()
+
+		#builder_theme_settings = Settings('builder_theme')
+		theme_settings = Settings('theme', self.apps_path, self.app_name)
+		theme_settings.items['themes'][name] = theme_settings.items['theme']
+		theme_settings.serialize()
 		self.parent.builder_bottom.loadThemesButtons()
 
 	def create_new_app(self):

@@ -1,9 +1,9 @@
 from qt_core import *
-from app.gui.functions.ui_functions import UIFunctions
-from app.gui.functions.settings import Settings
+from builder.template_app.gui.functions.ui_functions import UIFunctions
+from builder.template_app.gui.functions.settings import Settings
 
 
-Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./app/gui/uis/panel_settings.ui"))
+Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("builder/template_app/gui/uis/panel_settings.ui"))
 
 class PanelSettings(Base_Class, Gen_Class):
 	def __init__(self, parent=None):

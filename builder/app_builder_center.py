@@ -18,12 +18,13 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
-		
+		self.progressBar.setValue(0)
+		self.progressBar.hide()
 		screen = QApplication.primaryScreen()
 		size = screen.size()
-		self.resize(size.width()-449, size.height()-200)
+		self.resize(size.width()-464, size.height()-200)
 		self.move(399, 0)	
-		
+	
 		if self.builder_settings.items['apps_path'].strip() == "":
 			self.setAppsPath()
 
@@ -36,19 +37,31 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		dialog.setOption(QFileDialog.ShowDirsOnly, True)
 		nMode = dialog.exec_()
 		names = dialog.selectedFiles()
-		self.builder_settings.items['apps_path'] = names[0]
+		self.builder_settings.items['apps_path'] = os.path.abspath(names[0])
 		self.builder_settings.serialize()
 		
 		
 	def searchApps(self):
-		print(self.builder_settings.items['apps_path'])
+		apps_path = self.builder_settings.items['apps_path']
 
-		i = 0; j = 0
-		apps_path = "./apps"
+		
 
 		if not os.path.isdir(apps_path):
 			return
 		
+		for button in self.myApps.findChildren(QPushButton):
+			button.deleteLater()
+
+		btn = QPushButton(self.myApps)
+		btn.setObjectName(f"template_app")
+		btn.setText(f"Template APP")
+		btn.setCursor(QCursor(Qt.PointingHandCursor))
+		btn.setStyleSheet("font-size: 20px")
+		btn.setMinimumSize(QSize(0, 170))
+		btn.clicked.connect(lambda: self.loadApp("template_app"))
+		self.myAppsLayout.addWidget(btn, 0, 0, 1, 1)
+		
+		i = 0; j = 1
 		for app_name in os.listdir(apps_path):
 			if not os.path.isdir(os.path.join(apps_path, app_name)):
 				continue
@@ -58,11 +71,18 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 			btn.setCursor(QCursor(Qt.PointingHandCursor))
 			btn.setStyleSheet("font-size: 20px")
 			btn.setMinimumSize(QSize(0, 170))
+			btn.clicked.connect(lambda: self.loadApp(app_name))
 			self.myAppsLayout.addWidget(btn, i, j, 1, 1)
 
 			j += 1
 			if j == 4: i += 1; j = 0
-			
+	
+	def loadApp(self, app_name):
+		self.progressBar.show()
+		QTimer.singleShot(100, lambda: self.parent.loadApp(app_name))
+		
+		
+
 if __name__ == '__main__':
 	import sys
 	app = QApplication(sys.argv)

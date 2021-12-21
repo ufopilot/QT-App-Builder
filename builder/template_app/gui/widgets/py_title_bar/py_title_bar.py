@@ -20,11 +20,11 @@ from qt_core import *
 
 # IMPORT FUNCTIONS
 # ///////////////////////////////////////////////////////////////
-from app.gui.functions.ui_functions import *
+from builder.template_app.gui.functions.ui_functions import *
 
 # IMPORT SETTINGS
 # ///////////////////////////////////////////////////////////////
-from app.gui.functions.app_settings import Settings
+from builder.template_app.gui.functions.app_settings import Settings
 
 # IMPORT DIV
 # ///////////////////////////////////////////////////////////////

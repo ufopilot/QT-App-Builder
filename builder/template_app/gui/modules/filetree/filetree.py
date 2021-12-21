@@ -1,5 +1,5 @@
 from qt_core import *
-from app.gui.functions.ui_functions import *
+from builder.template_app.gui.functions.ui_functions import *
 
 class FileTree(QWidget):
 	def __init__(self, *args):

@@ -1,4 +1,4 @@
-from app.gui.functions.ui_functions import UIFunctions
+from builder.template_app.gui.functions.ui_functions import UIFunctions
 from qt_core import *
 class PanelSettings(QWidget):
 	"""
@@ -117,16 +117,16 @@ class PanelSettings(QWidget):
 	def setGuiStyle(self, theme):
 		return
 		template_stylesheet = ""
-		with open(UIFunctions().resource_path(f'./app/gui/assets/style/dialog.qss')) as f:
+		with open(UIFunctions().resource_path(f'builder/template_app/gui/assets/style/dialog.qss')) as f:
 				base_stylesheet = f.read()  
 		if theme == "fusion":
 			print("set theme", theme)
 			self.frame.setStyleSheet(f"{base_stylesheet}")
 		else:
 			print("set theme", theme)
-			with open(UIFunctions().resource_path(f'./app/gui/assets/style/colors.qss')) as f:
+			with open(UIFunctions().resource_path(f'builder/template_app/gui/assets/style/colors.qss')) as f:
 				template_stylesheet = f.read()
-			with open(UIFunctions().resource_path(f'./app/gui/assets/themes/{theme}.json')) as f:
+			with open(UIFunctions().resource_path(f'builder/template_app/gui/assets/themes/{theme}.json')) as f:
 				theme_stylesheet = json.load(f)
 				for key, value in theme_stylesheet.items():
 					template_stylesheet = template_stylesheet.replace(key, value)

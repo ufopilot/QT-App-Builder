@@ -1,34 +1,34 @@
 # -*- coding: utf-8 -*-
 #https://github.com/sciter-sdk/pysciter#getting-started
 
-from app.gui.functions.settings import Settings
-from app.gui.functions.ui_functions import UIFunctions
+from apps.blub.gui.functions.settings import Settings
+from apps.blub.gui.functions.ui_functions import UIFunctions
 
 
 # load Panels (modules)
-from app.gui.modules.panels.panel2 import Panel2
-from app.gui.modules.panels.panel5 import Panel5
-from app.gui.modules.panels.panel1 import Panel1 
-from app.gui.modules.theming.theming import Theming
-from app.gui.modules.customizing.customizing import Customizing
+from apps.blub.gui.modules.panels.panel2 import Panel2
+from apps.blub.gui.modules.panels.panel5 import Panel5
+from apps.blub.gui.modules.panels.panel1 import Panel1 
+from apps.blub.gui.modules.theming.theming import Theming
+from apps.blub.gui.modules.customizing.customizing import Customizing
 
 # load Modules
-from app.gui.modules.button_handler.controller_buttons import SetControllerButtons
-from app.gui.modules.resizer.sidegrip import SideGrip
-from app.gui.modules.style.style import SetStyle
-from app.gui.modules.title_bar.title_bar import TitleBar
-from app.gui.modules.footer_bar.footer_bar import FooterBar
+from apps.blub.gui.modules.button_handler.controller_buttons import SetControllerButtons
+from apps.blub.gui.modules.resizer.sidegrip import SideGrip
+from apps.blub.gui.modules.style.style import SetStyle
+from apps.blub.gui.modules.title_bar.title_bar import TitleBar
+from apps.blub.gui.modules.footer_bar.footer_bar import FooterBar
 
 # load Widgets
-from app.gui.widgets.label_vertical.label_vertical import LabelVertical
+from apps.blub.gui.widgets.label_vertical.label_vertical import LabelVertical
 
 
 from qt_core import *
 
 if platform.system() == "Windows":
-	Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./app/gui/uis/main.ui"))
+	Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("apps/blub/gui/uis/main.ui"))
 else:
-	Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./app/gui/uis/main.ui"))
+	Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("apps/blub/gui/uis/main.ui"))
 
 
 class MainWidget(Base_Class, Gen_Class):

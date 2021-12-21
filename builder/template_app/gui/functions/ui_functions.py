@@ -15,7 +15,7 @@ class UIFunctions():
 	# ///////////////////////////////////////////////////////////////
 	def set_svg_icon(self, icon_name, color="white"):
 		app_path = os.path.abspath(os.getcwd())
-		folder = self.resource_path(f"app/gui/resources/icons/{color}/")
+		folder = self.resource_path(f"builder/template_app/gui/resources/icons/{color}/")
 		path = os.path.join(app_path, folder)
 		icon = os.path.normpath(os.path.join(path, icon_name))
 		return icon
@@ -23,7 +23,7 @@ class UIFunctions():
 	# ///////////////////////////////////////////////////////////////
 	def set_svg_image(self, icon_name):
 		app_path = os.path.abspath(os.getcwd())
-		folder = self.resource_path("app/gui/resources/images/svg")
+		folder = self.resource_path("builder/template_app/gui/resources/images/svg")
 		path = os.path.join(app_path, folder)
 		icon = os.path.normpath(os.path.join(path, icon_name))
 		return icon
@@ -31,7 +31,7 @@ class UIFunctions():
 	# ///////////////////////////////////////////////////////////////
 	def set_image(self, image_name):
 		app_path = os.path.abspath(os.getcwd())
-		folder = self.resource_path("app/gui/resources/images/png/")
+		folder = self.resource_path("builder/template_app/gui/resources/images/png/")
 		path = os.path.join(app_path, folder)
 		image = os.path.normpath(os.path.join(path, image_name))
 		return image
@@ -46,7 +46,7 @@ class UIFunctions():
 
 	def getAppTheme(self, theme_settings, theme_name=None):
 		regex = r"\w+\(([^\)]+)\)"
-		with open(UIFunctions().resource_path(f'app/gui/assets/style/base.qss'), "r", encoding='utf-8') as reader:
+		with open(UIFunctions().resource_path(f'builder/template_app/gui/assets/style/base.qss'), "r", encoding='utf-8') as reader:
 			base_stylesheet = reader.read().replace("{","{{").replace("}","}}")
 			base_stylesheet = re.sub(regex, '{\\1}', base_stylesheet)
 		
@@ -66,16 +66,16 @@ class UIFunctions():
 	def setGuiStyle(self, base_style, theme, target):
 		return
 		template_stylesheet = ""
-		with open(UIFunctions().resource_path(f'./app/gui/assets/style/{base_style}.qss')) as f:
+		with open(UIFunctions().resource_path(f'builder/template_app/gui/assets/style/{base_style}.qss')) as f:
 				base_stylesheet = f.read()  
 		if theme == "fusion":
 			print("set theme", theme)
 			target.setStyleSheet(f"{base_stylesheet}")
 		else:
 			print("set theme", theme)
-			with open(UIFunctions().resource_path(f'./app/gui/assets/style/colors.qss')) as f:
+			with open(UIFunctions().resource_path(f'builder/template_app/gui/assets/style/colors.qss')) as f:
 				template_stylesheet = f.read()
-			with open(UIFunctions().resource_path(f'./app/gui/assets/themes/{theme}.json')) as f:
+			with open(UIFunctions().resource_path(f'builder/template_app/gui/assets/themes/{theme}.json')) as f:
 				theme_stylesheet = json.load(f)
 				for key, value in theme_stylesheet.items():
 					template_stylesheet = template_stylesheet.replace(key, value)

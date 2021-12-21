@@ -1,6 +1,5 @@
-from app.gui.functions.settings import Settings
-from app.gui.functions.ui_functions import UIFunctions
-#from app.gui.modules.panel_settings.panel_settings import PanelSettings
+from builder.template_app.gui.functions.settings import Settings
+from builder.template_app.gui.functions.ui_functions import UIFunctions
 from qt_core import *
 import webbrowser
 
@@ -14,6 +13,9 @@ class SetControllerButtons(QWidget):
 		self.settings = settings.items
 		theme_settings = Settings('theme')
 		self.theme_settings = theme_settings.items
+		
+		self.footer_icon_color = self.theme_settings['theme']['footerbar']['icons']
+		self.dividers_icon_color = self.theme_settings['theme']['dividers']['icons']
 
 		self.ui.headerPanel1.setText(self.settings['panel1']['title'])
 		self.ui.headerPanel2.setText(self.settings['panel2']['title'])
@@ -41,19 +43,23 @@ class SetControllerButtons(QWidget):
 				button.setToolTip("Settings")
 				button.clicked.connect(self.panel_settings)
 			if button.objectName() == "goToGitHub":
+				icon = qta.icon("fa.github", color=self.dividers_icon_color)
+				button.setIcon(icon)
 				button.clicked.connect(self.openGithub)
 				button.setToolTip('Open Project in GitHub')
-		icon = QIcon()
-		icon.addPixmap(QPixmap(UIFunctions().set_svg_icon("chevron-left.svg", self.theme_settings['colors']['content_icon_color'])))
+		
+		
+		
+		icon = qta.icon("fa.chevron-left", color=self.dividers_icon_color)
 		self.ui.togglePanel1.setIcon(icon)
-		self.ui.togglePanel2.setIcon(icon)
-		icon.addPixmap(QPixmap(UIFunctions().set_svg_icon("chevron-right.svg", self.theme_settings['colors']['content_icon_color'])))
+		self.ui.togglePanel1.setIcon(icon)
+		icon = qta.icon("fa.chevron-right", color=self.dividers_icon_color)
 		self.ui.togglePanel4.setIcon(icon)
-		icon.addPixmap(QPixmap(UIFunctions().set_svg_icon("chevron-down.svg", self.theme_settings['colors']['content_icon_color'])))	
+		icon = qta.icon("fa.chevron-down", color=self.dividers_icon_color)
 		self.ui.togglePanel5.setIcon(icon)
-		icon.addPixmap(QPixmap(UIFunctions().set_svg_icon("crop.svg", self.theme_settings['colors']['content_icon_color'])))	
+		icon = qta.icon("mdi.crop-free", color=self.dividers_icon_color)
 		self.ui.closeOtherPanels.setIcon(icon)
-
+		
 	def openGithub(self):
 		webbrowser.open("https://github.com/ufopilot/PyQT-DemoAPP/")
 
@@ -107,30 +113,30 @@ class SetControllerButtons(QWidget):
 			if timeAnimation == -1:
 				timeAnimation = self.settings['time_animation']
 			
-			icon = QIcon()
+			
 			# ANIMATION
 			direction = self.settings[panel_name]['direction']
 			if direction == "rtl":
-				icon_svg_close = "chevron-left.svg"
-				icon_svg_expand = "chevron-right.svg"
+				icon_svg_close = "fa.chevron-left"
+				icon_svg_expand = "fa.chevron-right"
 				size_option = "minimumWidth"
 				startValue = width
 
 			if direction == "ltr":
-				icon_svg_close = "chevron-right.svg"
-				icon_svg_expand = "chevron-left.svg"
+				icon_svg_close = "fa.chevron-right"
+				icon_svg_expand = "fa.chevron-left"
 				size_option = "minimumWidth"
 				startValue = width
 
 			if direction == "btt":
-				icon_svg_close = "chevron-down.svg"
-				icon_svg_expand = "chevron-up.svg"
+				icon_svg_close = "fa.chevron-down"
+				icon_svg_expand = "fa.chevron-up"
 				size_option = "minimumHeight"
 				startValue = height
 
 			if direction == "ttb": 
-				icon_svg_close = "chevron-down.svg"
-				icon_svg_expand = "chevron-up.svg"
+				icon_svg_close = "fa.chevron-down"
+				icon_svg_expand = "fa.chevron-up"
 				size_option = "minimumHeight"
 				startValue = height
 			
@@ -142,13 +148,16 @@ class SetControllerButtons(QWidget):
 				endValue = maximum
 				panel_title_style = ""
 				#panel_title.setStyleSheet("")
-				icon.addPixmap(QPixmap(UIFunctions().set_svg_icon(icon_svg_close, self.theme_settings['colors']['content_icon_color'])))
+				#icon.addPixmap(QPixmap(UIFunctions().set_svg_icon(icon_svg_close, self.theme_settings['colors']['content_icon_color'])))
+				icon = qta.icon(icon_svg_close, color=self.dividers_icon_color)
+			
 			else:
 				self._panels_closed.append(panel_name)
 				endValue = minimum
 				panel_title_style = "color: #333"	
 				#panel_title.setStyleSheet("color: #333")
-				icon.addPixmap(QPixmap(UIFunctions().set_svg_icon(icon_svg_expand, self.theme_settings['colors']['content_icon_color'])))
+				#icon.addPixmap(QPixmap(UIFunctions().set_svg_icon(icon_svg_expand, self.theme_settings['colors']['content_icon_color'])))
+				icon = qta.icon(icon_svg_expand, color=self.dividers_icon_color)
 			button.setIcon(icon)
 			
 			self.animation = QPropertyAnimation(panel, bytes(size_option, encoding='utf-8'))

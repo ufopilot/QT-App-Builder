@@ -1,5 +1,5 @@
 import json, sys, os
-from app.gui.functions.ui_functions import UIFunctions
+from builder.template_app.gui.functions.ui_functions import UIFunctions
 
 
 # APP SETTINGS
@@ -9,7 +9,7 @@ class Settings(object):
 		super(Settings, self).__init__()
 		
 		if type == "menu":
-			self.json_file = f"app/gui/settings/{type}_settings.json"
+			self.json_file = f"builder/template_app/gui/settings/{type}_settings.json"
 			self.settings_path = UIFunctions().resource_path(self.json_file)
 		else:
 			if getattr(sys, 'frozen', False):
@@ -23,7 +23,7 @@ class Settings(object):
 				# we are running in a normal Python environment
 				base_path = os.getcwd()
 				extDataDir = os.getcwd()
-				self.json_file = f"app/gui/settings/{type}_settings.json"
+				self.json_file = f"builder/template_app/gui/settings/{type}_settings.json"
 		
 			self.settings_path = os.path.join(extDataDir, self.json_file)
 		

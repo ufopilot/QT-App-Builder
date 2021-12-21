@@ -10,14 +10,19 @@ from webcolors import hex_to_name
 
 class ThemeBuilder(QWidget):
 	_init = True
-	def __init__(self, parent=None, ui=None):
+	def __init__(self, parent=None, ui=None, apps_path=None, app_name=None):
 		super(self.__class__, self).__init__(parent)
 		
 		self.ui = ui
 		self.parent = parent
 
-		self.ui_settings = Settings('ui')
-		self.theme_settings = Settings('builder_theme')
+		self.apps_path = apps_path
+		self.app_name = app_name
+
+		#self.ui_settings = Settings('ui')
+		self.ui_settings = None
+		self.theme_settings = None
+		self.initial = False
 		#self.selectColors()
 		
 		###self.parent.loadingProgressBar.setValue(0)
@@ -25,7 +30,7 @@ class ThemeBuilder(QWidget):
 		####################################################
 		# 
 		# ################################################## 
-		self.setup()
+		#self.setup()
 		###if self.ui_settings.items['panel4']['visible']:
 		###	self.setup()
 		###else:
@@ -35,6 +40,12 @@ class ThemeBuilder(QWidget):
 		###	QTimer.singleShot(100, self.ui.controllerButtons.EnableToggleButtons)
 		
 	def setup(self):
+		self.theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
+		self.ui_settings = Settings('ui', apps_path=self.apps_path, app_name=self.app_name)
+		
+		valcount = self.countValues()
+		progress_step = 100 / valcount
+
 		for button in self.parent.findChildren(QPushButton):
 			button_name = button.objectName()
 			if "colorPicker" in button_name:
@@ -44,9 +55,37 @@ class ThemeBuilder(QWidget):
 		for combo in self.parent.findChildren(QComboBox):
 			combo.setCursor(QCursor(Qt.PointingHandCursor))
 			if "changeSelectedColor" in combo.objectName():
-				#print(combo.objectName())
 				#self.fillColorsCombo(combo)
 				combo.currentTextChanged.connect(self.handleColorPressed)
+		i = 0
+		for area in (
+				"titlebar",
+				"panel1",
+				"panel2",
+				"panel3",
+				"panel4",
+				"panel5",
+				"footerbar",
+				"dividers"
+			):
+			
+			widget = self.parent.findChild(QWidget, f"theming_{area}")
+			#print(widget.objectName())
+
+			for key, value in self.theme_settings.items['theme'][area].items():
+				#print(area, key, value)
+				i += 1
+			#try:
+				regex = QRegExp("^{}_.*$".format(key))
+				subwidget = widget.findChildren(QFrame, regex)[0]
+				combo = subwidget.findChild(QComboBox)
+				combo.clear()
+				combo.addItem(value)
+				combo.setCurrentIndex(0)
+				self.parent.loadingProgress.setValue(i*progress_step)
+			#except:
+			#	pass
+		self.initial = False
 
 		return 	
 		QTimer.singleShot(1000, self.selectColors)
@@ -76,12 +115,26 @@ class ThemeBuilder(QWidget):
 			if any(key in button_name for key in List3):
 				button.stateChanged.connect(self.changeBarIconsColor)
 
+	def countValues(self):
+		i = 1
+		for area in (
+				"titlebar",
+				"panel1",
+				"panel2",
+				"panel3",
+				"panel4",
+				"panel5",
+				"footerbar",
+				"dividers"
+			):
+			for key, value in self.theme_settings.items['theme'][area].items():
+				i += 1
+		return i
+
 	def open_color_picker(self):
 		btn = self.sender()
 		genre = btn.parent().objectName().split('_')[0] 
-		area = btn.parent().parent().objectName().split('_')[1]
-		print(area, genre)
-		
+		area = btn.parent().parent().objectName().split('_')[1]	
 		# select color
 		color = QColorDialog.getColor()
 		if not color.isValid():
@@ -94,6 +147,7 @@ class ThemeBuilder(QWidget):
 		
 		# add alternative colors to combobox
 		combo = btn.parent().findChild(QComboBox)
+		combo.clear()
 		combo.addItem(color.name())
 		#color = button.palette().color(QPalette.Background).name()
 		color_list = []
@@ -118,11 +172,11 @@ class ThemeBuilder(QWidget):
 		color_list = list(dict.fromkeys(color_list))
 		for row, color in enumerate(color_list):
 			combo.addItem(color.title())
-			#print(color.title())
 			model.setData(model.index(row, 0), QColor(color), Qt.BackgroundRole)
 		combo.addItem("")
 
 	def handleColorPressed(self):
+		
 		el = self.sender()
 		#name = el.objectName()
 		color = el.currentText() 
@@ -133,7 +187,13 @@ class ThemeBuilder(QWidget):
 		genre = el.parent().objectName().split('_')[0] 
 		area = el.parent().parent().objectName().split('_')[1]
 		
-		print(area, genre, color)
+		if self.initial:
+			return  
+			
+		self.theme_settings.items['theme'][area][genre] = color
+		self.theme_settings.serialize()
+		self.reloadStyle()
+		
 
 	def selectColors(self):
 		T = 0
@@ -152,7 +212,6 @@ class ThemeBuilder(QWidget):
 					regex = r"[A-z]*(\d*)"
 					subst = "\\1"
 					nr = re.sub(regex, subst, button.objectName(), 0, re.MULTILINE)
-					#print(compString, button.objectName())#, backgroundColorList[int(nr)-1])
 					try:
 						button.setStyleSheet(f"background: {backgroundColorList[int(nr)-1]}")
 					except:
@@ -349,7 +408,6 @@ class ThemeBuilder(QWidget):
 				btn.toggle()
 		color = button.palette().color(QPalette.Background).name()
 		color_name = hex_to_name(color)
-		#print(color_name, color)
 		self.theme_settings.items['colors']['content_icon_color'] = color_name
 		self.theme_settings.serialize()
 	
@@ -380,10 +438,9 @@ class ThemeBuilder(QWidget):
 		self.theme_settings.serialize()
 
 	def reloadStyle(self):
-		stylesheet = UIFunctions().getAppTheme(self.theme_settings.items)
-		
+		stylesheet = UIFunctions().getAppTheme(self.theme_settings.items, self.apps_path, self.app_name)
 		#self.ui.centralwidget.setStyleSheet(stylesheet)
-		self.parent.app.centralwidget.setStyleSheet(stylesheet)
+		self.ui.centralwidget.setStyleSheet(stylesheet)
 	
 	def component(self, name):
 		strings = re.sub( r"([A-Z])", r" \1", name).split()

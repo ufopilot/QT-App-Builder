@@ -1,6 +1,6 @@
 # IMPORT QT CORE
 # ///////////////////////////////////////////////////////////////
-from app.gui.functions.ui_functions import UIFunctions
+from builder.template_app.gui.functions.ui_functions import UIFunctions
 from qt_core import *
 
 # PY TITLE BUTTON

@@ -240,7 +240,7 @@ QLineEdit{
                <x>0</x>
                <y>0</y>
                <width>975</width>
-               <height>783</height>
+               <height>777</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout">
@@ -282,24 +282,10 @@ QLineEdit{
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="frame_2">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>78</height>
-          </size>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>24</number>
          </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="spacing">
-           <number>15</number>
-          </property>
-         </layout>
         </widget>
        </item>
       </layout>

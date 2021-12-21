@@ -1,34 +1,33 @@
 # -*- coding: utf-8 -*-
-#https://github.com/sciter-sdk/pysciter#getting-started
 
-from app.gui.functions.settings import Settings
-from app.gui.functions.ui_functions import UIFunctions
+from builder.template_app.gui.functions.settings import Settings
+from builder.template_app.gui.functions.ui_functions import UIFunctions
 
 
 # load Panels (modules)
-from app.gui.modules.panels.panel2 import Panel2
-from app.gui.modules.panels.panel5 import Panel5
-from app.gui.modules.panels.panel1 import Panel1 
-from app.gui.modules.theming.theming import Theming
-from app.gui.modules.customizing.customizing import Customizing
+from builder.template_app.gui.modules.panels.panel2 import Panel2
+from builder.template_app.gui.modules.panels.panel5 import Panel5
+from builder.template_app.gui.modules.panels.panel1 import Panel1 
+from builder.template_app.gui.modules.theming.theming import Theming
+from builder.template_app.gui.modules.customizing.customizing import Customizing
 
 # load Modules
-from app.gui.modules.button_handler.controller_buttons import SetControllerButtons
-from app.gui.modules.resizer.sidegrip import SideGrip
-from app.gui.modules.style.style import SetStyle
-from app.gui.modules.title_bar.title_bar import TitleBar
-from app.gui.modules.footer_bar.footer_bar import FooterBar
+from builder.template_app.gui.modules.button_handler.controller_buttons import SetControllerButtons
+from builder.template_app.gui.modules.resizer.sidegrip import SideGrip
+from builder.template_app.gui.modules.style.style import SetStyle
+from builder.template_app.gui.modules.title_bar.title_bar import TitleBar
+from builder.template_app.gui.modules.footer_bar.footer_bar import FooterBar
 
 # load Widgets
-from app.gui.widgets.label_vertical.label_vertical import LabelVertical
+from builder.template_app.gui.widgets.label_vertical.label_vertical import LabelVertical
 
 
 from qt_core import *
 
 if platform.system() == "Windows":
-	Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./app/gui/uis/main.ui"))
+	Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("builder/template_app/gui/uis/main.ui"))
 else:
-	Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./app/gui/uis/main.ui"))
+	Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("builder/template_app/gui/uis/main.ui"))
 
 
 class MainWidget(Base_Class, Gen_Class):

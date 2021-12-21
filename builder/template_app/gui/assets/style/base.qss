@@ -1,5 +1,5 @@
 * { 
-	color: var(content[first_text]); 
+	color: var(panel3[text1]); 
 	font-size: var(font[text_size])px;
 	font-family: var(font[family]);
 }
@@ -8,8 +8,8 @@
 * CONTENT
 *******************************************/
 #mainFrame{
-	border: 1px solid var(content[border]);
-	background:  var(content[background]);
+	border: 0px solid var(panel3[border]);
+	background:  var(panel3[background]);
 	border-radius: 5px;
 }
 
@@ -21,13 +21,13 @@
 }
 
 #mainHeader{
-	background:  var(header[background]);
-	color: var(header[second_text]);
-	border-bottom: 2px solid var(header[border]);
+	background:  var(titlebar[background]);
+	color: var(titlebar[text2]);
+	border-bottom: 2px solid var(titlebar[border]);
 }
 
 #mainHeader QLabel{
-	background:  var(header[background]);
+	background:  var(titlebar[background]);
 }
 
 #appTitle{
@@ -35,7 +35,7 @@
 }
 
 #appDescription, #appTitle{
-	color: var(header[second_text]);
+	color: var(titlebar[text2]);
 }
 /*******************************************/
 /* WINDOWACTIONS TOPICONS                  */
@@ -45,7 +45,7 @@
 }
 
 #windowicons QLabel{
-	background:  var(header[background]); 
+	background:  var(titlebar[background]); 
 }
 
 #windowicons QPushButton{
@@ -56,7 +56,7 @@
 #windowicons QPushButton#maximizewindow:hover,
 #windowicons QPushButton#minimizewindow:hover{ 
 	border: none;
-	background: var(header[hover]);
+	background: var(titlebar[hover]);
 }
 
 #windowicons QPushButton#closewindow:hover{ 
@@ -64,7 +64,7 @@
 }
 
 QLabel#appLogo{
-	background:  var(header[background]);
+	background:  var(titlebar[background]);
 }
 /*******************************************/
 /* FOOTER                                  */
@@ -74,24 +74,24 @@ QLabel#appLogo{
 }
 
 #mainFooter{
-	background:  var(footer[background]);
-	color: var(footer[second_text]);
+	background:  var(footerbar[background]);
+	color: var(footerbar[text2]);
 }
 
 #footerActions QPushButton,
 #mainFooter QPushButton{ 
 	border: none;
-	background: var(footer[background]);
-	color: var(footer[first_text]);
+	background: var(footerbar[background]);
+	color: var(footerbar[text1]);
 }
 
 #footerActions QPushButton:hover{
-    background: var(footer[hover]);
-	color: var(footer[first_text]);
+    background: var(footerbar[hover]);
+	color: var(footerbar[text1]);
 }
 
 #mainFooter QLabel{
-	color: var(footer[second_text]);
+	color: var(footerbar[text2]);
 }
 
 
@@ -99,28 +99,45 @@ QLabel#appLogo{
 /* PANELS                                  */
 /*******************************************/
 
-#controllerPanel1, 
-#controllerPanel2, 
-#controllerPanel3,
-#controllerPanel4, 
-#controllerPanel5, 
-#controllerPanel6{
- 	background: var(controller[background]);
-    /*border-left: 1px solid var(controller[border]);*/
-	border-top: none;
-	
+#controllerPanel1{
+	background: var(dividers[background]);
+    border-top: none;  
 }
-#controllerPanel1, 
-#controllerPanel2, 
-#controllerPanel3,
-#controllerPanel4, 
-#controllerPanel5, 
-#controllerPanel6{
-    border-left: 1px solid var(controller[border]);	
+#controllerPanel2{
+ 	background: var(dividers[background]);
+	border-top: none;
+}
+#controllerPanel3{
+	background: var(dividers[background]);
+    border-top: none;  
+}
+#controllerPanel4{
+	background: var(dividers[background]);
+    border-top: none;  
+}
+#controllerPanel5, #controllerPanel6{
+	background: var(dividers[background]);
+    border-top: none;  
+}
+
+#controllerPanel1{
+    border-left: 1px solid var(dividers[border]);	
+}
+#controllerPanel2{
+    border-left: 1px solid var(dividers[border]);	
+}
+#controllerPanel3{
+    border-left: 1px solid var(dividers[border]);	
+}
+#controllerPanel4{
+    border-left: 1px solid var(dividers[border]);	
+}
+#controllerPanel5{
+    border-left: 1px solid var(dividers[border]);	
 }
 
 #controllerPanel5{
-    border-top: 1px solid var(controller[border]);	
+    border-top: 1px solid var(dividers[border]);	
 }
 
 #controllerPanel1 QPushButton, 
@@ -139,36 +156,51 @@ QLabel#appLogo{
 #controllerPanel4 QPushButton:hover, 
 #controllerPanel5 QPushButton:hover, 
 #controllerPanel6 QPushButton:hover{
-	background: var(controller[hover]);
+	background: var(dividers[hover]);
 }
 
 LabelHorizontal, LabelVertical, #controllerPanel5 QLabel{
 	font-weight: bold;
-	color: var(controller[first_text]);
+	color: var(dividers[text1]);
 	font-size: 16px;
 	padding-left: 20px;
 }
-
-#panel1, #panel2, #panel3, #panel5, #panel6{
- 	background: var(content[background]);
-	color: var(content[first_text]);
+#panel1{
+	background: var(panel1[background]);
+    color: var(panel1[text2]);
+}
+#panel2{
+	background: var(panel2[background]);
+   color: var(panel2[text2]);
+}
+#panel3{
+	background: var(panel3[background]);
+   color: var(panel3[text2]);
+}
+#panel4{
+	background: var(panel4[background]);
+   color: var(panel4[text2]);
+}
+#panel5, #panel6{
+	background: var(panel5[background]);
+   color: var(panel5[text2]);
 }
 
 #controllerPanel5{
-    border-bottom: 1px solid var(controller[border]);
+    border-bottom: 1px solid var(dividers[border]);
 }
 #controllerPanel1, #controllerPanel2{
-    border-left: 1px solid var(controller[border]);
+    border-left: 1px solid var(dividers[border]);
 }
 
 /*
 #controllerPanel3, #controllerPanel4, #controllerPanel5, #controllerPanel6{
-    border-right: 1px solid var(controller[border]);
+    border-right: 1px solid var(dividers[border]);
 }
 */
 
 #panel6{
-    border-right: 1px solid var(controller[border]);
+    border-right: 1px solid var(panel5[border]);
 }
 
 #controllerPanel1 QFrame,
@@ -184,15 +216,15 @@ LabelHorizontal, LabelVertical, #controllerPanel5 QLabel{
 /*******************************************/
 QPushButton{
 	padding: 5px;
-    background: var(content[header]);
-	border: 1px solid var(content[border]);
-	color: var(content[second_text]);
+    background: var(panel3[header]);
+	border: 1px solid var(panel3[border]);
+	color: var(panel3[text1]);
 }
 
  QPushButton:hover{
-    background: var(content[hover]);
-	border: 1px solid var(content[border]);
-	color: var(content[first_text]);
+    background: var(panel3[hover]);
+	border: 1px solid var(panel3[border]);
+	color: var(panel3[text2]);
 }
 
 
@@ -200,12 +232,12 @@ QPushButton{
 /* SCROLLBAR                               */
 /*******************************************/
 QScrollBar {
-    background: var(content[border]);
+    background: var(panel3[border]);
     width: 8px;   
 }
 
 QScrollBar::handle {
-    background:  var(content[header]);
+    background:  var(panel3[header]);
 }
 
 QScrollBar::add-line:vertical, 
@@ -222,7 +254,7 @@ QScrollBar::sub-line:horizontal  {
 
 QScrollBar::handle:hover:vertical, 
 QScrollBar::handle:hover:horizontal {
-    /*background: var(content[background]);*/
+    /*background: var(panel3[background]);*/
     border-radius: 3px;
 }
 
@@ -230,9 +262,13 @@ QScrollBar::handle:hover:horizontal {
 /* TREEVIEW                                */
 /*******************************************/
 QTreeView, QTreeWidget{
-    alternate-background-color: var(content[background_alternate]);
-	background:  var(content[background]);
+    alternate-background-color: var(panel3[bgalternate]);
+	background:  var(panel3[background]);
 	border: none;
+}
+
+#panel1 QTreeWidget{
+	background:  var(panel1[background]);
 }
 
 QTreeView::Item{
@@ -240,12 +276,12 @@ QTreeView::Item{
 }
 
 QHeaderView::section, QHeaderWidget::section {
-    color: var(content[first_text]);
+    color: var(panel3[text1]);
 	font-weight: bold;
-    background: var(content[header]);
+    background: var(panel3[header]);
 	padding: 2px;	
 	border: none;
-	border-bottom: 1px solid var(content[border]);
+	border-bottom: 1px solid var(panel3[border]);
 }
 /*******************************************/
 /* TOOLBOX                            */
@@ -256,9 +292,9 @@ QHeaderView::section, QHeaderWidget::section {
 /* TOOLTIP                            */
 /*******************************************/
 QToolTip { 
-	background-color: var(content[background]); 
-	color: var(content[first_text]); 
-	border: 1px solid var(content[border]); 
+	background-color: var(panel3[background]); 
+	color: var(panel3[text1]); 
+	border: 1px solid var(panel3[border]); 
 	border-radius: 3px;
 }
 
@@ -267,23 +303,23 @@ QToolTip {
 /*******************************************/
 /*
 QLineEdit{
-    background-color: var(content[background]);
+    background-color: var(panel3[background]);
     color: #dce1ec;
 }
 */
 /*
 QLineEdit {
-	background-color: var(content[background_alternate]);
+	background-color: var(panel3[bgalternate]);
 	border: 1px solid transparent;
 	padding-left: 10px;
     padding-right: 10px;
-	selection-background-color: var(content[hover]);
-    color: var(content[third_text]);
+	selection-background-color: var(panel3[hover]);
+    color: var(panel3[text3]);
 }
 QLineEdit:focus {
-	border: 1px solid var(content[border]);
-    background-color: var(content[background_alternate]);
-	color: var(content[second_text]);
+	border: 1px solid var(panel3[border]);
+    background-color: var(panel3[bgalternate]);
+	color: var(panel3[text2]);
 }
 */
 /*******************************************/
@@ -294,8 +330,8 @@ QLineEdit:focus {
 /* TABS                                    */
 /*******************************************/
 QTabBar::tab {
-	background: var(content[header]);
-	border: 1px solid var(content[border]);
+	background: var(panel3[header]);
+	border: 1px solid var(panel3[border]);
 	padding: 5px 20px;
 	/*
 	font-weight: bold;
@@ -308,21 +344,21 @@ QTabBar::tab {
 }
 
 QTabBar::tab:selected {
-	background: var(content[hover]);
+	background: var(panel3[hover]);
 	margin-bottom: -1px;
-	color: var(content[second_text]);
-	border-bottom: 2px solid var(content[header]); 
+	color: var(panel3[text2]);
+	border-bottom: 2px solid var(panel3[header]); 
 }
 
 QTabBar::tab:!selected:hover {
-	background: var(content[hover]);
+	background: var(panel3[hover]);
 }
 
 QTabWidget::pane {
-	/*border: 1px solid var(content[background]);*/
+	/*border: 1px solid var(panel3[background]);*/
 	top:0px;
 	background: transparent;
-	border: 1px solid var(content[border]);
+	border: 1px solid var(panel3[border]);
 }
 
 QTabBar::tab:right,
@@ -339,37 +375,37 @@ QScrollArea, #scrollArea2, #scrollArea1, #scrollArea2 QFrame, #scrollArea1 QFram
 }
 
 #scrollAreaWidgetContents{
-    background: var(content[background]);
-    border: 1px solid var(content[background]);
+    background: var(panel3[background]);
+    border: 1px solid var(panel3[background]);
 }
 #scrollAreaWidgetContents2{
-    background: var(content[background]);
-    border: 1px solid var(content[background]);
+    background: var(panel3[background]);
+    border: 1px solid var(panel3[background]);
 }
 /*******************************************/
 /* TABLE                            */
 /*******************************************/
 QTableView, QTableWidget{
-	alternate-background-color: var(content[background_alternate]);
-    border: 1px solid var(content[border]);
-    color: var(content[first_text]);
-	background:  var(content[background]);
+	alternate-background-color: var(panel3[bgalternate]);
+    border: 1px solid var(panel3[border]);
+    color: var(panel3[text1]);
+	background:  var(panel3[background]);
 }
 
 QTableCornerButton::section{
-    background-color: var(content[header]);
+    background-color: var(panel3[header]);
     border-bottom: 1px solid #222;
     border-right: 1px solid #222;
     color: #8a95aa;
 }
 
 #pageHeader QLabel, #settingsHeader QLabel, #contentMenu QLabel{
-	border-bottom: 1px solid var(content[border]);
+	border-bottom: 1px solid var(panel3[border]);
 	font-weight: bold;
-    background: var(content[header]);
+    background: var(panel3[header]);
 	padding-right: 30px;	
 	font-style: italic;
-	color: var(content[first_text]);
+	color: var(panel3[text1]);
 	font-size: var(font[title_size])px;
 	
 }
@@ -392,22 +428,22 @@ QTableCornerButton::section{
 }
 
 #contentMenu QTreeWidget::Item:selected{
-	color: var(content[third_text]);	
+	color: var(panel3[text3]);	
 
 }
 
 #contentMenu QTreeWidget::item:hover {
-    color: var(content[third_text]);
+    color: var(panel3[text3]);
 	border: 0px solid;
 }
 
 #contentMenu QTreeWidget::branch::vertical{
-	background: var(content[background]);
+	background: var(panel1[background]);
 }
 
 #contentMenu QTreeWidget::Item:!has-children:selected{
-	/*border-left:5px solid var(content[border]);*/
-	color: var(content[third_text]);
+	/*border-left:5px solid var(panel3[border]);*/
+	color: var(panel3[text3]);
 }
 
 
@@ -415,7 +451,7 @@ QTableCornerButton::section{
     border-image: none;
     image: none;
 	
-	background: var(content[background]);
+	background: var(panel3[background]);
 }
 
 /*
@@ -433,9 +469,9 @@ QListView {
 }
 QTreeView::item:selected, 
 QListView::item:selected {
-	  background: var(content[hover]);
-	  color: var(content[third_text]);
-	  border: 0px solid var(content[background])
+	  background: var(panel3[hover]);
+	  color: var(panel3[text3]);
+	  border: 0px solid var(panel3[background])
 }
 QTreeView::item:selected:!active, 
 QListView::item:selected:!active {
@@ -451,18 +487,18 @@ QListView::item:selected:active {
 /* PROGRESS                            */
 /*******************************************/
 QProgressBar{
-	background: var(content[background_alternate]);
-	color: var(content[third_text]);
+	background: var(panel3[bgalternate]);
+	color: var(panel3[text3]);
 }
 
 QProgressBar{
-    border: 2px solid var(footer[border]);
+    border: 2px solid var(footerbar[border]);
     border-radius: 5px;
     text-align: center
 }
 
 QProgressBar::chunk {
-    background-color: var(footer[background]);
+    background-color: var(footerbar[background]);
     width: 10px;
     margin: 1px;
 }

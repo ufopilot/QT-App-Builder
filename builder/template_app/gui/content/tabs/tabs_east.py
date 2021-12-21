@@ -1,7 +1,7 @@
 from qt_core import *
-from app.gui.content.content_functions import *
+from builder.template_app.gui.content.content_functions import *
 	
-Gen_Class, Base_Class = loadUiType(resource_path("./app/gui/content/tabs/main.ui"))
+Gen_Class, Base_Class = loadUiType(resource_path("builder/template_app/gui/content/tabs/main.ui"))
 
 
 class TabsEast(Base_Class, Gen_Class):

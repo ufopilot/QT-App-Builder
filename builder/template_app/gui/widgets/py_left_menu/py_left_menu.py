@@ -25,7 +25,7 @@ from . py_div import PyDiv
 
 # IMPORT FUNCTIONS
 # ///////////////////////////////////////////////////////////////
-from app.gui.core.functions import *
+from builder.template_app.gui.core.functions import *
 
 # PY LEFT MENU
 # ///////////////////////////////////////////////////////////////

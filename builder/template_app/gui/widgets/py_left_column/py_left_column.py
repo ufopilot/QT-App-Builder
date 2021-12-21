@@ -28,7 +28,7 @@ from . py_icon import *
 
 # IMPORT LEFT COLUMN
 # ///////////////////////////////////////////////////////////////
-from app.gui.uis.columns.ui_left_column import Ui_LeftColumn
+from builder.template_app.gui.uis.columns.ui_left_column import Ui_LeftColumn
 
 class PyLeftColumn(QWidget):
     # SIGNALS
