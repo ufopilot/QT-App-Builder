@@ -2,8 +2,8 @@ from PyQt5.QtCore import pyqtRemoveInputHook
 from qt_core import *
 #from app.gui.content import *
 
-from . settings import Settings
-from . ui_functions import UIFunctions
+from .app_builder_settings import Settings
+from .app_builder_functions import UIFunctions
 import re
 from webcolors import hex_to_name
 
@@ -23,6 +23,8 @@ class ThemeBuilder(QWidget):
 		self.ui_settings = None
 		self.theme_settings = None
 		self.initial = False
+
+		self.addProps()
 		#self.selectColors()
 		
 		###self.parent.loadingProgressBar.setValue(0)
@@ -38,7 +40,17 @@ class ThemeBuilder(QWidget):
 		###	self.ui.loadingLabel.setText("")
 		###	###self.ui.loadingProgressBar.hide()
 		###	QTimer.singleShot(100, self.ui.controllerButtons.EnableToggleButtons)
-		
+	
+	def addProps(self):
+		for frame in self.parent.Theming.findChildren(QFrame):
+			try:
+				label1 = frame.findChildren(QLabel)[0]
+				label2 = frame.findChildren(QLabel)[1]
+				label1.setProperty("type", 1)
+				label2.setProperty("type", 2)
+			except:
+				pass
+
 	def setup(self):
 		self.theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
 		self.ui_settings = Settings('ui', apps_path=self.apps_path, app_name=self.app_name)

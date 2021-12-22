@@ -1,6 +1,6 @@
 #rom xml.etree.ElementTree import Element
-from .settings import Settings
-from .ui_functions import UIFunctions
+from .app_builder_settings import Settings
+from .app_builder_functions import UIFunctions
 from qt_core import *
 	
 Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/uis/app_builder_save_theme.ui"))

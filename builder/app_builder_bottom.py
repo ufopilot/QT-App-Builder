@@ -1,6 +1,6 @@
 #rom xml.etree.ElementTree import Element
-from . settings import Settings
-from . ui_functions import UIFunctions
+from .app_builder_settings import Settings
+from .app_builder_functions import UIFunctions
 from qt_core import *
 
 from pathlib import Path
@@ -20,12 +20,13 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		self.setWindowFlag(Qt.FramelessWindowHint)
 		#settings = Settings('ui')
 		#self.settings = settings
-		
+		settings = Settings('builder')
+		self.builder_settings = settings
 		
 		screen = QApplication.primaryScreen()
 		size = screen.size()
-		self.resize(size.width()-400, 160)
-		self.move(399, size.height()-200)
+		self.resize(size.width()-self.builder_settings.items['left_width']+1, self.builder_settings.items['bottom_height'])
+		self.move(self.builder_settings.items['left_width']-1, size.height()-self.builder_settings.items['bottom_height'])
 		
 		
 		#self.ui.move(399, -1)

@@ -1,5 +1,5 @@
-from . settings import Settings
-from . ui_functions import UIFunctions
+from .app_builder_settings import Settings
+from .app_builder_functions import UIFunctions
 from qt_core import *
 
 	

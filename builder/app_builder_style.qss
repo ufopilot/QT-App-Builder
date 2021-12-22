@@ -1,0 +1,207 @@
+#Builder{
+	background: #1b202c;
+	color: #fff;
+	font-size: 16px;
+   border: 1px  solid  rgb(49, 54, 72);
+}
+
+#Builder #centralwidget{
+	border: 1px  solid  rgb(49, 54, 72);
+	background: #1b202c;
+}
+#Builder #builderHeader{
+	border: 1px solid  rgb(49, 54, 72);
+	background: #1b202c;
+}
+
+#Builder #builderHeader QPushButton{
+	border: none;
+	border-radius: 0px;
+}
+
+#Builder #builderHeader QPushButton:hover{
+	background: rgb(49, 54, 72);
+}
+
+#Builder QMessageBox{
+	background: #1b202c;
+	color: #fff;
+}
+
+#Builder QMessageBox QLabel{
+	background: #1b202c;
+	color: #fff;
+}
+
+#Builder #tabWidget{
+	background: #1b202c;
+}
+
+#Builder QTabWidget::pane {
+	background: #1b202c;    
+	border: 1px  solid  rgb(49, 54, 72);
+   border-top: none;
+	
+}
+
+#Builder QTabBar::tab {
+	background: #1b202c;
+	
+	padding: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	height: 100px;
+   border-left: 1px  solid  rgb(49, 54, 72);
+border-bottom: 1px solid  rgb(49, 54, 72);
+  
+  }
+
+
+#Builder QTabBar::scroller {width: 0px;}
+
+#Builder QTabBar::tab:selected {
+	background: #1b202c;
+	margin-bottom: -1px;
+	color: #dce1ec;
+	border-left: 4px solid #37c886;
+   	color: #37c886;
+}
+
+
+
+
+#Builder QFrame{ 
+    border: 0px solid;
+}
+
+
+#Builder QPushButton{
+	border: 2px solid teal;
+	border-radius: 12px;
+}
+
+#Builder QPushButton:hover{
+	border: 3px solid cyan;
+}
+
+#Builder QPushButton:checked{
+	border: 4px solid cyan;
+}
+
+
+#Builder QToolBox::tab {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #13161f, stop: 0.4 #161924,
+                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
+    border-radius: 5px;
+    color: darkgray;
+}
+
+#Builder QToolBox::tab:selected { 
+    font: italic;
+    color: #37c886;
+}
+
+#Builder QLabel{
+	min-width: 100px;
+}
+
+
+
+#Builder QPushButton{
+	border: 2px solid teal;
+	border-radius: 12px;
+}
+
+#Builder QPushButton:hover{
+	border: 3px solid cyan;
+}
+
+#Builder QPushButton:checked{
+	border: 4px solid cyan;
+}
+
+
+#Builder QToolBox::tab {
+
+    color: #fff;
+	padding-left: 2px;
+   font-weight: bold;
+	border-top: 1px  solid  rgb(49, 54, 72);
+    border-radius: 0px;
+   font-size: 14px;
+	    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #13161f, stop: 0.4 #161924,
+                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
+}
+
+#Builder QToolBox::tab:selected { 
+    background: #000;
+    font-weight: bold;
+    color: #37c886;
+}
+
+#Builder QToolBox::tab:hover { 
+    background: #000;
+    color: #37c886;
+}
+
+#Builder QWidget{
+	color:#fff;
+    font-size: 13px;
+	background: #1b202c;
+}
+
+#Builder QToolBoxButton { 
+    font-size: 14px;
+   min-height: 40px
+}
+
+#Builder QLineEdit{
+	border: 1px solid #555;
+	color: darkgray
+}
+
+QToolTip { 
+	background-color: #1b202c; 
+	color: #fff; 
+	border: 1px solid #333; 
+	border-radius: 3px;
+	font-size: 13px;
+}
+
+
+
+QHeaderView::section, QHeaderWidget::section {
+    padding: 5px;	
+}
+QHeaderWidget::Item, QTreeView::Item{
+  height: 30px;
+}
+
+
+QTreeWidget::indicator { 
+  width: 14px; 
+  height: 14px;
+  border: 1px solid #555;
+}
+QTreeWidget:indicator:unchecked { background:none;}
+QTreeWidget:indicator:checked { background:#28a745;}
+
+#Theming QPushButton { 
+    border: 1px  solid  rgb(49, 54, 72);
+    border-radius: 3px;
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                             stop: 0 #13161f, stop: 0.4 #161924,
+                             stop: 0.5 #171c26, stop: 1.0 #1b202c);
+}
+
+#Theming  QPushButton:hover{
+ background:rgb(62, 62, 62);
+ border-radius: 3px;
+}
+
+#Theming QLabel[type="2"]{
+	border: 2px solid teal;
+	border-radius: 12px;
+}

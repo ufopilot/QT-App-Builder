@@ -17,7 +17,7 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QScreen,
 	QFont, QFontDatabase, QGradient, QIcon, QFontMetrics, QMovie,
 	QImage, QKeySequence, QLinearGradient, QPainter, QPen, QPaintEvent,
 	QPalette, QPixmap, QRadialGradient, QTransform, QStandardItem)
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QMenuBar, QSizePolicy, QGridLayout, QLineEdit, QComboBox, QSpinBox, QDialogButtonBox, QMessageBox,
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QMenuBar, QSizePolicy, QGridLayout, QLineEdit, QComboBox, QSpinBox, QDialogButtonBox, QMessageBox,QFormLayout,
 	QStatusBar, QWidget, QLabel, QButtonGroup, QAbstractButton, QPushButton, QGraphicsDropShadowEffect, QSizeGrip, QGroupBox, QSplashScreen, QTabWidget, QScrollArea,
 	QVBoxLayout, QFrame, QHBoxLayout, QCheckBox, QTreeWidgetItem, QHeaderView, QAbstractItemView, QTreeWidget, QFileSystemModel, QTreeView, QDialog, QColorDialog, QFileDialog)
 from PyQt5.uic import loadUiType

@@ -1,9 +1,10 @@
 #rom xml.etree.ElementTree import Element
+from builder.app_builder_message import AppBuilderMessage
 from builder.app_builder_save_theme import AppBuilderSaveTheme
 from builder.app_builder_create_app import AppBuilderCreateApp
 
-from . settings import Settings
-from . ui_functions import UIFunctions
+from .app_builder_settings import Settings
+from .app_builder_functions import UIFunctions
 from qt_core import *
 
 	
@@ -22,16 +23,18 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.setWindowFlag(Qt.FramelessWindowHint)
 		#settings = Settings('ui')
 		#self.settings = settings
-		
+		settings = Settings('builder')
+		self.builder_settings = settings
+
 		screen = QApplication.primaryScreen()
 		self.size = screen.size()
-		self.resize(65, self.size.height()-200)
-		self.move(self.size.width()-65, 0)
+		self.resize(self.builder_settings.items['right_width']+1, self.size.height()-self.builder_settings.items['bottom_height'])
+		self.move(self.size.width()-self.builder_settings.items['right_width']-1, 0)
 		#self.ui.move(399, -1)
 		
 		self.themeSaver = AppBuilderSaveTheme(self, self.ui)
 		self.appCreator = AppBuilderCreateApp(self, self.ui)
-
+		self.message_box = AppBuilderMessage(self)
 
 		self.initFormControl()
 
@@ -92,6 +95,14 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		btn.setIconSize(QSize(40, 40))
 
 	def save_current_theme(self):
+		settings = Settings('builder')
+		self.builder_settings = settings
+		if self.builder_settings.items['selected_app'] == "":
+			self.message_box.notify("warning", "Save Settings", "No App selected!")
+			timer=QTimer.singleShot(2000, lambda: self.message_box.close())
+			self.sender().toggle()
+			return
+		
 		if self.themeSaver.isVisible():
 			return 
 		if not self.saveCurrentTheme.isChecked():

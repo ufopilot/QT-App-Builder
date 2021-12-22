@@ -1,6 +1,6 @@
 #rom xml.etree.ElementTree import Element
-from . settings import Settings
-from . ui_functions import UIFunctions
+from .app_builder_settings import Settings
+from .app_builder_functions import UIFunctions
 from qt_core import *
 
 	
@@ -22,8 +22,8 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		self.progressBar.hide()
 		screen = QApplication.primaryScreen()
 		size = screen.size()
-		self.resize(size.width()-464, size.height()-200)
-		self.move(399, 0)	
+		self.resize(size.width()-self.builder_settings.items['left_width']-self.builder_settings.items['right_width'], size.height()-self.builder_settings.items['bottom_height'])
+		self.move(self.builder_settings.items['left_width']-1, 0)	
 	
 		if self.builder_settings.items['apps_path'].strip() == "":
 			self.parent.setAppsPath()
@@ -34,7 +34,7 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 	def searchApps(self, apps_path=None):
 		if apps_path == None:
 			apps_path = self.builder_settings.items['apps_path']
-			self.apps_path.setText("Path: {}".format(apps_path))
+			self.apps_path.setText(f"Path: {apps_path}")
 	
 		if not os.path.isdir(apps_path):
 			return
@@ -48,7 +48,7 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		btn.setCursor(QCursor(Qt.PointingHandCursor))
 		btn.setStyleSheet("font-size: 20px")
 		btn.setMinimumSize(QSize(0, 170))
-		btn.clicked.connect(lambda: self.loadApp("template_app"))
+		btn.clicked.connect(self.loadApp)
 		self.myAppsLayout.addWidget(btn, 0, 0, 1, 1)
 		
 		i = 0; j = 1
@@ -63,16 +63,27 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 			btn.setCursor(QCursor(Qt.PointingHandCursor))
 			btn.setStyleSheet("font-size: 20px")
 			btn.setMinimumSize(QSize(0, 170))
-			btn.clicked.connect(lambda: self.loadApp(app_name))
+			btn.clicked.connect(self.loadApp)
 			self.myAppsLayout.addWidget(btn, i, j, 1, 1)
 
 			j += 1
 			if j == 4: i += 1; j = 0
 	
-	def loadApp(self, app_name):
+	def loadApp(self):
+		btn = self.sender()
+		app_name = btn.objectName()
+		#self.selected_app.setText(f"Selected App: {app_name}")
+		self.setSelectedApp(app_name)
 		self.progressBar.show()
 		QTimer.singleShot(100, lambda: self.parent.loadApp(app_name))
+
+	def setSelectedApp(self, app_name=""):
+		settings = Settings('builder')
+		settings.items['selected_app'] = app_name
+		settings.serialize()
+		self.selected_app.setText(f"Selected App: {app_name}")
 		
+
 		
 
 if __name__ == '__main__':

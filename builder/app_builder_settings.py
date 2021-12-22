@@ -1,5 +1,5 @@
 import json, sys, os
-from . ui_functions import UIFunctions
+from .app_builder_functions import UIFunctions
 
 
 # APP SETTINGS

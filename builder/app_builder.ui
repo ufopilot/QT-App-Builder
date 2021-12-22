@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>474</width>
+    <width>540</width>
     <height>1086</height>
    </rect>
   </property>
@@ -18,205 +18,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">
-#Builder{
-	background: #1b202c;
-	color: #fff;
-	font-size: 16px;
-   border: 1px  solid  rgb(49, 54, 72);
-}
-
-#Builder #centralwidget{
-	border: 1px  solid  rgb(49, 54, 72);
-	background: #1b202c;
-}
-#Builder #builderHeader{
-	border: 1px solid  rgb(49, 54, 72);
-	background: #1b202c;
-}
-
-#Builder #builderHeader QPushButton{
-	border: none;
-	border-radius: 0px;
-}
-
-#Builder #builderHeader QPushButton:hover{
-	background: rgb(49, 54, 72);
-}
-
-#Builder QMessageBox{
-	background: #1b202c;
-	color: #fff;
-}
-
-#Builder QMessageBox QLabel{
-	background: #1b202c;
-	color: #fff;
-}
-
-#Builder #tabWidget{
-	background: #1b202c;
-}
-
-#Builder QTabWidget::pane {
-	background: #1b202c;    
-	border: 1px  solid  rgb(49, 54, 72);
-   border-top: none;
-	
-}
-
-/*
-#Builder QTabWidget::tab-bar {
-    background: #1b202c;
-	border: 1px solid #1b202c;
-	padding: 8px;
-	color: #37c886;
-	font-weight: bold;
-	width: 117px;
-}
-*/
-
-#Builder QTabBar::tab {
-	background: #1b202c;
-	
-	padding: 8px;
-	font-size: 16px;
-	font-weight: bold;
-	height: 100px;
-   border-left: 1px  solid  rgb(49, 54, 72);
-border-bottom: 1px solid  rgb(49, 54, 72);
-  
-  }
-
-
-#Builder QTabBar::scroller {width: 0px;}
-
-#Builder QTabBar::tab:selected {
-	background: #1b202c;
-	margin-bottom: -1px;
-	color: #dce1ec;
-	border-left: 4px solid #37c886;
-   	color: #37c886;
-}
-
-
-
-
-#Builder QFrame{ 
-    border: 0px solid;
-}
-
-
-#Builder QPushButton{
-	border: 2px solid teal;
-	border-radius: 12px;
-}
-
-#Builder QPushButton:hover{
-	border: 3px solid cyan;
-}
-
-#Builder QPushButton:checked{
-	border: 4px solid cyan;
-}
-
-
-#Builder QToolBox::tab {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-    border-radius: 5px;
-    color: darkgray;
-}
-
-#Builder QToolBox::tab:selected { 
-    font: italic;
-    color: #37c886;
-}
-
-/*
-#iconBgColor1{ background: aqua; }
-#iconBgColor2{ background: black; }
-#iconBgColor3{ background: blue; }
-#iconBgColor4{ background: yellow; }
-#iconBgColor5{ background: gray; }
-#iconBgColor6{ background: green; }
-#iconBgColor7{ background: magenta; }
-#iconBgColor8{ background: white; }
-#iconBgColor9{ background: purple; }
-#iconBgColor10{ background: red; }
-*/
-
-
-
-#Builder QLabel{
-	min-width: 100px;
-}
-
-
-
-#Builder QPushButton{
-	border: 2px solid teal;
-	border-radius: 12px;
-}
-
-#Builder QPushButton:hover{
-	border: 3px solid cyan;
-}
-
-#Builder QPushButton:checked{
-	border: 4px solid cyan;
-}
-
-
-#Builder QToolBox::tab {
-
-    color: #fff;
-	padding-left: 2px;
-   font-weight: bold;
-	border-top: 1px  solid  rgb(49, 54, 72);
-    border-radius: 0px;
-   font-size: 14px;
-	    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-#Builder QToolBox::tab:selected { 
-    background: #000;
-    font-weight: bold;
-    color: #37c886;
-}
-
-#Builder QToolBox::tab:hover { 
-    background: #000;
-    color: #37c886;
-}
-
-#Builder QWidget{
-	color:#fff;
-    font-size: 13px;
-	background: #1b202c;
-}
-
-#Builder QToolBoxButton { 
-    font-size: 14px;
-   min-height: 40px
-}
-
-#Builder QLineEdit{
-	border: 1px solid #555;
-	color: darkgray
-}
-
-QToolTip { 
-	background-color: #1b202c; 
-	color: #fff; 
-	border: 1px solid #333; 
-	border-radius: 3px;
-	font-size: 13px;
-}
-</string>
+    <string notr="true"/>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <property name="spacing">
@@ -240,7 +42,7 @@ QToolTip {
        <enum>QTabWidget::West</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="Customizing">
        <attribute name="title">
@@ -305,8 +107,8 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>436</width>
-                <height>765</height>
+                <width>514</width>
+                <height>912</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -320,7 +122,7 @@ QToolTip {
                 <widget class="QLabel" name="label">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -473,7 +275,7 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>436</width>
+                <width>502</width>
                 <height>765</height>
                </rect>
               </property>
@@ -530,7 +332,7 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>436</width>
+                <width>502</width>
                 <height>765</height>
                </rect>
               </property>
@@ -657,7 +459,7 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>436</width>
+                <width>502</width>
                 <height>765</height>
                </rect>
               </property>
@@ -779,7 +581,7 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>436</width>
+                <width>502</width>
                 <height>765</height>
                </rect>
               </property>
@@ -860,7 +662,7 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>436</width>
+                <width>502</width>
                 <height>765</height>
                </rect>
               </property>
@@ -982,7 +784,7 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>436</width>
+                <width>502</width>
                 <height>765</height>
                </rect>
               </property>
@@ -1104,7 +906,7 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>436</width>
+                <width>502</width>
                 <height>765</height>
                </rect>
               </property>
@@ -1164,9 +966,9 @@ QToolTip {
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>436</width>
-             <height>264</height>
+             <y>-14</y>
+             <width>497</width>
+             <height>278</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1207,7 +1009,7 @@ QToolTip {
                 <widget class="QLabel" name="background_4">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -1242,7 +1044,7 @@ QToolTip {
                 <widget class="QLabel" name="selectedColor_14">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -1251,12 +1053,6 @@ QToolTip {
                    <width>50</width>
                    <height>24</height>
                   </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1281,18 +1077,7 @@ QToolTip {
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="text">
                   <string/>
@@ -1340,7 +1125,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="border_4">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -1375,7 +1160,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_12">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -1384,12 +1169,6 @@ QPushButton:hover{
                    <width>50</width>
                    <height>24</height>
                   </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1412,20 +1191,6 @@ QPushButton:hover{
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1473,7 +1238,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="hover_4">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -1508,7 +1273,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_15">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -1517,12 +1282,6 @@ QPushButton:hover{
                    <width>50</width>
                    <height>24</height>
                   </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1545,20 +1304,6 @@ QPushButton:hover{
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1606,7 +1351,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text1_4">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -1641,7 +1386,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_10">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -1650,12 +1395,6 @@ QPushButton:hover{
                    <width>50</width>
                    <height>24</height>
                   </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1678,20 +1417,6 @@ QPushButton:hover{
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1739,7 +1464,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text2_4">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -1774,7 +1499,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_13">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -1783,12 +1508,6 @@ QPushButton:hover{
                    <width>50</width>
                    <height>24</height>
                   </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1811,20 +1530,6 @@ QPushButton:hover{
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1872,7 +1577,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text3_4">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -1907,7 +1612,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_17">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -1916,12 +1621,6 @@ QPushButton:hover{
                    <width>50</width>
                    <height>24</height>
                   </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -1944,20 +1643,6 @@ QPushButton:hover{
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -2005,7 +1690,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="icons_4">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -2040,7 +1725,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_11">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -2051,10 +1736,7 @@ QPushButton:hover{
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
+                  <string notr="true"/>
                  </property>
                  <property name="text">
                   <string/>
@@ -2078,20 +1760,6 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -2111,8 +1779,8 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>354</width>
-             <height>336</height>
+             <width>217</width>
+             <height>354</height>
             </rect>
            </property>
            <attribute name="label">
@@ -2153,7 +1821,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="background_1">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -2188,7 +1856,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_1">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -2286,7 +1954,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="header_1">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -2321,7 +1989,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_2">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -2419,7 +2087,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="footer_1">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -2454,7 +2122,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_3">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -2552,7 +2220,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="border_1">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -2587,7 +2255,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_4">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -2685,7 +2353,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="hover_1">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -2720,7 +2388,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_5">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -2818,7 +2486,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text1_1">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -2853,7 +2521,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_6">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -2951,7 +2619,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text2_1">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -2986,7 +2654,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_7">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -3084,7 +2752,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text3_1">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -3119,7 +2787,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_8">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -3217,7 +2885,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="icons_1">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -3252,7 +2920,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_9">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -3323,8 +2991,8 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>354</width>
-             <height>336</height>
+             <width>217</width>
+             <height>354</height>
             </rect>
            </property>
            <attribute name="label">
@@ -3365,7 +3033,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="background_6">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -3400,7 +3068,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_23">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -3498,7 +3166,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="header_6">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -3533,7 +3201,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_25">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -3631,7 +3299,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="footer_6">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -3666,7 +3334,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_27">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -3764,7 +3432,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="border_6">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -3799,7 +3467,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_21">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -3897,7 +3565,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="hover_6">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -3932,7 +3600,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_24">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -4030,7 +3698,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text1_6">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -4065,7 +3733,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_19">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -4163,7 +3831,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text2_6">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -4198,7 +3866,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_22">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -4296,7 +3964,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text3_6">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -4331,7 +3999,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_26">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -4429,7 +4097,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="icons_6">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -4464,7 +4132,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_20">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -4535,8 +4203,8 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>354</width>
-             <height>372</height>
+             <width>223</width>
+             <height>392</height>
             </rect>
            </property>
            <attribute name="label">
@@ -4577,7 +4245,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="background_8">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -4612,7 +4280,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_32">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -4710,7 +4378,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="background_21">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -4745,7 +4413,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_83">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -4843,7 +4511,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="header_8">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -4878,7 +4546,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_34">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -4976,7 +4644,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="footer_8">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -5011,7 +4679,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_36">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -5109,7 +4777,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="border_8">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -5144,7 +4812,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_30">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -5242,7 +4910,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="hover_8">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -5277,7 +4945,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_33">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -5375,7 +5043,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text1_8">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -5410,7 +5078,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_28">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -5508,7 +5176,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text2_8">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -5543,7 +5211,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_31">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -5641,7 +5309,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text3_8">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -5676,7 +5344,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_35">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -5774,7 +5442,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="icons_8">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -5809,7 +5477,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_29">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -5880,8 +5548,8 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>354</width>
-             <height>336</height>
+             <width>217</width>
+             <height>354</height>
             </rect>
            </property>
            <attribute name="label">
@@ -5922,7 +5590,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="background_10">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -5957,7 +5625,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_41">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -6055,7 +5723,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="header_10">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -6090,7 +5758,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_43">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -6188,7 +5856,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="footer_10">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -6223,7 +5891,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_45">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -6321,7 +5989,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="border_10">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -6356,7 +6024,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_39">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -6454,7 +6122,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="hover_10">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -6489,7 +6157,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_42">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -6587,7 +6255,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text1_10">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -6622,7 +6290,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_37">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -6720,7 +6388,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text2_10">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -6755,7 +6423,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_40">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -6853,7 +6521,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text3_10">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -6888,7 +6556,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_44">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -6986,7 +6654,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="icons_10">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -7021,7 +6689,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_38">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -7092,8 +6760,8 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>354</width>
-             <height>336</height>
+             <width>217</width>
+             <height>354</height>
             </rect>
            </property>
            <attribute name="label">
@@ -7134,7 +6802,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="background_12">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -7169,7 +6837,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_50">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -7267,7 +6935,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="header_12">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -7302,7 +6970,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_52">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -7400,7 +7068,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="footer_12">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -7435,7 +7103,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_54">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -7533,7 +7201,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="border_12">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -7568,7 +7236,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_48">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -7666,7 +7334,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="hover_12">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -7701,7 +7369,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_51">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -7799,7 +7467,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text1_12">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -7834,7 +7502,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_46">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -7932,7 +7600,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text2_12">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -7967,7 +7635,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_49">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -8065,7 +7733,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text3_12">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -8100,7 +7768,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_53">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -8198,7 +7866,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="icons_12">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -8233,7 +7901,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_47">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -8304,8 +7972,8 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>354</width>
-             <height>264</height>
+             <width>217</width>
+             <height>278</height>
             </rect>
            </property>
            <attribute name="label">
@@ -8346,7 +8014,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="background_14">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -8381,7 +8049,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_59">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -8479,7 +8147,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="border_14">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -8514,7 +8182,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_57">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -8612,7 +8280,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="hover_14">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -8647,7 +8315,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_60">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -8745,7 +8413,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text1_14">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -8780,7 +8448,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_55">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -8878,7 +8546,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text2_14">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -8913,7 +8581,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_58">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -9011,7 +8679,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text3_14">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -9046,7 +8714,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_62">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -9144,7 +8812,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="icons_14">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -9179,7 +8847,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_56">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -9250,8 +8918,8 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>354</width>
-             <height>264</height>
+             <width>217</width>
+             <height>278</height>
             </rect>
            </property>
            <attribute name="label">
@@ -9292,7 +8960,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="background_16">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -9327,7 +8995,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_68">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -9425,7 +9093,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="border_16">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -9460,7 +9128,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_66">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -9558,7 +9226,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="hover_16">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -9593,7 +9261,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_69">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -9691,7 +9359,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text1_16">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -9726,7 +9394,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_64">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -9824,7 +9492,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text2_16">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -9859,7 +9527,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_67">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -9957,7 +9625,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="text3_16">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -9992,7 +9660,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_71">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -10090,7 +9758,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="icons_16">
                  <property name="minimumSize">
                   <size>
-                   <width>100</width>
+                   <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
@@ -10125,7 +9793,7 @@ QPushButton:hover{
                 <widget class="QLabel" name="selectedColor_65">
                  <property name="minimumSize">
                   <size>
-                   <width>104</width>
+                   <width>0</width>
                    <height>24</height>
                   </size>
                  </property>
@@ -10195,10 +9863,39 @@ QPushButton:hover{
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="Menu">
        <attribute name="title">
         <string>Menu</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_13">
+        <item>
+         <widget class="QTreeWidget" name="menuTree">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <column>
+           <property name="text">
+            <string>Name</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Object</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Children</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Icon</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>

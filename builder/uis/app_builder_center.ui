@@ -241,7 +241,14 @@ QLineEdit{
           <item>
            <widget class="QLabel" name="apps_path">
             <property name="text">
-             <string>dddd</string>
+             <string>Path: </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="selected_app">
+            <property name="text">
+             <string>Selected App: </string>
             </property>
            </widget>
           </item>

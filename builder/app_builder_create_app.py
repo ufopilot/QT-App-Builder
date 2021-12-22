@@ -1,8 +1,8 @@
 #rom xml.etree.ElementTree import Element
 from builder.app_builder_center import AppBuilderCenter
 from builder.app_builder_message import AppBuilderMessage
-from .settings import Settings
-from .ui_functions import UIFunctions
+from .app_builder_settings import Settings
+from .app_builder_functions import UIFunctions
 from qt_core import *
 import shutil
 import fileinput
@@ -16,8 +16,7 @@ class AppBuilderCreateApp(Base_Class, Gen_Class):
 		super(self.__class__, self).__init__(parent)
 		self.ui = ui
 		self.parent = parent
-		settings = Settings('builder')
-		self.builder_settings = settings
+		self.builder_settings = None
 
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
@@ -35,6 +34,8 @@ class AppBuilderCreateApp(Base_Class, Gen_Class):
 		self.lineEdit.returnPressed.connect(self.accept)
 		
 	def accept(self):
+		settings = Settings('builder')
+		self.builder_settings = settings
 		if self.lineEdit.text().strip() != "":
 			self.close()
 			self.parent.createNewApp.toggle()
@@ -77,14 +78,14 @@ class AppBuilderCreateApp(Base_Class, Gen_Class):
 					)
 					
 				print("app created")
-				self.message_box.notify("info", "Create APP", f"{app_name} successfully created!")
+				self.message_box.notify("success", "Create APP", f"{app_name} successfully created!")
 				timer=QTimer.singleShot(3000, lambda: self.message_box.close())
 				print("load from creator")
 				self.parent.parent.builder_center.searchApps()
 			else:
 				# show message
-				print(f"{app_name} already exists!")
-			#QTimer.singleShot(200, lambda: self.parent.take_screenshot(self.lineEdit.text()))
+				self.message_box.notify("error", "Create APP", f"{app_name} already exists!")
+				timer=QTimer.singleShot(3000, lambda: self.message_box.close())
 			
 		
 	def reject(self):

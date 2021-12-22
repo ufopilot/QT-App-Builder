@@ -1,9 +1,10 @@
 import importlib
 import sys
+from builder.app_builder_menu import MenuBuilder
 from builder.app_builder_message import AppBuilderMessage
-from builder.settings import Settings
-from builder.ui_functions import UIFunctions
-from builder.theme_builder import ThemeBuilder
+from builder.app_builder_settings import Settings
+from builder.app_builder_functions import UIFunctions
+from builder.app_builder_themeing import ThemeBuilder
 from builder.app_builder_bottom import AppBuilderBottom
 from builder.app_builder_right import AppBuilderRight
 from builder.app_builder_center import AppBuilderCenter
@@ -30,12 +31,14 @@ class AppBuilder(Base_Class, Gen_Class):
 
 		settings = Settings('builder')
 		self.builder_settings = settings
+		self.builder_settings.items['selected_app'] = ""
+		self.builder_settings.serialize()
 
 		self.move(-1, -1)
 		screen = QApplication.primaryScreen()
 		#print('Screen: %s' % screen.name())
 		self.size = screen.size()
-		self.resize(400, self.size.height()-40)
+		self.resize(self.builder_settings.items['left_width'], self.size.height()-38)
 		
 		self.app = None
 		self.app_name = None
@@ -47,10 +50,19 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.builder_bottom = AppBuilderBottom(self, self.app)
 		self.builder_bottom.show()
 		self.theme_builder = ThemeBuilder(self, self.app)
+		self.menu_builder = MenuBuilder(self, self.app)
 		self.message_box = AppBuilderMessage(self)
 		
+		#self.Menu.setMinimumSize(QSize(0, self.size.height()-45))
+
 		self.builder__window__icon.doubleClicked.connect(self.selectIcon)
 		self.builder__title_bar__icon.doubleClicked.connect(self.selectIcon)
+		self.setStyle()
+		
+	def setStyle(self):
+		with open("builder/app_builder_style.qss") as f:
+			stylesheet = f.read()
+			self.centralwidget.setStyleSheet(stylesheet)
 
 	def setAppsPath(self):
 		dialog = QFileDialog(self)
@@ -66,71 +78,10 @@ class AppBuilder(Base_Class, Gen_Class):
 		apps_path = os.path.abspath(names[0])
 		self.builder_settings.items['apps_path'] = apps_path
 		self.builder_settings.serialize()
-		self.builder_center.apps_path.setText("Path: {}".format(apps_path))
+		self.builder_center.apps_path.setText(f"Path: {apps_path}")
 		self.builder_center.searchApps(apps_path)
 
-	def loadApp(self, app_name):
 		
-		self.app_name = app_name
-		
-		#btn = self.sender()
-		#app_name = btn.objectName()
-		
-		#self.ui.move(399, -1)
-		if app_name == "template_app":
-			apps_path = "builder"
-		else:
-			apps_path = self.builder_settings.items['apps_path']
-
-		#with open(os.path.join(apps_path, app_name, "gui/settings/ui_settings.json"), "r", encoding='utf-8') as reader:
-		#	self.settings = json.loads(reader.read())
-		
-		settings = Settings('ui', apps_path=apps_path, app_name=app_name)
-		self.settings = settings
-		
-		self.initFormControl()
-		self.loadValues()
-		# select app
-		if app_name == "template_app":
-			from builder.template_app.template_main import MainWidget
-			self.app = MainWidget(self)
-		else:
-			try: 		
-				sys.path.append(os.path.join(os.path.abspath(apps_path), app_name))
-				cls = getattr(importlib.import_module(f"{app_name}_main"), 'MainWidget')
-				self.cls = cls
-				self.app = cls(self)
-				
-			except:
-				return
-		self.builder_settings.items['selected_app'] = app_name
-		self.builder_settings.serialize()
-		
-		self.ui = self.app
-		self.app.move(435, 15)
-		self.app.show()
-		#self.builder_right.app = self.app
-		self.theme_builder.ui = self.app
-		self.theme_builder.apps_path = apps_path
-		self.theme_builder.app_name = app_name
-		
-		self.theme_builder.setup()
-		
-		self.builder_right.ui = self.app
-		self.builder_right.apps_path = apps_path
-		self.builder_right.app_name = app_name
-		
-
-		self.builder_center.ui = self.app
-		
-		self.builder_bottom.ui = self.app
-		self.builder_bottom.apps_path = apps_path
-		self.builder_bottom.app_name = app_name
-		 
-		self.builder_bottom.loadThemesButtons()
-		self.loadingProgress.hide()
-		self.loadingProgress.setValue(0)
-
 	def selectIcon(self):
 		lineedit = self.sender()
 
@@ -232,6 +183,13 @@ class AppBuilder(Base_Class, Gen_Class):
 		titleLabel.setText(text)
 	
 	def saveAll(self):
+		settings = Settings('builder')
+		self.builder_settings = settings
+		if self.builder_settings.items['selected_app'] == "":
+			self.message_box.notify("warning", "Save Settings", "No App selected!")
+			timer=QTimer.singleShot(2000, lambda: self.message_box.close())
+			return
+		
 		for item in self.findChildren(QLineEdit):
 			try:
 				name = item.objectName()
@@ -269,16 +227,91 @@ class AppBuilder(Base_Class, Gen_Class):
 
 		timer=QTimer.singleShot(time*1000, lambda: self.message_box.close())
 		
+	def loadApp(self, app_name):
+		self.app_name = app_name
+		#btn = self.sender()
+		#app_name = btn.objectName()
+		#self.ui.move(399, -1)
+		if app_name == "template_app":
+			apps_path = "builder"
+		else:
+			apps_path = self.builder_settings.items['apps_path']
+
+		#with open(os.path.join(apps_path, app_name, "gui/settings/ui_settings.json"), "r", encoding='utf-8') as reader:
+		#	self.settings = json.loads(reader.read())
+		
+		settings = Settings('ui', apps_path=apps_path, app_name=app_name)
+		self.settings = settings
+		
+		self.initFormControl()
+		self.loadValues()
+		# select app
+		if app_name == "template_app":
+			from builder.template_app.template_main import MainWidget
+			self.app = MainWidget(self)
+		else:
+			try: 		
+				sys.path.append(os.path.join(os.path.abspath(apps_path), app_name))
+				cls = getattr(importlib.import_module(f"{app_name}_main"), 'MainWidget')
+				self.cls = cls
+				self.app = cls(self)
+			except:
+				return
+		self.builder_settings.items['selected_app'] = app_name
+		self.builder_settings.serialize()
+		
+		self.ui = self.app
+		self.app.move(self.builder_settings.items['left_width']+16, 15)
+		self.app.show()
+		self.app.closewindow.clicked.connect(self.closeApp)
+	
+		#self.builder_right.app = self.app
+		# ThemeBuilder
+		self.theme_builder.ui = self.app
+		self.theme_builder.apps_path = apps_path
+		self.theme_builder.app_name = app_name
+		self.theme_builder.setup()
+		# MenuBuilder
+		self.menu_builder.ui = self.app
+		self.menu_builder.apps_path = apps_path
+		self.menu_builder.app_name = app_name
+		self.menu_builder.setup()
+		# init actions on RightPanel
+		self.builder_right.ui = self.app
+		self.builder_right.apps_path = apps_path
+		self.builder_right.app_name = app_name
+		# init actions on CenterPanel
+		self.builder_center.ui = self.app
+		# init actions on BottomPanel
+		self.builder_bottom.ui = self.app
+		self.builder_bottom.apps_path = apps_path
+		self.builder_bottom.app_name = app_name
+		self.builder_bottom.loadThemesButtons()
+		
+		self.loadingProgress.hide()
+		self.loadingProgress.setValue(0)
+		
+	
 	def reload_app(self):
+		settings = Settings('builder')
+		self.builder_settings = settings
+		if self.builder_settings.items['selected_app'] == "":
+			self.message_box.notify("warning", "Reload App", "No App selected!")
+			timer=QTimer.singleShot(2000, lambda: self.message_box.close())
+			return
+
 		self.app.close()
 		if self.app_name == "template_app":
 			from builder.template_app.template_main import MainWidget
 			self.app = MainWidget(self)
 		else:
 			self.app = self.cls(self)
-		self.app.move(435, 15)
+		self.app.move(self.builder_settings.items['left_width']+16, 15)
+		self.app.closewindow.clicked.connect(self.closeApp)
 		self.app.show()
 	
+	def closeApp(self):
+		self.builder_center.setSelectedApp()
 	
 
 if __name__ == '__main__':
