@@ -21,9 +21,6 @@ class Panel1(QWidget):
 			self.ui.panel1.parent().hide()
 
 	def setupMenu(self):
-		#self.tree.setSelectionMode(QAbstractItemView.NoSelection)
-		#self.ui.menuTree.verticalHeader().setVisible(False)
-		#.verticalHeader().hide()
 		self.ui.menuTree.setFocusPolicy(Qt.NoFocus)
 		sizePolicy = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored)
 		sizePolicy.setHorizontalStretch(0)
