@@ -16,12 +16,22 @@ class SetControllerButtons(QWidget):
 		
 		self.footer_icon_color = self.theme_settings['theme']['footerbar']['icons']
 		self.dividers_icon_color = self.theme_settings['theme']['dividers']['icons']
+		for divider in (self.ui.headerPanel1, self.ui.headerPanel2, self.ui.headerPanel3, self.ui.headerPanel4, self.ui.headerPanel5):
+			name = divider.objectName()
+			panel = name.lower().replace("header", "")
+			divider.setText(self.settings[panel]['title'])
+			if not self.settings[panel]['divider']:
+				print("hide", panel)
+				divider.parent().hide()
+		#for x in range(1,6):
+		#	panel = str(f"panel{x}")
+		#	print(panel)
+		#	self.ui.headerPanel1.setText(self.settings[panel]['title'])
+		#self.ui.headerPanel2.setText(self.settings['panel2']['title'])
+		#self.ui.headerPanel3.setText(self.settings['panel3']['title'])
+		#self.ui.headerPanel4.setText(self.settings['panel4']['title'])
+		#self.ui.headerPanel5.setText(self.settings['panel5']['title'])
 
-		self.ui.headerPanel1.setText(self.settings['panel1']['title'])
-		self.ui.headerPanel2.setText(self.settings['panel2']['title'])
-		self.ui.headerPanel3.setText(self.settings['panel3']['title'])
-		self.ui.headerPanel4.setText(self.settings['panel4']['title'])
-		self.ui.headerPanel5.setText(self.settings['panel5']['title'])
 
 		self.ui.menuTitle.setText(self.settings['panel1']['title'])
 		self.ui.settingsTitle.setText(self.settings['panel2']['title'])

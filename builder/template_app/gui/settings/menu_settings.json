@@ -1,108 +1,108 @@
 [
     {   
         "name": "Home",
-        "icon": "home.svg",
+        "icon": "fa.home",
         "widget": "HomeWidget",
         "start": true
     },
     {   
         "name": "Dashboard",
-        "icon": "activity.svg",
+        "icon": "fa.dashboard",
         "children":[{
             "name":"Modern",
             "icon": {
-                "expanded": "folder-minus.svg",
-                "collapsed": "folder-plus.svg"
+                "expanded": "fa.folder-open",
+                "collapsed": "fa.folder"
             },
             "children":[{
                 "name":"Modern3",
-                "icon": "circle.svg",
+                "icon": "fa.circle-o",
                 "widget":"TemplatePage"
             },
             {
                 "name":"Modern4",
-                "icon": "circle.svg",
+                "icon": "fa.circle-o",
                 "widget":"TemplatePage"
             }]
         },
         {
             "name":"Modern",
-            "icon": "circle.svg",
+            "icon": "fa.circle-o",
             "widget":"Dashboard"
         }]
     },
     {   
         "name": "Cards",
-        "icon": "credit-card.svg",
+        "icon": "fa.folder",
         "children":[{
             "name":"Cards",
-            "icon": "circle.svg",
+            "icon": "fa.circle-o",
             "widget":"TemplatePage"
         },
         {
             "name":"Cards Advanced",
-            "icon": "circle.svg",
+            "icon": "fa.circle-o",
             "widget":"TemplatePage"
         },
         {
             "name":"Cards Extented",
-            "icon": "circle.svg",
+            "icon": "fa.circle-o",
             "widget":"TemplatePage"
         }]
     },
     {   
         "name": "Tabs",
-        "icon": "folder.svg",
+        "icon": "fa.folder",
         "children":[{
             "name":"Top",
-            "icon": "circle.svg",
+            "icon": "fa.circle-o",
             "widget":"TabsNorth"
         },
         {
             "name":"Right",
-            "icon": "circle.svg",
+            "icon": "fa.circle-o",
             "widget":"TabsEast"
         },
         {
             "name":"Bottom",
-            "icon": "circle.svg",
+            "icon": "fa.circle-o",
             "widget":"TabsSouth"
         },
         {
             "name":"Left",
-            "icon": "circle.svg",
+            "icon": "fa.circle-o",
             "widget":"TabsWest"
         }]
     },
     {   
         "name": "Tables",
-        "icon": "database.svg",
+        "icon": "fa.table",
         "children":[{
             "name":"FileSystem View",
-            "icon": "file.svg",
+            "icon": "fa.circle-o",
             "widget":"FileSystemView"
         },{
             "name":"QTableView",
-            "icon": "file.svg",
+            "icon": "fa.circle-o",
             "widget":"SampleQTableView"
         },
         {
             "name":"QTableWidget",
-            "icon": "file.svg",
+            "icon": "fa.circle-o",
             "widget":"SampelQTableWidget"
         }]
     },
     {   
         "name": "Trees",
-        "icon": "database.svg",
+        "icon": "fa.tree",
         "children":[{
             "name":"QTreeView",
-            "icon": "file.svg",
+            "icon": "fa.circle-o",
             "widget":"SampleQTreeView"
         },
         {
             "name":"QTreeWidget",
-            "icon": "file.svg",
+            "icon": "fa.circle-o",
             "widget":"SampelQTreeWidget"
         }]
     }

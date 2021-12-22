@@ -12,4 +12,28 @@
 # test team and settings in app 
 # on create create app save all settigs(ui and theme)
 
+# add panel 4 header
+# sync --> divider text --> panel header text
+# on click theme load theme json to default
+# footer icons
+# edit menu 
 
+# dividers visibility / true false
+# fix panel4 visibility 
+# add border to panel no divider border
+# change header color
+# change menu text color to panel1 text
+# add text hover color
+
+# fix loadApp (slow)
+
+# add bottom splitter true / false
+# copyright visibility true/false
+# add teheming to app (select theme)
+# add customizer to app ()
+# add bottom module left(right)
+# 
+# add code editor
+
+
+ حسبي اللّه لا إله إلاّ هو عليه توكّلت وهو ربّ العرش العظيم. بسم الله الذي لا يضرّ مع اسمه شيء في الأرض ولا في السّماء وهو السّميع العليم. اللّهمّ بك أمسينا وبك اصبحنا، وبك نحيا وبك نموت وإليك المصير. سبحان الله وبحمده عدد خلقه، ورضا نفسه، وزنة عرشه، ومداد كلماته . اللهم صل وسلم وبارك على سيدنا محمد وعلى اله

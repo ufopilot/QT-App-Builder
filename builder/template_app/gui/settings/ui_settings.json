@@ -28,7 +28,8 @@
         "content_margins": 3,
         "direction": "rtl",
         "show_onstart": true,
-        "title": "Navigation Menu"
+        "title": "Navigation Menu",
+        "divider": true
     },
     "panel2": {
         "visible": true,
@@ -38,7 +39,8 @@
         "content_margins": 3,
         "direction": "rtl",
         "show_onstart": false,
-        "title": "Settings"
+        "title": "Settings",
+        "divider": true
     },
     "panel3": {
         "toggle": false,
@@ -46,7 +48,8 @@
         "direction": "rtl",
         "show_onstart": false,
         "visible": true,
-        "title": "Content"
+        "title": "Content",
+        "divider": true
     },
     "panel4": {
         "visible": true,
@@ -56,7 +59,8 @@
         "content_margins": 3,
         "direction": "ltr",
         "show_onstart": false,
-        "title": "Theming & Customizing"
+        "title": "Theming & Customizing",
+        "divider": true
     },
     "panel5": {
         "visible": true,
@@ -66,7 +70,8 @@
         "content_margins": 3,
         "direction": "ttb",
         "show_onstart": true,
-        "title": "What ever!"
+        "title": "What ever!",
+        "divider": true
     },
     "time_animation": 300
 }

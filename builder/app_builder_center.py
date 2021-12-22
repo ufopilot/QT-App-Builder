@@ -31,11 +31,11 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		self.searchApps()
 	
 		
-	def searchApps(self):
-		apps_path = self.builder_settings.items['apps_path']
-
-		
-
+	def searchApps(self, apps_path=None):
+		if apps_path == None:
+			apps_path = self.builder_settings.items['apps_path']
+			self.apps_path.setText("Path: {}".format(apps_path))
+	
 		if not os.path.isdir(apps_path):
 			return
 		
@@ -54,6 +54,8 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		i = 0; j = 1
 		for app_name in os.listdir(apps_path):
 			if not os.path.isdir(os.path.join(apps_path, app_name)):
+				continue
+			if not os.path.isfile(os.path.join(apps_path, app_name, "app_builder.meta")):
 				continue
 			btn = QPushButton(self.myApps)
 			btn.setObjectName(f"{app_name}")

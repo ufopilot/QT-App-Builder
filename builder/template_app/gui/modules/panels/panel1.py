@@ -20,7 +20,6 @@ class Panel1(QWidget):
 		if not self.settings['panel1']['visible']:
 			self.ui.panel1.parent().hide()
 
-		
 	def setupMenu(self):
 		#self.tree.setSelectionMode(QAbstractItemView.NoSelection)
 		#self.ui.menuTree.verticalHeader().setVisible(False)
@@ -46,6 +45,7 @@ class Panel1(QWidget):
 
 	@Slot(QTreeWidgetItem, int)	
 	def onItemClicked(self, item, col):
+		icon_color = self.theme_settings['theme']['panel1']['icons']
 		if item.text(2) != None and item.text(2) != "":	
 			# open menu link in content panel
 			# call target class
@@ -77,31 +77,43 @@ class Panel1(QWidget):
 		else:
 			# collapse/expand
 			if item.isExpanded():
-				item.setIcon(1, QIcon(UIFunctions().set_svg_icon("chevron-right.svg")))
+				icon = qta.icon("fa.chevron-right", color=icon_color)
+				item.setIcon(1, icon)
 				if item.text(3) != "":
 					item.setIcon(0, QIcon(UIFunctions().set_svg_icon(item.text(3))))
 				self.ui.menuTree.collapseItem(item)
 			else:
-				item.setIcon(1, QIcon(UIFunctions().set_svg_icon("chevron-down.svg")))
+				icon = qta.icon("fa.chevron-down", color=icon_color)
+				item.setIcon(1, icon)
 				#self.ui.menuTree.collapseAll()
 				if item.text(4) != "":
-					item.setIcon(0, QIcon(UIFunctions().set_svg_icon(item.text(4))))
+					icon = qta.icon(item.text(4), color=icon_color)
+					item.setIcon(0, icon)
+					#item.setIcon(0, QIcon(UIFunctions().set_svg_icon(item.text(4))))
 				self.ui.menuTree.expandItem(item)
 				
 	def build_menu(self, data=None, parent=None):
+		icon_color = self.theme_settings['theme']['panel1']['icons']
 		for menu_item in data:
 			tree_item = QTreeWidgetItem(parent)
 			tree_item.setText(0, menu_item['name'])
 		
 			if type(menu_item['icon']) == dict:
-				tree_item.setIcon(0, QIcon(UIFunctions().set_svg_icon(menu_item['icon']['collapsed'], self.theme_settings['colors']['content_icon_color'])))
+				icon = qta.icon(menu_item['icon']['collapsed'], color=icon_color)
+				tree_item.setIcon(0, icon)
+				#tree_item.setIcon(0, QIcon(UIFunctions().set_svg_icon(menu_item['icon']['collapsed'], self.theme_settings['colors']['content_icon_color'])))
 				tree_item.setText(3, menu_item['icon']['collapsed'])
 				tree_item.setText(4, menu_item['icon']['expanded'])
 			else:
-				tree_item.setIcon(0, QIcon(UIFunctions().set_svg_icon(menu_item['icon'], self.theme_settings['colors']['content_icon_color'])))
+				icon = qta.icon(menu_item['icon'], color=icon_color)
+				tree_item.setIcon(0, icon)
+				
+				#tree_item.setIcon(0, QIcon(UIFunctions().set_svg_icon(menu_item['icon'], self.theme_settings['colors']['content_icon_color'])))
 
 			if "children" in menu_item:
-				tree_item.setIcon(1, QIcon(UIFunctions().set_svg_icon("chevron-right.svg", self.theme_settings['colors']['content_icon_color'])))
+				icon = qta.icon("fa.chevron-right", color=icon_color)
+				tree_item.setIcon(1, icon)
+				#tree_item.setIcon(1, QIcon(UIFunctions().set_svg_icon("chevron-right.svg", self.theme_settings['colors']['content_icon_color'])))
 				self.build_menu(data=menu_item['children'], parent=tree_item)
 			else:
 				tree_item.setText(2, menu_item['widget'])

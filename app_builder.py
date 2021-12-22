@@ -33,7 +33,7 @@ class AppBuilder(Base_Class, Gen_Class):
 
 		self.move(-1, -1)
 		screen = QApplication.primaryScreen()
-		print('Screen: %s' % screen.name())
+		#print('Screen: %s' % screen.name())
 		self.size = screen.size()
 		self.resize(400, self.size.height()-40)
 		
@@ -57,12 +57,18 @@ class AppBuilder(Base_Class, Gen_Class):
 		dialog.setFileMode(QFileDialog.Directory)  # ExistingFile
 		dialog.setOption(QFileDialog.DontUseNativeDialog, True)
 		dialog.setOption(QFileDialog.ShowDirsOnly, True)
-		nMode = dialog.exec_()
+		
+		dialog.move(
+            round(self.size.width()/2 - dialog.rect().width()/2), round(self.size.height()/2 - dialog.rect().height()/2)
+        )
+		dialog.exec_()
 		names = dialog.selectedFiles()
-		self.builder_settings.items['apps_path'] = os.path.abspath(names[0])
+		apps_path = os.path.abspath(names[0])
+		self.builder_settings.items['apps_path'] = apps_path
 		self.builder_settings.serialize()
-	
-	
+		self.builder_center.apps_path.setText("Path: {}".format(apps_path))
+		self.builder_center.searchApps(apps_path)
+
 	def loadApp(self, app_name):
 		
 		self.app_name = app_name
@@ -133,8 +139,7 @@ class AppBuilder(Base_Class, Gen_Class):
 		options |= QFileDialog.DontUseNativeDialog
 		fileName, _ = QFileDialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
 		if fileName:
-			print(os.path.basename(fileName))
-		lineedit.setText(os.path.basename(fileName))	
+			lineedit.setText(os.path.basename(fileName))	
 
 	def initFormControl(self):
 		for spinbox in (self.builder__window__minimum_width, 
@@ -232,7 +237,7 @@ class AppBuilder(Base_Class, Gen_Class):
 				name = item.objectName()
 				comp = name.split('__')[1]
 				key = name.split('__')[2]
-				print(comp, key, item.text(), type(item.text()))
+				#print(comp, key, item.text(), type(item.text()))
 				self.settings.items[comp][key] = item.text()
 			except:
 				pass
@@ -240,10 +245,9 @@ class AppBuilder(Base_Class, Gen_Class):
 		for item in self.findChildren(QSpinBox):
 			try:
 				name = item.objectName()
-				print(name)
 				comp = name.split('__')[1]
 				key = name.split('__')[2]
-				print(comp, key, item.text(), type(item.text()))
+				#print(comp, key, item.text(), type(item.text()))
 				self.settings.items[comp][key] = int(item.text())
 			except:
 				pass
@@ -251,10 +255,9 @@ class AppBuilder(Base_Class, Gen_Class):
 		for item in self.findChildren(QCheckBox):
 			try:
 				name = item.objectName()
-				print(name)
 				comp = name.split('__')[1]
 				key = name.split('__')[2]
-				print(comp, key, item.isChecked())
+				#print(comp, key, item.isChecked())
 				self.settings.items[comp][key] = item.isChecked()
 			except:
 				pass

@@ -218,6 +218,37 @@ QLineEdit{
      <widget class="QWidget" name="widget" native="true">
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
+        <widget class="QFrame" name="frame">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="leftMargin">
+           <number>20</number>
+          </property>
+          <property name="rightMargin">
+           <number>20</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="apps_path">
+            <property name="text">
+             <string>dddd</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <widget class="QFrame" name="createdApps">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -240,7 +271,7 @@ QLineEdit{
                <x>0</x>
                <y>0</y>
                <width>975</width>
-               <height>777</height>
+               <height>737</height>
               </rect>
              </property>
              <layout class="QGridLayout" name="gridLayout">

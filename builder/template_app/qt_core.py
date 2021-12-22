@@ -22,5 +22,5 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QMenuBar, QSizePolicy, Q
 	QVBoxLayout, QFrame, QHBoxLayout, QCheckBox, QTreeWidgetItem, QHeaderView, QAbstractItemView, QTreeWidget, QFileSystemModel, QTreeView)
 from PyQt5.uic import loadUiType
 
-
+import qtawesome as qta
 

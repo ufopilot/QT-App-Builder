@@ -240,7 +240,7 @@ QToolTip {
        <enum>QTabWidget::West</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Customizing">
        <attribute name="title">
@@ -295,7 +295,7 @@ QToolTip {
               <number>0</number>
              </property>
              <property name="currentIndex">
-              <number>2</number>
+              <number>0</number>
              </property>
              <property name="tabSpacing">
               <number>0</number>
@@ -305,8 +305,8 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>201</width>
-                <height>342</height>
+                <width>436</width>
+                <height>765</height>
                </rect>
               </property>
               <property name="styleSheet">
@@ -473,8 +473,8 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>201</width>
-                <height>90</height>
+                <width>436</width>
+                <height>765</height>
                </rect>
               </property>
               <attribute name="label">
@@ -535,7 +535,7 @@ QToolTip {
                </rect>
               </property>
               <attribute name="label">
-               <string>Panel1  (Menu)</string>
+               <string>Panel1</string>
               </attribute>
               <layout class="QFormLayout" name="formLayout_3">
                <item row="0" column="0">
@@ -583,12 +583,18 @@ QToolTip {
                  </property>
                 </widget>
                </item>
+               <item row="3" column="1">
+                <widget class="QSpinBox" name="builder__panel1__minimum"/>
+               </item>
                <item row="4" column="0">
                 <widget class="QLabel" name="label_16">
                  <property name="text">
                   <string>Maximum</string>
                  </property>
                 </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QSpinBox" name="builder__panel1__maximum"/>
                </item>
                <item row="5" column="0">
                 <widget class="QLabel" name="label_17">
@@ -611,12 +617,6 @@ QToolTip {
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1">
-                <widget class="QSpinBox" name="builder__panel1__minimum"/>
-               </item>
-               <item row="4" column="1">
-                <widget class="QSpinBox" name="builder__panel1__maximum"/>
-               </item>
                <item row="6" column="1">
                 <widget class="QComboBox" name="builder__panel1__direction">
                  <item>
@@ -636,6 +636,20 @@ QToolTip {
                  </item>
                 </widget>
                </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_34">
+                 <property name="text">
+                  <string>Divider</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="AnimatedCheck" name="builder__panel1__divider">
+                 <property name="text">
+                  <string>CheckBox</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
              <widget class="QWidget" name="page_6">
@@ -643,18 +657,25 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>201</width>
-                <height>194</height>
+                <width>436</width>
+                <height>765</height>
                </rect>
               </property>
               <attribute name="label">
-               <string>Panel2 (Settings)</string>
+               <string>Panel2</string>
               </attribute>
               <layout class="QFormLayout" name="formLayout_5">
                <item row="0" column="0">
                 <widget class="QLabel" name="label_45">
                  <property name="text">
                   <string>Visible</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="AnimatedCheck" name="builder__panel2__visible">
+                 <property name="text">
+                  <string>CheckBox</string>
                  </property>
                 </widget>
                </item>
@@ -689,12 +710,18 @@ QToolTip {
                  </property>
                 </widget>
                </item>
+               <item row="3" column="1">
+                <widget class="QSpinBox" name="builder__panel2__minimum"/>
+               </item>
                <item row="4" column="0">
                 <widget class="QLabel" name="label_41">
                  <property name="text">
                   <string>Maximum</string>
                  </property>
                 </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QSpinBox" name="builder__panel2__maximum"/>
                </item>
                <item row="5" column="0">
                 <widget class="QLabel" name="label_40">
@@ -717,19 +744,6 @@ QToolTip {
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="AnimatedCheck" name="builder__panel2__visible">
-                 <property name="text">
-                  <string>CheckBox</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QSpinBox" name="builder__panel2__minimum"/>
-               </item>
-               <item row="4" column="1">
-                <widget class="QSpinBox" name="builder__panel2__maximum"/>
-               </item>
                <item row="6" column="1">
                 <widget class="QComboBox" name="builder__panel2__direction">
                  <item>
@@ -744,6 +758,20 @@ QToolTip {
                  </item>
                 </widget>
                </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_36">
+                 <property name="text">
+                  <string>Divider</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="AnimatedCheck" name="builder__panel2__divider">
+                 <property name="text">
+                  <string>CheckBox</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
              <widget class="QWidget" name="page_7">
@@ -751,12 +779,12 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>201</width>
-                <height>116</height>
+                <width>436</width>
+                <height>765</height>
                </rect>
               </property>
               <attribute name="label">
-               <string>Panel3 (Content)</string>
+               <string>Panel3</string>
               </attribute>
               <layout class="QFormLayout" name="formLayout_6">
                <item row="0" column="0">
@@ -811,6 +839,20 @@ QToolTip {
                  </property>
                 </widget>
                </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_39">
+                 <property name="text">
+                  <string>Show on Start</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="AnimatedCheck" name="builder__panel3__divider">
+                 <property name="text">
+                  <string>Divider</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
              <widget class="QWidget" name="page_3">
@@ -818,12 +860,12 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>201</width>
-                <height>194</height>
+                <width>436</width>
+                <height>765</height>
                </rect>
               </property>
               <attribute name="label">
-               <string>Panel4 (Theming &amp; Customizing)</string>
+               <string>Panel4</string>
               </attribute>
               <layout class="QFormLayout" name="formLayout_7">
                <item row="0" column="0">
@@ -871,12 +913,18 @@ QToolTip {
                  </property>
                 </widget>
                </item>
+               <item row="3" column="1">
+                <widget class="QSpinBox" name="builder__panel4__minimum"/>
+               </item>
                <item row="4" column="0">
                 <widget class="QLabel" name="label_27">
                  <property name="text">
                   <string>Maximum</string>
                  </property>
                 </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QSpinBox" name="builder__panel4__maximum"/>
                </item>
                <item row="5" column="0">
                 <widget class="QLabel" name="label_26">
@@ -899,12 +947,6 @@ QToolTip {
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1">
-                <widget class="QSpinBox" name="builder__panel4__minimum"/>
-               </item>
-               <item row="4" column="1">
-                <widget class="QSpinBox" name="builder__panel4__maximum"/>
-               </item>
                <item row="6" column="1">
                 <widget class="QComboBox" name="builder__panel4__direction">
                  <item>
@@ -919,6 +961,20 @@ QToolTip {
                  </item>
                 </widget>
                </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_51">
+                 <property name="text">
+                  <string>Divider</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="AnimatedCheck" name="builder__panel4__divider">
+                 <property name="text">
+                  <string>CheckBox</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
              <widget class="QWidget" name="page_4">
@@ -926,12 +982,12 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>201</width>
-                <height>194</height>
+                <width>436</width>
+                <height>765</height>
                </rect>
               </property>
               <attribute name="label">
-               <string>Panel5 (Bottom Panel)</string>
+               <string>Panel5</string>
               </attribute>
               <layout class="QFormLayout" name="formLayout_4">
                <item row="0" column="0">
@@ -979,12 +1035,18 @@ QToolTip {
                  </property>
                 </widget>
                </item>
+               <item row="3" column="1">
+                <widget class="QSpinBox" name="builder__panel5__minimum"/>
+               </item>
                <item row="4" column="0">
                 <widget class="QLabel" name="label_22">
                  <property name="text">
                   <string>Maximum</string>
                  </property>
                 </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QSpinBox" name="builder__panel5__maximum"/>
                </item>
                <item row="5" column="0">
                 <widget class="QLabel" name="label_21">
@@ -1007,12 +1069,6 @@ QToolTip {
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1">
-                <widget class="QSpinBox" name="builder__panel5__minimum"/>
-               </item>
-               <item row="4" column="1">
-                <widget class="QSpinBox" name="builder__panel5__maximum"/>
-               </item>
                <item row="6" column="1">
                 <widget class="QComboBox" name="builder__panel5__direction">
                  <item>
@@ -1027,6 +1083,20 @@ QToolTip {
                  </item>
                 </widget>
                </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_52">
+                 <property name="text">
+                  <string>Divider</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="AnimatedCheck" name="builder__panel5__divider">
+                 <property name="text">
+                  <string>CheckBox</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
              <widget class="QWidget" name="page_2">
@@ -1034,8 +1104,8 @@ QToolTip {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>201</width>
-                <height>38</height>
+                <width>436</width>
+                <height>765</height>
                </rect>
               </property>
               <attribute name="label">
