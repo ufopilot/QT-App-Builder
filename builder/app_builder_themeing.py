@@ -46,8 +46,12 @@ class ThemeBuilder(QWidget):
 			try:
 				label1 = frame.findChildren(QLabel)[0]
 				label2 = frame.findChildren(QLabel)[1]
+				btn = frame.findChild(QPushButton)
+
 				label1.setProperty("type", 1)
 				label2.setProperty("type", 2)
+				icon = qta.icon("fa.pencil", color="cyan")
+				btn.setIcon(icon)
 			except:
 				pass
 

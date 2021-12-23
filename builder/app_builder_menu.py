@@ -27,7 +27,7 @@ class MenuBuilder(QWidget):
 		self.initial = False
 	
 	def setup(self):
-		
+		self.parent.menuTree.clear() 
 		self.parent.menuTree.setFocusPolicy(Qt.NoFocus)
 		sizePolicy = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored)
 		sizePolicy.setHorizontalStretch(0)
