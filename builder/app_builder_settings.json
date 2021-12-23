@@ -1,7 +1,8 @@
 {
     "apps_path": "D:\\DEVELOPEMENT\\PYTHON\\QT_APPS\\QT-App-Builder\\apps",
-    "selected_app": "",
+    "selected_app": "Andre",
     "left_width": 500,
     "right_width": 64,
-    "bottom_height": 200
+    "bottom_height": 200,
+    "selected_theme": "dark"
 }

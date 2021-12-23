@@ -247,6 +247,9 @@ QToolTip {
 </string>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
     <property name="topMargin">
      <number>0</number>
     </property>
@@ -256,6 +259,31 @@ QToolTip {
     <property name="bottomMargin">
      <number>0</number>
     </property>
+    <item>
+     <widget class="LabelVertical" name="themes_label">
+      <property name="minimumSize">
+       <size>
+        <width>30</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>30</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#themes_label QLabel{
+	border-right: 1px solid #fff;
+	background: #aaa;
+}</string>
+      </property>
+      <property name="text">
+       <string>Themes</string>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="QScrollArea" name="scrollArea">
       <property name="verticalScrollBarPolicy">
@@ -269,13 +297,13 @@ QToolTip {
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1109</width>
+         <width>1082</width>
          <height>124</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="scrollLayout">
         <property name="leftMargin">
-         <number>0</number>
+         <number>9</number>
         </property>
         <property name="topMargin">
          <number>5</number>
@@ -317,6 +345,13 @@ QToolTip {
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LabelVertical</class>
+   <extends>QLabel</extends>
+   <header>builder/widgets/label_vertical/label_vertical</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

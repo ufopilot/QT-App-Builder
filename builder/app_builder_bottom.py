@@ -33,6 +33,8 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		#self.setWindowFlag(Qt.WindowStaysOnBottomHint)
 		
 		self.loadThemesButtons()
+
+		self.themes_label.setStyleSheet("min-width: 40px;max-width: 40px; border-right: 1px solid rgb(49, 54, 72); font-size: 16px;")
 	
 	def createScrollArea(self):
 		for i in range(40):
@@ -66,17 +68,26 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		#
 		#self.parent.showMessage("info", "Load Theme", f"Theme {name} loaded!",2)
 		self.parent.reload_app()
+		self.setSelectedTheme(name)
 
-
+	def setSelectedTheme(self, name=""):
+		settings = Settings('builder')
+		settings.items['selected_theme'] = name
+		settings.serialize()
+		self.parent.builder_center.selected_theme.setText(f"Theme: {name}")
+	
 	def connectThemeButtons(self):
 		for button in self.findChildren(QAbstractButton):
 			if button.metaObject().className() == "QPushButton": 
 				button.clicked.connect(self.loadSavedTheme)
+	
+	def clearThemesButtons(self):
+		for childframe in self.scrollFrame.findChildren(QFrame):
+			childframe.deleteLater()
 
 	def loadThemesButtons(self):
 		self.scrollFrame.hide()
-		for childframe in self.scrollFrame.findChildren(QFrame):
-			childframe.deleteLater()
+		self.clearThemesButtons()
 
 		i = 0
 		for file_path in glob.glob(f"{self.apps_path}/{self.app_name}/gui/resources/imgs/themes/*.png"):
@@ -93,6 +104,7 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 			label = QLabel(frame)
 			label.setObjectName(u"label")
 			label.setText(name)
+			label.setStyleSheet("padding: 5px;")
 			layout.addWidget(label)
 			pushButton = QPushButton(frame)
 			pushButton.setObjectName(f"{name}")

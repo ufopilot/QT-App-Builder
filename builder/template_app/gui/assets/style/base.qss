@@ -16,7 +16,7 @@
 /* HEADER                                  */
 /*-----------------------------------------*/
 #logo{
-	background:  var(header[background]);
+	background:  var(titlebar[background]);
 	
 }
 

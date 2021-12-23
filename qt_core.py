@@ -11,7 +11,7 @@ from functools import partial
 #from PySide2.QtSvg import QSvgWidget
 
 from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QLocale, pyqtSlot as Slot, QRectF, QPointF, QTimer, QRegExp,
-	QMetaObject, QObject, QPoint, QRect, QEvent, pyqtSignal as Signal, pyqtProperty as Property, QSequentialAnimationGroup,
+	QMetaObject, QObject, QPoint, QRect, QEvent, pyqtSignal as Signal, pyqtProperty as Property, QSequentialAnimationGroup, QRunnable, QThreadPool,
 	QSize, QTime, QUrl, Qt, QPropertyAnimation, QEasingCurve, QAbstractAnimation, QParallelAnimationGroup, QPropertyAnimation, QEvent)
 from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QScreen,
 	QFont, QFontDatabase, QGradient, QIcon, QFontMetrics, QMovie,

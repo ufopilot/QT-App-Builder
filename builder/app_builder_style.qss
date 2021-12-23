@@ -201,7 +201,11 @@ QTreeWidget:indicator:checked { background:#28a745;}
  border-radius: 3px;
 }
 
-#Theming QLabel[type="2"]{
+#Theming QLabel[type="color_label"]{
 	border: 2px solid teal;
 	border-radius: 12px;
+	background: #fff;
+	min-height: 20px;
+	max-height: 20px;
 }
+

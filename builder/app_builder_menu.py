@@ -54,6 +54,7 @@ class MenuBuilder(QWidget):
 		self.menu_settings = Settings('menu', apps_path=self.apps_path, app_name=self.app_name)
 		
 		self.build_menu(data=self.menu_settings.items, parent=self.parent.menuTree)
+		self.parent.menuTree.expandAll()
 
 	def build_menu(self, data=None, parent=None):
 		

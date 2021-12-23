@@ -1,11 +1,9 @@
-#rom xml.etree.ElementTree import Element
 from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
 from qt_core import *
 
 	
 Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/uis/app_builder_center.ui"))
-
 
 class AppBuilderCenter(Base_Class, Gen_Class):
 	def __init__(self, parent=None, ui=None):
@@ -30,7 +28,6 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 
 		self.searchApps()
 	
-		
 	def searchApps(self, apps_path=None):
 		if apps_path == None:
 			apps_path = self.builder_settings.items['apps_path']
@@ -72,20 +69,16 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 	def loadApp(self):
 		btn = self.sender()
 		app_name = btn.objectName()
-		#self.selected_app.setText(f"Selected App: {app_name}")
 		self.setSelectedApp(app_name)
 		self.progressBar.show()
 		QTimer.singleShot(100, lambda: self.parent.loadApp(app_name))
 
-	def setSelectedApp(self, app_name=""):
+	def setSelectedApp(self, name=""):
 		settings = Settings('builder')
-		settings.items['selected_app'] = app_name
+		settings.items['selected_app'] = name
 		settings.serialize()
-		self.selected_app.setText(f"Selected App: {app_name}")
-		
-
-		
-
+		self.selected_app.setText(f"App: {name}")
+	
 if __name__ == '__main__':
 	import sys
 	app = QApplication(sys.argv)

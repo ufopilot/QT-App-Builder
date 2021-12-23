@@ -58,7 +58,22 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.builder__window__icon.doubleClicked.connect(self.selectIcon)
 		self.builder__title_bar__icon.doubleClicked.connect(self.selectIcon)
 		self.setStyle()
-		
+		#self.hideThemingProgess()
+	
+	#def hideThemingProgess(self):
+	#	for p in (
+	#			self.titlebar_progressBar, 
+	#			self.panel1_progressBar, 
+	#			self.panel2_progressBar, 
+	#			self.panel3_progressBar,
+	#			self.panel4_progressBar,
+	#			self.panel5_progressBar,
+	#			self.footerbar_progressBar,
+	#			self.dividers_progressBar
+	#			):
+	#		
+	#		p.hide()
+
 	def setStyle(self):
 		with open("builder/app_builder_style.qss") as f:
 			stylesheet = f.read()
@@ -261,7 +276,7 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.builder_settings.serialize()
 		
 		self.ui = self.app
-		self.app.move(self.builder_settings.items['left_width']+16, 15)
+		self.app.move(self.builder_settings.items['left_width']+16, 35)
 		self.app.show()
 		self.app.closewindow.clicked.connect(self.closeApp)
 	
@@ -270,6 +285,7 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.theme_builder.ui = self.app
 		self.theme_builder.apps_path = apps_path
 		self.theme_builder.app_name = app_name
+		self.theme_builder.initial = True
 		self.theme_builder.setup()
 		# MenuBuilder
 		self.menu_builder.ui = self.app
@@ -311,7 +327,28 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.app.show()
 	
 	def closeApp(self):
+		self.theme_builder.initial = True
+		self.theme_builder.reset = True
+		
+		for combo in self.Theming.findChildren(QComboBox):
+			combo.clear()
+
+		for edit in self.Customizing.findChildren(QLineEdit):
+			edit.setText("")
+		
+		for edit in self.Customizing.findChildren(QSpinBox):
+			edit.setValue(0)
+		
+		for check in self.Customizing.findChildren(QCheckBox):
+			check.setChecked(False)
+
+		self.menuTree.clear() 
+
+		self.builder_bottom.clearThemesButtons()
 		self.builder_center.setSelectedApp()
+		self.theme_builder.initial = False
+		self.theme_builder.reset = False
+		
 	
 
 if __name__ == '__main__':

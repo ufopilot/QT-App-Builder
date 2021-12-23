@@ -42,7 +42,7 @@
        <enum>QTabWidget::West</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Customizing">
        <attribute name="title">
@@ -97,7 +97,7 @@
               <number>0</number>
              </property>
              <property name="currentIndex">
-              <number>3</number>
+              <number>0</number>
              </property>
              <property name="tabSpacing">
               <number>0</number>
@@ -275,8 +275,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>502</width>
-                <height>765</height>
+                <width>514</width>
+                <height>912</height>
                </rect>
               </property>
               <attribute name="label">
@@ -332,8 +332,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>502</width>
-                <height>765</height>
+                <width>514</width>
+                <height>912</height>
                </rect>
               </property>
               <attribute name="label">
@@ -581,8 +581,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>502</width>
-                <height>765</height>
+                <width>514</width>
+                <height>912</height>
                </rect>
               </property>
               <attribute name="label">
@@ -662,8 +662,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>502</width>
-                <height>765</height>
+                <width>514</width>
+                <height>912</height>
                </rect>
               </property>
               <attribute name="label">
@@ -784,8 +784,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>502</width>
-                <height>765</height>
+                <width>514</width>
+                <height>912</height>
                </rect>
               </property>
               <attribute name="label">
@@ -906,8 +906,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>502</width>
-                <height>765</height>
+                <width>514</width>
+                <height>912</height>
                </rect>
               </property>
               <attribute name="label">
@@ -966,9 +966,9 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-14</y>
-             <width>497</width>
-             <height>278</height>
+             <y>0</y>
+             <width>514</width>
+             <height>305</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1082,7 +1082,6 @@
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -1192,7 +1191,6 @@
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -1302,7 +1300,6 @@
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -1412,7 +1409,6 @@
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -1522,7 +1518,6 @@
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -1632,7 +1627,6 @@
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -1745,7 +1739,6 @@
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -1757,7 +1750,7 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-2</y>
              <width>497</width>
              <height>354</height>
             </rect>
@@ -1845,12 +1838,6 @@
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -1873,24 +1860,9 @@
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -1975,12 +1947,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -2003,24 +1969,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -2105,12 +2056,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -2133,24 +2078,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -2235,12 +2165,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -2263,24 +2187,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -2365,12 +2274,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -2393,24 +2296,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -2495,12 +2383,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -2523,24 +2405,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -2625,12 +2492,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -2653,24 +2514,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -2755,12 +2601,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -2783,24 +2623,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -2885,12 +2710,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -2913,24 +2732,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -2942,7 +2746,7 @@ QPushButton:hover{
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-42</y>
              <width>497</width>
              <height>354</height>
             </rect>
@@ -3075,7 +2879,6 @@ QPushButton:hover{
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -3160,12 +2963,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -3188,24 +2985,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -3290,12 +3072,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -3318,24 +3094,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -3420,12 +3181,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -3448,24 +3203,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -3550,12 +3290,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -3578,24 +3312,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -3680,12 +3399,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -3708,24 +3421,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -3810,12 +3508,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -3838,24 +3530,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -3940,12 +3617,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -3968,24 +3639,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -4070,12 +3726,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -4098,24 +3748,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -4128,7 +3763,7 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>223</width>
+             <width>497</width>
              <height>392</height>
             </rect>
            </property>
@@ -4215,12 +3850,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -4243,24 +3872,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -4345,12 +3959,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -4373,24 +3981,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -4475,12 +4068,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -4503,24 +4090,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -4605,12 +4177,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -4633,24 +4199,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -4735,12 +4286,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -4763,24 +4308,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -4865,12 +4395,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -4893,24 +4417,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -4995,12 +4504,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -5023,24 +4526,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -5125,12 +4613,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -5153,24 +4635,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -5255,12 +4722,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -5283,24 +4744,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -5385,12 +4831,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -5413,24 +4853,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -5443,7 +4868,7 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>217</width>
+             <width>497</width>
              <height>354</height>
             </rect>
            </property>
@@ -5530,12 +4955,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -5558,24 +4977,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -5660,12 +5064,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -5688,24 +5086,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -5790,12 +5173,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -5818,24 +5195,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -5920,12 +5282,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -5948,24 +5304,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -6050,12 +5391,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -6078,24 +5413,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -6180,12 +5500,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -6208,24 +5522,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -6310,12 +5609,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -6338,24 +5631,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -6440,12 +5718,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -6468,24 +5740,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -6570,12 +5827,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -6598,24 +5849,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -6628,7 +5864,7 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>217</width>
+             <width>497</width>
              <height>354</height>
             </rect>
            </property>
@@ -6715,12 +5951,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -6743,24 +5973,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -6845,12 +6060,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -6873,24 +6082,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -6975,12 +6169,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -7003,24 +6191,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -7105,12 +6278,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -7133,24 +6300,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -7235,12 +6387,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -7263,24 +6409,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -7365,12 +6496,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -7393,24 +6518,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -7495,12 +6605,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -7523,24 +6627,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -7625,12 +6714,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -7653,24 +6736,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -7755,12 +6823,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -7783,24 +6845,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -7814,7 +6861,7 @@ QPushButton:hover{
              <x>0</x>
              <y>0</y>
              <width>514</width>
-             <height>278</height>
+             <height>305</height>
             </rect>
            </property>
            <attribute name="label">
@@ -7900,12 +6947,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -7928,24 +6969,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -8030,12 +7056,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -8058,24 +7078,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -8160,12 +7165,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -8188,24 +7187,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -8290,12 +7274,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -8318,24 +7296,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -8420,12 +7383,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -8448,24 +7405,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -8550,12 +7492,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -8578,24 +7514,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -8680,12 +7601,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -8708,20 +7623,6 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -8738,7 +7639,7 @@ QPushButton:hover{
              <x>0</x>
              <y>0</y>
              <width>514</width>
-             <height>278</height>
+             <height>305</height>
             </rect>
            </property>
            <attribute name="label">
@@ -8824,12 +7725,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -8851,20 +7746,6 @@ QPushButton:hover{
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -8953,12 +7834,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -8981,24 +7856,9 @@ QPushButton:hover{
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
-                
                 </widget>
                </item>
               </layout>
@@ -9083,12 +7943,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -9110,20 +7964,6 @@ QPushButton:hover{
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -9212,12 +8052,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -9239,20 +8073,6 @@ QPushButton:hover{
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -9341,12 +8161,6 @@ QPushButton:hover{
                    <height>24</height>
                   </size>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
-                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -9368,20 +8182,6 @@ QPushButton:hover{
                  </property>
                  <property name="cursor">
                   <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton { 
-	   border: 1px  solid  rgb(49, 54, 72);
-	border-radius: 3px;
- background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #13161f, stop: 0.4 #161924,
-                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
-}
-
-QPushButton:hover{
-	background:rgb(62, 62, 62);
-	border-radius: 3px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
@@ -9469,12 +8269,6 @@ QPushButton:hover{
                    <width>50</width>
                    <height>24</height>
                   </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-	border: 2px solid teal;
-	border-radius: 12px;
-}</string>
                  </property>
                  <property name="text">
                   <string/>
