@@ -71,6 +71,8 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		app_name = btn.objectName()
 		self.setSelectedApp(app_name)
 		self.progressBar.show()
+		for btn in self.myApps.findChildren(QPushButton):
+			btn.setEnabled(False)
 		QTimer.singleShot(100, lambda: self.parent.loadApp(app_name))
 
 	def setSelectedApp(self, name=""):

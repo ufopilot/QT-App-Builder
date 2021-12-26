@@ -76,17 +76,27 @@ class Panel1(QWidget):
 			if item.isExpanded():
 				icon = qta.icon("fa.chevron-right", color=icon_color)
 				item.setIcon(1, icon)
+				
 				if item.text(3) != "":
-					item.setIcon(0, QIcon(UIFunctions().set_svg_icon(item.text(3))))
+					try:
+						icon = qta.icon(item.text(3), color=icon_color)
+						item.setIcon(0, icon)
+					except:
+						item.setIcon(0, QIcon())
+
+					
 				self.ui.menuTree.collapseItem(item)
 			else:
 				icon = qta.icon("fa.chevron-down", color=icon_color)
 				item.setIcon(1, icon)
 				#self.ui.menuTree.collapseAll()
 				if item.text(4) != "":
-					icon = qta.icon(item.text(4), color=icon_color)
-					item.setIcon(0, icon)
-					#item.setIcon(0, QIcon(UIFunctions().set_svg_icon(item.text(4))))
+					try:
+						icon = qta.icon(item.text(4), color=icon_color)
+						item.setIcon(0, icon)
+					except:
+						item.setIcon(0, QIcon())
+					
 				self.ui.menuTree.expandItem(item)
 				
 	def build_menu(self, data=None, parent=None):
@@ -96,14 +106,20 @@ class Panel1(QWidget):
 			tree_item.setText(0, menu_item['name'])
 		
 			if type(menu_item['icon']) == dict:
-				icon = qta.icon(menu_item['icon']['collapsed'], color=icon_color)
-				tree_item.setIcon(0, icon)
+				try:
+					icon = qta.icon(menu_item['icon']['collapsed'], color=icon_color)
+					tree_item.setIcon(0, icon)
+				except:
+					tree_item.setIcon(0, QIcon())
 				#tree_item.setIcon(0, QIcon(UIFunctions().set_svg_icon(menu_item['icon']['collapsed'], self.theme_settings['colors']['content_icon_color'])))
 				tree_item.setText(3, menu_item['icon']['collapsed'])
 				tree_item.setText(4, menu_item['icon']['expanded'])
 			else:
-				icon = qta.icon(menu_item['icon'], color=icon_color)
-				tree_item.setIcon(0, icon)
+				try:
+					icon = qta.icon(menu_item['icon'], color=icon_color)
+					tree_item.setIcon(0, icon)
+				except:
+					tree_item.setIcon(0, QIcon())
 				
 				#tree_item.setIcon(0, QIcon(UIFunctions().set_svg_icon(menu_item['icon'], self.theme_settings['colors']['content_icon_color'])))
 

@@ -43,12 +43,15 @@ class UIFunctions():
 		qp.end()
 		return QIcon(img)
 
-	def getAppTheme(self, theme_settings, apps_path, app_name):
+	def getAppTheme(self, theme_settings=None, apps_path=None, app_name=None, theme_name=None):
 		regex = r"\w+\(([^\)]+)\)"
 		with open(UIFunctions().resource_path(f'{apps_path}/{app_name}/gui/assets/style/base.qss'), "r", encoding='utf-8') as reader:
 			base_stylesheet = reader.read().replace("{","{{").replace("}","}}")
 			base_stylesheet = re.sub(regex, '{\\1}', base_stylesheet)
-			theme = theme_settings['theme']
+			if theme_name == None:
+				theme = theme_settings['theme']
+			else:
+				theme = theme_settings['themes'][theme_name]
 			formated_stylesheet = base_stylesheet.format(**theme)
 			return formated_stylesheet
 			

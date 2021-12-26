@@ -1,8 +1,9 @@
 {
     "apps_path": "D:\\DEVELOPEMENT\\PYTHON\\QT_APPS\\QT-App-Builder\\apps",
-    "selected_app": "Andre",
+    "selected_app": "template_app",
+    "selected_theme": "grey",
     "left_width": 500,
     "right_width": 64,
     "bottom_height": 200,
-    "selected_theme": "dark"
+    "icons_color": "#eee"
 }

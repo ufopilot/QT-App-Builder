@@ -56,6 +56,8 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.saveCurrentTheme.setToolTip("Save current style as theme")
 		self.saveCurrentTheme.setCursor(QCursor(Qt.PointingHandCursor))
 		self.saveCurrentTheme.clicked.connect(self.save_current_theme)
+		self.saveCurrentTheme.enterEvent = lambda x: self.highlighter(self.saveCurrentTheme, "enter")
+		self.saveCurrentTheme.leaveEvent = lambda x: self.highlighter(self.saveCurrentTheme, "leave")
 		self.add_icon(self.saveCurrentTheme, "ei.css")
 
 
@@ -70,9 +72,12 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.add_icon(self.reloadApp, "mdi.reload")
 
 		self.createNewApp.setCheckable(True)
-		self.createNewApp.setToolTip('Create new app')
+		self.createNewApp.setToolTip('Create new app from template')
 		self.createNewApp.setCursor(QCursor(Qt.PointingHandCursor))
 		self.createNewApp.clicked.connect(self.create_new_app)
+		self.createNewApp.enterEvent = lambda x: self.highlighter(self.createNewApp, "enter")
+		self.createNewApp.leaveEvent = lambda x: self.highlighter(self.createNewApp, "leave")
+		
 		self.add_icon(self.createNewApp, "mdi.new-box")
 
 		self.compileApp.setCheckable(True)
@@ -85,12 +90,24 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.setAppsPath.setToolTip('Set applications path ')
 		self.setAppsPath.setCursor(QCursor(Qt.PointingHandCursor))
 		self.setAppsPath.clicked.connect(self.parent.setAppsPath)
+		self.setAppsPath.enterEvent = lambda x: self.highlighter(self.setAppsPath, "enter")
+		self.setAppsPath.leaveEvent = lambda x: self.highlighter(self.setAppsPath, "leave")
 		self.add_icon(self.setAppsPath, "mdi.folder-table-outline")
 
+		#for btn in (self.setAppsPath, self.createNewApp):
+		#	btn.enterEvent = lambda x: self.highlighter(btn, "enter")
+		#	btn.leaveEvent = lambda x: self.highlighter(btn, "leave")
+		#	
 		self.closeAppBuilder.setCursor(QCursor(Qt.PointingHandCursor))
 		
 	def add_icon(self, btn, icon_name):
-		icon = qta.icon(icon_name, color="cyan")
+		if 'icons_color' in self.builder_settings.items:
+			if self.builder_settings.items['icons_color'] != "":
+				icon_color = self.builder_settings.items['icons_color']
+			else:
+				icon_color = "white"
+
+		icon = qta.icon(icon_name, color=icon_color)
 		btn.setIcon(icon)
 		btn.setIconSize(QSize(40, 40))
 
@@ -137,8 +154,42 @@ class AppBuilderRight(Base_Class, Gen_Class):
 			return
 	
 		self.appCreator.show()
-		
+	
+	#def eventFilter(self, obj, event):
+	#	print(obj)
+		#if obj == self.btn and event.type() == QEvent.HoverEnter:
+		#	self.onHovered()
+		#return super(Widget, self).eventFilter(obj, event)
 
+	#def enterEvent(self, e):
+	#	
+	#	print("hovered")
+	#	#self.btn.setText("Ok, \nbutton onHovered")    
+#
+	#def leaveEvent(self, e):
+	#	print("leave")
+	#	#self.btn.setText("Press me")  
+	def highlighter(self, btn, e): 
+		btn_name = btn.objectName()
+		if btn_name == "setAppsPath":
+			if e == "enter":
+				self.parent.builder_center.apps_path.setStyleSheet("border-bottom: 1px solid cyan")
+			else:
+				self.parent.builder_center.apps_path.setStyleSheet("border: 0px solid cyan")               
+		if btn_name == "createNewApp":
+			if e == "enter":
+				self.parent.builder_center.scrollArea.setStyleSheet("QScrollArea{border-bottom: 1px solid cyan}")
+			else:
+				self.parent.builder_center.scrollArea.setStyleSheet("QScrollArea{border: 0px solid cyan}")               
+		if btn_name == "saveCurrentTheme":
+			if e == "enter":
+				self.parent.builder_bottom.themes_label.setStyleSheet("min-width: 40px;max-width: 40px; border-right: 1px solid cyan; font-size: 16px;")
+	
+			else:
+				self.parent.builder_bottom.themes_label.setStyleSheet("min-width: 40px;max-width: 40px; border-right: 1px solid rgb(49, 54, 72); font-size: 16px;")
+	  
+		
+		
 if __name__ == '__main__':
 	import sys
 	app = QApplication(sys.argv)

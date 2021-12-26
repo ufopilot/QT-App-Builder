@@ -134,7 +134,7 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>80</width>
+              <width>211</width>
               <height>16777215</height>
              </size>
             </property>
@@ -1578,7 +1578,7 @@
   <customwidget>
    <class>LabelVertical</class>
    <extends>QLabel</extends>
-   <header>builder/template_app/gui/widgets/label_vertical/label_vertical</header>
+   <header>builder/widgets/label_vertical/label_vertical</header>
   </customwidget>
   <customwidget>
    <class>LabelHorizontal</class>
@@ -1586,8 +1586,6 @@
    <header>builder/template_app/gui/widgets/label_horizontal/label_horizontal</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../../../resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

@@ -42,7 +42,7 @@
        <enum>QTabWidget::West</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Customizing">
        <attribute name="title">
@@ -275,8 +275,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>514</width>
-                <height>912</height>
+                <width>161</width>
+                <height>84</height>
                </rect>
               </property>
               <attribute name="label">
@@ -332,8 +332,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>514</width>
-                <height>912</height>
+                <width>169</width>
+                <height>208</height>
                </rect>
               </property>
               <attribute name="label">
@@ -459,8 +459,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>514</width>
-                <height>912</height>
+                <width>169</width>
+                <height>208</height>
                </rect>
               </property>
               <attribute name="label">
@@ -581,8 +581,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>514</width>
-                <height>912</height>
+                <width>169</width>
+                <height>130</height>
                </rect>
               </property>
               <attribute name="label">
@@ -662,8 +662,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>514</width>
-                <height>912</height>
+                <width>169</width>
+                <height>208</height>
                </rect>
               </property>
               <attribute name="label">
@@ -784,8 +784,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>514</width>
-                <height>912</height>
+                <width>169</width>
+                <height>208</height>
                </rect>
               </property>
               <attribute name="label">
@@ -906,8 +906,8 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>514</width>
-                <height>912</height>
+                <width>123</width>
+                <height>35</height>
                </rect>
               </property>
               <attribute name="label">
@@ -960,7 +960,10 @@
         <item alignment="Qt::AlignTop">
          <widget class="QToolBox" name="toolBox_2">
           <property name="currentIndex">
-           <number>6</number>
+           <number>0</number>
+          </property>
+          <property name="tabSpacing">
+           <number>0</number>
           </property>
           <widget class="QWidget" name="theming_titlebar">
            <property name="geometry">
@@ -968,7 +971,7 @@
              <x>0</x>
              <y>0</y>
              <width>514</width>
-             <height>305</height>
+             <height>278</height>
             </rect>
            </property>
            <attribute name="label">
@@ -1750,8 +1753,8 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-2</y>
-             <width>497</width>
+             <y>0</y>
+             <width>213</width>
              <height>354</height>
             </rect>
            </property>
@@ -2746,8 +2749,8 @@
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-42</y>
-             <width>497</width>
+             <y>0</y>
+             <width>217</width>
              <height>354</height>
             </rect>
            </property>
@@ -3763,7 +3766,7 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>497</width>
+             <width>219</width>
              <height>392</height>
             </rect>
            </property>
@@ -4868,7 +4871,7 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>497</width>
+             <width>213</width>
              <height>354</height>
             </rect>
            </property>
@@ -5864,7 +5867,7 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>497</width>
+             <width>213</width>
              <height>354</height>
             </rect>
            </property>
@@ -6860,8 +6863,8 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>514</width>
-             <height>305</height>
+             <width>213</width>
+             <height>278</height>
             </rect>
            </property>
            <attribute name="label">
@@ -7638,8 +7641,8 @@ QPushButton:hover{
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>514</width>
-             <height>305</height>
+             <width>213</width>
+             <height>278</height>
             </rect>
            </property>
            <attribute name="label">
@@ -8420,8 +8423,23 @@ QPushButton:hover{
         <string>Menu</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_13">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
-         <widget class="QTreeWidget" name="menuTree">
+         <widget class="TreeWidget" name="menuTree">
           <property name="styleSheet">
            <string notr="true"/>
           </property>
@@ -8445,6 +8463,11 @@ QPushButton:hover{
             <string>Icon</string>
            </property>
           </column>
+          <column>
+           <property name="text">
+            <string/>
+           </property>
+          </column>
          </widget>
         </item>
        </layout>
@@ -8465,9 +8488,12 @@ QPushButton:hover{
    <extends>QLineEdit</extends>
    <header>builder/widgets/clickable_lineedit/clickable_lineedit</header>
   </customwidget>
+  <customwidget>
+   <class>TreeWidget</class>
+   <extends>QTreeWidget</extends>
+   <header>builder/widgets/treewidget/treewidget</header>
+  </customwidget>
  </customwidgets>
- <resources>
-  <include location="../resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

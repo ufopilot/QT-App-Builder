@@ -1,109 +1,147 @@
 [
-    {   
+    {
         "name": "Home",
-        "icon": "fa.home",
         "widget": "HomeWidget",
+        "icon": "fa.home",
         "start": true
     },
-    {   
+    {
         "name": "Dashboard",
+        "widget": "",
         "icon": "fa.dashboard",
-        "children":[{
-            "name":"Modern",
-            "icon": {
-                "expanded": "fa.folder-open",
-                "collapsed": "fa.folder"
-            },
-            "children":[{
-                "name":"Modern3",
-                "icon": "fa.circle-o",
-                "widget":"TemplatePage"
+        "children": [
+            {
+                "name": "Modern",
+                "widget": "",
+                "icon": "fa.file",
+                "children": [
+                    {
+                        "name": "Modern3",
+                        "widget": "ClassName",
+                        "icon": "fa.circle-o"
+                    },
+                    {
+                        "name": "Modern4",
+                        "widget": "TemplatePage",
+                        "icon": "fa.circle-o"
+                    }
+                ]
             },
             {
-                "name":"Modern4",
+                "name": "Advanced",
+                "widget": "",
                 "icon": "fa.circle-o",
-                "widget":"TemplatePage"
-            }]
-        },
-        {
-            "name":"Modern",
-            "icon": "fa.circle-o",
-            "widget":"Dashboard"
-        }]
+                "children": [
+                    {
+                        "name": "Menu Item",
+                        "widget": "ClassName",
+                        "icon": "fa.circle-o"
+                    },
+                    {
+                        "name": "Menu Item",
+                        "widget": "ClassName",
+                        "icon": "fa.circle-o"
+                    },
+                    {
+                        "name": "Menu Item",
+                        "widget": "ClassName",
+                        "icon": "fa.circle-o"
+                    }
+                ]
+            }
+        ]
     },
-    {   
+    {
         "name": "Cards",
-        "icon": "fa.folder",
-        "children":[{
-            "name":"Cards",
-            "icon": "fa.circle-o",
-            "widget":"TemplatePage"
-        },
-        {
-            "name":"Cards Advanced",
-            "icon": "fa.circle-o",
-            "widget":"TemplatePage"
-        },
-        {
-            "name":"Cards Extented",
-            "icon": "fa.circle-o",
-            "widget":"TemplatePage"
-        }]
-    },
-    {   
-        "name": "Tabs",
-        "icon": "fa.folder",
-        "children":[{
-            "name":"Top",
-            "icon": "fa.circle-o",
-            "widget":"TabsNorth"
-        },
-        {
-            "name":"Right",
-            "icon": "fa.circle-o",
-            "widget":"TabsEast"
-        },
-        {
-            "name":"Bottom",
-            "icon": "fa.circle-o",
-            "widget":"TabsSouth"
-        },
-        {
-            "name":"Left",
-            "icon": "fa.circle-o",
-            "widget":"TabsWest"
-        }]
-    },
-    {   
-        "name": "Tables",
+        "widget": "",
         "icon": "fa.table",
-        "children":[{
-            "name":"FileSystem View",
-            "icon": "fa.circle-o",
-            "widget":"FileSystemView"
-        },{
-            "name":"QTableView",
-            "icon": "fa.circle-o",
-            "widget":"SampleQTableView"
-        },
-        {
-            "name":"QTableWidget",
-            "icon": "fa.circle-o",
-            "widget":"SampelQTableWidget"
-        }]
+        "children": [
+            {
+                "name": "Cards",
+                "widget": "TemplatePage",
+                "icon": "fa.circle-o"
+            },
+            {
+                "name": "Cards Advanced",
+                "widget": "TemplatePage",
+                "icon": "fa.circle-o"
+            },
+            {
+                "name": "Cards Extented",
+                "widget": "TemplatePage",
+                "icon": "fa.circle-o"
+            }
+        ]
     },
-    {   
+    {
+        "name": "Tabs",
+        "widget": "",
+        "icon": "fa.folder",
+        "children": [
+            {
+                "name": "Top",
+                "widget": "TabsNorth",
+                "icon": "fa.circle-o"
+            },
+            {
+                "name": "Right",
+                "widget": "TabsEast",
+                "icon": "fa.circle-o"
+            },
+            {
+                "name": "Bottom",
+                "widget": "TabsSouth",
+                "icon": "fa.circle-o"
+            },
+            {
+                "name": "Left",
+                "widget": "TabsWest",
+                "icon": "fa.circle-o"
+            }
+        ]
+    },
+    {
+        "name": "Tables",
+        "widget": "",
+        "icon": "fa.table",
+        "children": [
+            {
+                "name": "FileSystem View",
+                "widget": "FileSystemView",
+                "icon": "fa.circle-o"
+            },
+            {
+                "name": "QTableView",
+                "widget": "SampleQTableView",
+                "icon": "fa.circle-o"
+            },
+            {
+                "name": "QTableWidget",
+                "widget": "SampelQTableWidget",
+                "icon": "fa.circle-o"
+            }
+        ]
+    },
+    {
         "name": "Trees",
+        "widget": "",
         "icon": "fa.tree",
-        "children":[{
-            "name":"QTreeView",
-            "icon": "fa.circle-o",
-            "widget":"SampleQTreeView"
-        },
-        {
-            "name":"QTreeWidget",
-            "icon": "fa.circle-o",
-            "widget":"SampelQTreeWidget"
-        }]
+        "children": [
+            {
+                "name": "QTreeView",
+                "widget": "SampleQTreeView",
+                "icon": "fa.circle-o"
+            },
+            {
+                "name": "QTreeWidget",
+                "widget": "SampelQTreeWidget",
+                "icon": "fa.circle-o"
+            }
+        ]
+    },
+    {
+        "name": "Menu Item",
+        "widget": "ClassName",
+        "icon": "fa.gear"
     }
 ]

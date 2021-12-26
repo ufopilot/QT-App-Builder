@@ -14,8 +14,14 @@ class SetControllerButtons(QWidget):
 		theme_settings = Settings('theme')
 		self.theme_settings = theme_settings.items
 		
-		self.footer_icon_color = self.theme_settings['theme']['footerbar']['icons']
-		self.dividers_icon_color = self.theme_settings['theme']['dividers']['icons']
+		theme = self.theme_settings['default_theme']
+		if theme != "":
+			self.footer_icon_color = self.theme_settings['themes'][theme]['footerbar']['icons']
+			self.dividers_icon_color = self.theme_settings['themes'][theme]['dividers']['icons']
+		else:
+			self.footer_icon_color = self.theme_settings['theme']['footerbar']['icons']
+			self.dividers_icon_color = self.theme_settings['theme']['dividers']['icons']
+			
 		for divider in (self.ui.headerPanel1, self.ui.headerPanel2, self.ui.headerPanel3, self.ui.headerPanel4, self.ui.headerPanel5):
 			name = divider.objectName()
 			panel = name.lower().replace("header", "")

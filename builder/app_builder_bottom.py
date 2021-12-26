@@ -59,16 +59,20 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
 	
 		theme_settings.items['default_theme'] = name
+
 		#app_theme_settings.items['theme'] = app_theme_settings.items['themes'][name]
 		theme_settings.serialize()
+		
 		#
 		#builder_theme_settings = Settings('builder_theme')
 		#builder_theme_settings.items['theme'] = app_theme_settings.items['themes'][name]
 		#builder_theme_settings.serialize()
 		#
 		#self.parent.showMessage("info", "Load Theme", f"Theme {name} loaded!",2)
-		self.parent.reload_app()
+		
 		self.setSelectedTheme(name)
+		
+		self.parent.reload_app()
 
 	def setSelectedTheme(self, name=""):
 		settings = Settings('builder')

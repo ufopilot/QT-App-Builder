@@ -12,7 +12,7 @@ from builder.app_builder_center import AppBuilderCenter
 from qt_core import *
 
 	
-Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/app_builder.ui"))
+Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/uis/app_builder.ui"))
 
 
 class AppBuilder(Base_Class, Gen_Class):
@@ -51,6 +51,7 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.builder_bottom.show()
 		self.theme_builder = ThemeBuilder(self, self.app)
 		self.menu_builder = MenuBuilder(self, self.app)
+		self.menu_builder.menuInit()
 		self.message_box = AppBuilderMessage(self)
 		
 		#self.Menu.setMinimumSize(QSize(0, self.size.height()-45))
@@ -176,9 +177,18 @@ class AppBuilder(Base_Class, Gen_Class):
 
 			if "visible" in name:
 				if "title_bar" in name:
-					print("titlebar")
+					bar = eval(f"self.ui.mainHeader")
+					if element.isChecked():
+						bar.show()
+					else:		
+						bar.hide()
+
 				elif "footer_bar" in name:
-					print("footer_bar")
+					bar = eval(f"self.ui.mainFooter")
+					if element.isChecked():
+						bar.show()
+					else:		
+						bar.hide()
 				else:
 					panel = eval(f"self.ui.{panelName}").parent()	
 					if element.isChecked():
@@ -235,6 +245,7 @@ class AppBuilder(Base_Class, Gen_Class):
 			except:
 				pass
 		self.settings.serialize()
+		self.menu_builder.menuToJson()
 		self.showMessage("info", "Save all changes", "App-Settings successfully saved!")
 	
 	def showMessage(self, typos, title, message, time=3):
@@ -257,7 +268,10 @@ class AppBuilder(Base_Class, Gen_Class):
 		
 		settings = Settings('ui', apps_path=apps_path, app_name=app_name)
 		self.settings = settings
-		
+		theme_settings = Settings('theme', apps_path=apps_path, app_name=app_name)
+		theme_settings.items['default_theme'] = ""
+		theme_settings.serialize()
+
 		self.initFormControl()
 		self.loadValues()
 		# select app
@@ -273,10 +287,12 @@ class AppBuilder(Base_Class, Gen_Class):
 			except:
 				return
 		self.builder_settings.items['selected_app'] = app_name
+		self.builder_settings.items['selected_theme'] = ""
+		
 		self.builder_settings.serialize()
 		
 		self.ui = self.app
-		self.app.move(self.builder_settings.items['left_width']+16, 35)
+		self.app.move(self.builder_settings.items['left_width']+16, 45)
 		self.app.show()
 		self.app.closewindow.clicked.connect(self.closeApp)
 	
@@ -291,7 +307,7 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.menu_builder.ui = self.app
 		self.menu_builder.apps_path = apps_path
 		self.menu_builder.app_name = app_name
-		self.menu_builder.setup()
+		self.menu_builder.setup(init=False)
 		# init actions on RightPanel
 		self.builder_right.ui = self.app
 		self.builder_right.apps_path = apps_path
@@ -311,18 +327,24 @@ class AppBuilder(Base_Class, Gen_Class):
 	def reload_app(self):
 		settings = Settings('builder')
 		self.builder_settings = settings
+		self.theme_builder.builder_settings = self.builder_settings
+
 		if self.builder_settings.items['selected_app'] == "":
 			self.message_box.notify("warning", "Reload App", "No App selected!")
 			timer=QTimer.singleShot(2000, lambda: self.message_box.close())
 			return
 
 		self.app.close()
+		self.theme_builder.loadThemeColors()
 		if self.app_name == "template_app":
 			from builder.template_app.template_main import MainWidget
 			self.app = MainWidget(self)
 		else:
 			self.app = self.cls(self)
-		self.app.move(self.builder_settings.items['left_width']+16, 15)
+		
+		self.theme_builder.ui = self.app
+
+		self.app.move(self.builder_settings.items['left_width']+16, 45)
 		self.app.closewindow.clicked.connect(self.closeApp)
 		self.app.show()
 	
@@ -343,9 +365,13 @@ class AppBuilder(Base_Class, Gen_Class):
 			check.setChecked(False)
 
 		self.menuTree.clear() 
+		
+		for btn in self.builder_center.myApps.findChildren(QPushButton):
+			btn.setEnabled(True)
 
 		self.builder_bottom.clearThemesButtons()
 		self.builder_center.setSelectedApp()
+		self.builder_bottom.setSelectedTheme()
 		self.theme_builder.initial = False
 		self.theme_builder.reset = False
 		

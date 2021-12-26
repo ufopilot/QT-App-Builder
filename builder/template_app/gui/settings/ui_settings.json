@@ -7,7 +7,7 @@
         "year": "2021",
         "icon": "app/gui/resources/imgs/appicon.ico",
         "initial_width": 1320,
-        "initial_height": 850,
+        "initial_height": 830,
         "minimum_width": 800,
         "minimum_height": 400,
         "frameless": true
@@ -15,7 +15,7 @@
     "title_bar": {
         "visible": true,
         "window_icons": true,
-        "icon": "app/gui/resources/imgs/appicon.png"
+        "icon": "builder/template_app/gui/resources/imgs/appicon.png"
     },
     "footer_bar": {
         "visible": true
