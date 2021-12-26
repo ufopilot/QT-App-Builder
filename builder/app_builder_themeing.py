@@ -253,10 +253,8 @@ class ThemeBuilder(QWidget):
 
 		theme_name = self.builder_settings.items['selected_theme']
 		if theme_name != "":
-			print("theme selected", theme_name)
 			target = self.theme_settings.items['themes'][theme_name]
 		else:
-			print("theme selected, NO THEME")
 			theme_name = None
 			target = self.theme_settings.items['theme']
 			
