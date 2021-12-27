@@ -39,8 +39,9 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		
 		
 		try:
-			print(f"deletefolder {apps_path}/{app_name}")
-			shutil.rmtree(f'{apps_path}/{app_name}')
+			print(os.path.join(apps_path, app_name))
+			if os.path.exists(os.path.join(apps_path, app_name)):
+				shutil.rmtree(os.path.join(apps_path, app_name))
 		except:
 			pass	
 		self.searchApps()
