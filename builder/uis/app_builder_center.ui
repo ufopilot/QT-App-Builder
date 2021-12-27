@@ -61,7 +61,13 @@ QLabel{
 QPushButton:hover{
 	border: 2px solid cyan;
 	border-radius: 10px;
-}</string>
+}
+
+QPushButton[type=&quot;btn_app_mini&quot;]:hover{
+	background: #282d38;
+}
+
+</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">

@@ -1,7 +1,8 @@
 from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
 from qt_core import *
-
+import shutil
+		
 	
 Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/uis/app_builder_center.ui"))
 
@@ -28,6 +29,22 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 
 		self.searchApps()
 	
+	def removeApp(self):
+		builder_settings = Settings("builder")
+		apps_path = builder_settings.items['apps_path']
+		if apps_path == "":
+			return 
+		el = self.sender()
+		app_name = el.objectName().replace("remove_", "")	
+		
+		
+		try:
+			print(f"deletefolder {apps_path}/{app_name}")
+			shutil.rmtree(f'{apps_path}/{app_name}')
+		except:
+			pass	
+		self.searchApps()
+
 	def searchApps(self, apps_path=None):
 		if apps_path == None:
 			apps_path = self.builder_settings.items['apps_path']
@@ -39,29 +56,64 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		for button in self.myApps.findChildren(QPushButton):
 			button.deleteLater()
 
-		btn = QPushButton(self.myApps)
-		btn.setObjectName(f"template_app")
-		btn.setText(f"Template APP")
-		btn.setCursor(QCursor(Qt.PointingHandCursor))
-		btn.setStyleSheet("font-size: 20px")
-		btn.setMinimumSize(QSize(0, 170))
-		btn.clicked.connect(self.loadApp)
-		self.myAppsLayout.addWidget(btn, 0, 0, 1, 1)
+		icon_color = self.builder_settings.items['icons_color']
+		remove_icon = qta.icon("fa.trash", color=icon_color)
+
 		
-		i = 0; j = 1
-		for app_name in os.listdir(apps_path):
-			if not os.path.isdir(os.path.join(apps_path, app_name)):
-				continue
-			if not os.path.isfile(os.path.join(apps_path, app_name, "app_builder.meta")):
-				continue
-			btn = QPushButton(self.myApps)
+		i = 0; j = 0
+
+		folders = os.listdir(apps_path)
+		folders.insert(0,"template_app")
+		for app_name in folders:
+			print(app_name)
+			if app_name != "template_app":
+				if not os.path.isdir(os.path.join(apps_path, app_name)):
+					continue
+				if not os.path.isfile(os.path.join(apps_path, app_name, "app_builder.meta")):
+					continue
+
+			frame = QFrame()
+			frame.setObjectName(u"frame")
+			#frame.setMaximumSize(QSize(194, 16777215))
+			frame.setFrameShape(QFrame.StyledPanel)
+			frame.setFrameShadow(QFrame.Raised)
+			layout = QVBoxLayout(frame)
+			layout.setSpacing(0)
+			layout.setObjectName(u"layout")
+			layout.setContentsMargins(9, 9, 9, 9)
+			layout.setSpacing(10)
+
+			#layout.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
+
+			btn = QPushButton(frame)
 			btn.setObjectName(f"{app_name}")
 			btn.setText(f"{app_name}")
 			btn.setCursor(QCursor(Qt.PointingHandCursor))
 			btn.setStyleSheet("font-size: 20px")
 			btn.setMinimumSize(QSize(0, 170))
+			btn.setToolTip(f"Open App: {app_name}")
 			btn.clicked.connect(self.loadApp)
-			self.myAppsLayout.addWidget(btn, i, j, 1, 1)
+			
+			layout.addWidget(btn)
+
+			icon = QPushButton(frame)
+			icon.setObjectName(f"remove_{app_name}")
+			icon.setFlat(True)
+			icon.setIconSize(QSize(30, 30))
+			
+			if app_name == "template_app":
+				btn.setText(f"Template App")
+			else:
+				icon.setProperty("type", "btn_app_mini")
+				icon.setCursor(QCursor(Qt.PointingHandCursor))
+				icon.setToolTip(f"Delete App: {app_name}")
+				icon.setIcon(remove_icon)
+				icon.clicked.connect(self.removeApp)
+
+			icon.setStyleSheet("border: none;")
+			layout.addWidget(icon)
+
+			self.myAppsLayout.addWidget(frame, i, j, 1, 1)
 
 			j += 1
 			if j == 4: i += 1; j = 0
