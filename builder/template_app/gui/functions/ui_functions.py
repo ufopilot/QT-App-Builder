@@ -55,7 +55,6 @@ class UIFunctions():
 			else:
 				if theme_name in theme_settings['themes']: 
 					theme = theme_settings['themes'][theme_name]
-					print(theme_name)
 				else:
 					theme = theme_settings['theme']
 			

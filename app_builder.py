@@ -215,32 +215,29 @@ class AppBuilder(Base_Class, Gen_Class):
 			timer=QTimer.singleShot(2000, lambda: self.message_box.close())
 			return
 		
-		for item in self.findChildren(QLineEdit):
+		for item in self.Customizing.findChildren(QLineEdit):
 			try:
 				name = item.objectName()
 				comp = name.split('__')[1]
 				key = name.split('__')[2]
-				#print(comp, key, item.text(), type(item.text()))
 				self.settings.items[comp][key] = item.text()
 			except:
 				pass
 
-		for item in self.findChildren(QSpinBox):
+		for item in self.Customizing.findChildren(QSpinBox):
 			try:
 				name = item.objectName()
 				comp = name.split('__')[1]
 				key = name.split('__')[2]
-				#print(comp, key, item.text(), type(item.text()))
 				self.settings.items[comp][key] = int(item.text())
 			except:
 				pass
 		
-		for item in self.findChildren(QCheckBox):
+		for item in self.Customizing.findChildren(QCheckBox):
 			try:
 				name = item.objectName()
 				comp = name.split('__')[1]
 				key = name.split('__')[2]
-				#print(comp, key, item.isChecked())
 				self.settings.items[comp][key] = item.isChecked()
 			except:
 				pass
@@ -292,7 +289,7 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.builder_settings.serialize()
 		
 		self.ui = self.app
-		self.app.move(self.builder_settings.items['left_width']+16, 45)
+		self.app.move(self.builder_settings.items['left_width']+6, 45)
 		self.app.show()
 		self.app.closewindow.clicked.connect(self.closeApp)
 	
@@ -344,16 +341,21 @@ class AppBuilder(Base_Class, Gen_Class):
 		
 		self.theme_builder.ui = self.app
 
-		self.app.move(self.builder_settings.items['left_width']+16, 45)
+		self.app.move(self.builder_settings.items['left_width']+6, 45)
 		self.app.closewindow.clicked.connect(self.closeApp)
 		self.app.show()
 	
 	def closeApp(self):
 		self.theme_builder.initial = True
 		self.theme_builder.reset = True
+		self.builder_center.setSelectedApp()
+		self.builder_bottom.setSelectedTheme()
 		
+		self.theme_builder.builder_settings.items['selected_app'] = ""
+
 		for combo in self.Theming.findChildren(QComboBox):
-			combo.clear()
+			if combo.objectName() != "changeSelectedFont":
+				combo.clear()
 
 		for edit in self.Customizing.findChildren(QLineEdit):
 			edit.setText("")
@@ -369,9 +371,13 @@ class AppBuilder(Base_Class, Gen_Class):
 		for btn in self.builder_center.myApps.findChildren(QPushButton):
 			btn.setEnabled(True)
 
+		for spin in (self.selectedTextSize, self.selectedTitleSize):
+			spin.setValue(0)
+		
+		self.changeSelectedFont.setCurrentIndex(0)
+		
 		self.builder_bottom.clearThemesButtons()
-		self.builder_center.setSelectedApp()
-		self.builder_bottom.setSelectedTheme()
+		
 		self.theme_builder.initial = False
 		self.theme_builder.reset = False
 		

@@ -22,7 +22,8 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		#self.settings = settings
 		settings = Settings('builder')
 		self.builder_settings = settings
-		
+		self.theme_settings = None
+
 		screen = QApplication.primaryScreen()
 		size = screen.size()
 		self.resize(size.width()-self.builder_settings.items['left_width']+1, self.builder_settings.items['bottom_height'])
@@ -55,14 +56,16 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		
 		btn.toggle()
 		name = btn.objectName()
-		
+		if name == "no-theme":
+			name = ""
+
 		theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
-	
+			
 		theme_settings.items['default_theme'] = name
 
 		#app_theme_settings.items['theme'] = app_theme_settings.items['themes'][name]
 		theme_settings.serialize()
-		
+		self.theme_settings = theme_settings
 		#
 		#builder_theme_settings = Settings('builder_theme')
 		#builder_theme_settings.items['theme'] = app_theme_settings.items['themes'][name]
@@ -83,19 +86,56 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 	def connectThemeButtons(self):
 		for button in self.findChildren(QAbstractButton):
 			if button.metaObject().className() == "QPushButton": 
-				button.clicked.connect(self.loadSavedTheme)
-	
+				if button.objectName() != "no-theme":
+					button.clicked.connect(self.loadSavedTheme)
+				else:
+					button.clicked.connect(self.loadSavedTheme)
+
 	def clearThemesButtons(self):
 		for childframe in self.scrollFrame.findChildren(QFrame):
 			childframe.deleteLater()
 
+	def cloneTheme(self):
+		btn = self.sender()
+		theme = btn.objectName().replace("clone_","")
+		img = f"{self.apps_path}/{self.app_name}/gui/resources/imgs/themes/{theme}.png"
+		print("clone", img)
+
+	def removeTheme(self):
+		btn = self.sender()
+		theme = btn.objectName().replace("remove_","")
+		img = f"{self.apps_path}/{self.app_name}/gui/resources/imgs/themes/{theme}.png"
+		
+		theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
+		try:
+			del theme_settings.items["themes"][theme]
+			theme_settings.serialize()
+		except:
+			pass
+
+		if os.path.exists(img):
+			try:
+				os.remove(img)
+			except:
+				pass
+
+		self.loadThemesButtons()
+
 	def loadThemesButtons(self):
 		self.scrollFrame.hide()
 		self.clearThemesButtons()
-
+		icon_color = self.builder_settings.items['icons_color']
+		remove_icon = qta.icon("ei.remove-circle", color=icon_color)
+		clone_icon = qta.icon("fa.clone", color=icon_color)
 		i = 0
-		for file_path in glob.glob(f"{self.apps_path}/{self.app_name}/gui/resources/imgs/themes/*.png"):
+		if self.app_name == None:
+			return 
+		
+		themes_list = glob.glob(f"{self.apps_path}/{self.app_name}/gui/resources/imgs/themes/*.png")
+		themes_list.insert(0,f"builder/imgs/no-theme.png")
+		for file_path in themes_list:
 			name = Path(file_path).stem #.capitalize() 
+
 			frame = QFrame(self.scrollFrame)
 			frame.setObjectName(u"frame")
 			frame.setMaximumSize(QSize(194, 16777215))
@@ -105,15 +145,69 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 			layout.setSpacing(0)
 			layout.setObjectName(u"layout")
 			layout.setContentsMargins(9, 0, 9, 30)
-			label = QLabel(frame)
-			label.setObjectName(u"label")
-			label.setText(name)
-			label.setStyleSheet("padding: 5px;")
-			layout.addWidget(label)
+
+			headerFrame = QFrame(frame)
+			headerFrame.setObjectName(u"headerFrame")
+			headerFrame.setFrameShape(QFrame.StyledPanel)
+			headerFrame.setFrameShadow(QFrame.Raised)
+			sublayout = QHBoxLayout(headerFrame)
+			sublayout.setObjectName(u"sublayout")
+			sublayout.setContentsMargins(0, 0, 0, 0)
+			themeName = QLabel(headerFrame)
+			themeName.setObjectName(u"label")
+			themeName.setText(name)
+			themeName.setStyleSheet("padding: 5px;")
+			sublayout.addWidget(themeName)
+			if name != "no-theme":
+				
+				
+				icon = QPushButton(headerFrame)
+				icon.setObjectName(f"clone_{name}")
+				icon.setIcon(clone_icon)
+				icon.setCursor(QCursor(Qt.PointingHandCursor))
+				icon.setFlat(True)
+				icon.setToolTip(f"Clone Theme: {name}")
+				icon.clicked.connect(self.cloneTheme)
+				icon.setStyleSheet("border: none;")
+				sublayout.addWidget(icon)
+
+				icon = QPushButton(headerFrame)
+				icon.setObjectName(f"remove_{name}")
+				icon.setIcon(remove_icon)
+				icon.setCursor(QCursor(Qt.PointingHandCursor))
+				icon.setFlat(True)
+				icon.setToolTip(f"Remove Theme: {name}")
+				icon.clicked.connect(self.removeTheme)
+				icon.setStyleSheet("border: none;")
+				sublayout.addWidget(icon)
+				
+			
+			layout.addWidget(headerFrame)
+
+		
+
+
+			#frame = QFrame(self.scrollFrame)
+			#frame.setObjectName(u"frame")
+			#frame.setMaximumSize(QSize(194, 16777215))
+			#frame.setFrameShape(QFrame.StyledPanel)
+			#frame.setFrameShadow(QFrame.Raised)
+			#layout = QVBoxLayout(frame)
+			#layout.setSpacing(0)
+			#layout.setObjectName(u"layout")
+			#layout.setContentsMargins(9, 0, 9, 30)
+			#label = QLabel(frame)
+			#label.setObjectName(u"label")
+			#label.setText(name)
+			#label.setStyleSheet("padding: 5px;")
+			#layout.addWidget(label)
 			pushButton = QPushButton(frame)
 			pushButton.setObjectName(f"{name}")
 			pushButton.setCursor(QCursor(Qt.PointingHandCursor))
+			pushButton.clicked.connect(self.loadSavedTheme)
 			pushButton.setCheckable(True)
+			if name == "no-theme":
+				pushButton.toggle()
 			pushButton.setToolTip(f"Load {name} Theme")
 			icon = QIcon()
 			icon.addFile(f"{file_path}", QSize(), QIcon.Normal, QIcon.Off)
@@ -124,7 +218,7 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 			self.innerLayout.addWidget(frame, 0, Qt.AlignTop)
 			i += 1
 		self.scrollFrame.show()
-		self.connectThemeButtons()
+		#self.connectThemeButtons()
 
 if __name__ == '__main__':
 	import sys

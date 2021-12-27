@@ -10,9 +10,9 @@ class Settings(object):
 		if type == "builder_theme":
 			self.json_file = f"builder/theme_settings.json"
 			self.settings_path = UIFunctions().resource_path(self.json_file)
-		elif type == "menu":
-			self.json_file = f"builder/template_app/gui/settings/{type}_settings.json"
-			self.settings_path = UIFunctions().resource_path(self.json_file)
+		#elif type == "menu":
+		#	self.json_file = f"builder/template_app/gui/settings/{type}_settings.json"
+		#	self.settings_path = UIFunctions().resource_path(self.json_file)
 		elif type == "builder":
 			self.json_file = f"builder/app_builder_settings.json"
 			self.settings_path = UIFunctions().resource_path(self.json_file)

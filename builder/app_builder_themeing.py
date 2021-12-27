@@ -1,11 +1,8 @@
-from PyQt5.QtCore import pyqtRemoveInputHook
 from qt_core import *
-#from app.gui.content import *
 
 from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
 import re
-from webcolors import hex_to_name
 
 class Worker(QRunnable):
 	def __init__(self, widget, settings, progress):
@@ -59,6 +56,8 @@ class ThemeBuilder(QWidget):
 				btn.setIcon(icon)
 			except:
 				pass
+		self.parent.changeSelectedFont.insertItem(0, "")
+		self.parent.changeSelectedFont.setCurrentIndex(0)
 
 	def setup(self):
 		#threadCount = QThreadPool.globalInstance().maxThreadCount()
@@ -90,6 +89,20 @@ class ThemeBuilder(QWidget):
 				except:
 					pass 
 				combo.currentTextChanged.connect(self.handleColorPressed)
+			if "changeSelectedFont" in combo.objectName():
+				#self.fillColorsCombo(combo)
+				try:
+					combo.currentTextChanged.disconnect()
+				except:
+					pass 
+				combo.currentTextChanged.connect(self.handleFontFamily)
+		for spin in (self.parent.selectedTextSize, self.parent.selectedTitleSize):
+			try:
+				spin.valueChanged.disconnect()
+			except:
+				pass 
+			spin.valueChanged.connect(self.handleFontSize)
+
 		i = 0
 		for area in (
 				"titlebar",
@@ -106,8 +119,7 @@ class ThemeBuilder(QWidget):
 			#worker = Worker(widget, self.theme_settings.items['theme'][area], eval(f"self.parent.{area}_progressBar"))
 			#pool.start(worker)
 			
-			
-			#print(widget.objectName())
+		
 
 			for key, value in self.theme_settings.items['theme'][area].items():
 				try:
@@ -123,6 +135,14 @@ class ThemeBuilder(QWidget):
 				except:
 					pass
 
+		font_name = self.theme_settings.items['theme']['font']['family']
+		index = self.parent.changeSelectedFont.findText(font_name, Qt.MatchFixedString)
+		if index >= 0:
+			self.parent.changeSelectedFont.setCurrentIndex(index)
+		
+		self.parent.selectedTitleSize.setValue(self.theme_settings.items['theme']['font']['title_size'])
+		self.parent.selectedTextSize.setValue(self.theme_settings.items['theme']['font']['text_size'])
+		
 		self.initial = False
 
 		#	if any(key in button_name for key in List3):
@@ -135,9 +155,9 @@ class ThemeBuilder(QWidget):
 		self.theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
 		
 		if theme_name == "" or theme_name == "no-theme":
-			colors = self.theme_settings.items['theme']
+			selectedTheme = self.theme_settings.items['theme']
 		else: 
-			colors = self.theme_settings.items['themes'][theme_name]
+			selectedTheme = self.theme_settings.items['themes'][theme_name]
 
 		i = 0
 		for area in (
@@ -152,7 +172,7 @@ class ThemeBuilder(QWidget):
 			):
 			
 			widget = self.parent.findChild(QWidget, f"theming_{area}")
-			for key, value in colors[area].items():
+			for key, value in selectedTheme[area].items():
 				try:
 					i += 1
 					regex = QRegExp("^{}_.*$".format(key))
@@ -165,6 +185,16 @@ class ThemeBuilder(QWidget):
 					#self.parent.loadingProgress.setValue(i*progress_step)
 				except:
 					pass
+		try:
+			font_name = selectedTheme['font']['family']
+			index = self.parent.changeSelectedFont.findText(font_name, Qt.MatchFixedString)
+			if index >= 0:
+				self.parent.changeSelectedFont.setCurrentIndex(index)
+		except:
+			pass
+		self.parent.selectedTitleSize.setValue(selectedTheme['font']['title_size'])
+		self.parent.selectedTextSize.setValue(selectedTheme['font']['text_size'])
+		
 		self.initial = False
 
 	def countValues(self):
@@ -187,7 +217,6 @@ class ThemeBuilder(QWidget):
 		
 		settings = Settings('builder')
 		if settings.items['selected_app'] == "":
-			print("#### aus1111")
 			return
 		
 		btn = self.sender()
@@ -236,6 +265,9 @@ class ThemeBuilder(QWidget):
 		combo.addItem("")
 
 	def handleColorPressed(self):
+		if self.builder_settings.items['selected_app'] == "":
+			return
+
 		el = self.sender()
 		color = el.currentText() 
 		
@@ -262,7 +294,43 @@ class ThemeBuilder(QWidget):
 		
 		self.theme_settings.serialize()
 		self.reloadStyle(theme_name)
+	
+	def handleFontFamily(self):
+		if self.builder_settings.items['selected_app'] == "":
+			return
+
+		el = self.sender()
+		font = el.currentText() 
+		theme_name = self.builder_settings.items['selected_theme']
+		if theme_name != "":
+			target = self.theme_settings.items['themes'][theme_name]
+		else:
+			theme_name = None
+			target = self.theme_settings.items['theme']
+		target['font']['family'] = font
+		self.theme_settings.serialize()
+		self.reloadStyle(theme_name)
+	
+	def handleFontSize(self, value):
+		if self.builder_settings.items['selected_app'] == "":
+			return
 		
+		el = self.sender()
+		if "Title" in el.objectName():
+			genre = "title_size"
+		else:
+			genre = "text_size"
+
+		theme_name = self.builder_settings.items['selected_theme']
+		if theme_name != "":
+			target = self.theme_settings.items['themes'][theme_name]
+		else:
+			theme_name = None
+			target = self.theme_settings.items['theme']
+		target['font'][genre] = value
+		self.theme_settings.serialize()
+		self.reloadStyle(theme_name)
+
 	def setInitFalse(self):
 		self._init = False
 

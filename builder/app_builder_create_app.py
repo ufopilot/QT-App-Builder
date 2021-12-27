@@ -58,7 +58,7 @@ class AppBuilderCreateApp(Base_Class, Gen_Class):
 					
 					with open(file_path, 'w') as file:
 						file.write(filedata)
-				print("py files done")
+			
 				
 				for file_path in Path(os.path.join(self.builder_settings.items['apps_path'], app_name)).rglob('*.ui'):
 					with open(file_path, 'r', encoding='UTF8') as file :
@@ -69,18 +69,17 @@ class AppBuilderCreateApp(Base_Class, Gen_Class):
 					
 					with open(file_path, 'w', encoding='UTF8') as file:
 						file.write(filedata)
-				print("ui files done")
+			
 
 				# mv main.py to {app_name}_main.py
 				os.rename(
 					os.path.join(self.builder_settings.items['apps_path'], app_name, "template_main.py"), 
 					os.path.join(self.builder_settings.items['apps_path'], app_name, f"{app_name}_main.py")
 					)
-					
-				print("app created")
+			
 				self.message_box.notify("success", "Create APP", f"{app_name} successfully created!")
 				timer=QTimer.singleShot(3000, lambda: self.message_box.close())
-				print("load from creator")
+				
 				self.parent.parent.builder_center.searchApps()
 			else:
 				# show message

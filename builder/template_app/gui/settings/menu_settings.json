@@ -6,7 +6,7 @@
         "start": true
     },
     {
-        "name": "Dashboard",
+        "name": "My Dashboard",
         "widget": "",
         "icon": "fa.dashboard",
         "children": [

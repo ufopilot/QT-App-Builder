@@ -33,7 +33,7 @@ class MenuBuilder(QWidget):
 		sizePolicy.setVerticalStretch(0)
 		sizePolicy.setHeightForWidth(self.parent.menuTree.sizePolicy().hasHeightForWidth())
 		self.parent.menuTree.setSizePolicy(sizePolicy)
-		self.parent.menuTree.setHeaderLabels(['Name', 'Object', 'Children', 'Icon', ''])
+		self.parent.menuTree.setHeaderLabels(['Name', 'Object', 'Children', 'Icon', '', 'start'])
 		#self.parent.menuTree.setHeaderHidden(True); 
 		#self.parent.menuTree.setAnimated(True)
 		#self.parent.menuTree.setColumnHidden(2, True)
@@ -43,6 +43,7 @@ class MenuBuilder(QWidget):
 		self.parent.menuTree.setColumnWidth(2,60)
 		self.parent.menuTree.setColumnWidth(3,100)
 		self.parent.menuTree.setColumnWidth(4,40)
+		self.parent.menuTree.setColumnWidth(5,40)
 
 		self.parent.menuTree.expandAll()
 		self.parent.menuTree.setSelectionMode(QAbstractItemView.MultiSelection)
@@ -62,7 +63,7 @@ class MenuBuilder(QWidget):
 		self.theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
 		self.ui_settings = Settings('ui', apps_path=self.apps_path, app_name=self.app_name)
 		self.menu_settings = Settings('menu', apps_path=self.apps_path, app_name=self.app_name)
-		
+		print(self.apps_path, self.app_name)
 		self.parent.menuTree.clear() 
 		self.drawMenu(self.menu_settings.items)
 		self.parent.menuTree.expandAll()
@@ -72,6 +73,7 @@ class MenuBuilder(QWidget):
 		if  column == 2:
 			if item.checkState(column) == Qt.Checked:
 				item.setText(1, "")
+				item.setData(5, Qt.CheckStateRole, QVariant())
 				item.addChild(self.new_item("Menu Item", {"icon": "fa.circle-o", "widget":"ClassName"}))
 				self.parent.menuTree.expandAll()
 			else:
@@ -79,12 +81,20 @@ class MenuBuilder(QWidget):
 				for i in reversed(range(item.childCount())):
 					item.removeChild(item.child(i))
 				item.setText(1, "ClassName")
+				item.setCheckState(5, Qt.Unchecked)
 		if column == 3:
 			try:
 				icon = qta.icon(item.text(3), color="white")
 				item.setIcon(4, icon)
 			except:
 				item.setIcon(4, QIcon())
+		
+		if column == 5:
+			if item.checkState(column) == Qt.Checked: 
+				self.uncheckAll(self.root, item, 5)
+				#item.setCheckState(5, Qt.Checked)
+			else:
+				return
 
 	def new_item(self, name, opt):
 		item = QTreeWidgetItem()
@@ -95,6 +105,7 @@ class MenuBuilder(QWidget):
 			item.setCheckState(2, Qt.Checked)
 		else:
 			item.setCheckState(2, Qt.Unchecked)
+			item.setCheckState(5, Qt.Unchecked)
 
 		if "icon" in opt:
 			item.setText(3, opt['icon'])
@@ -104,6 +115,8 @@ class MenuBuilder(QWidget):
 			except:
 				item.setIcon(4, QIcon())
 
+		if "start" in opt and opt['start']:
+			item.setCheckState(5, Qt.Checked)
 			
 		item.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
 		item.setFlags(item.flags() | Qt.ItemIsEditable)
@@ -164,7 +177,6 @@ class MenuBuilder(QWidget):
 		action = menu.exec_(self.parent.menuTree.mapToGlobal(point))
 
 		if action == delete:
-			print("delete")
 			itemParent = item.parent() or self.root
 			itemParent.removeChild(item)
 		elif action == prependItem:
@@ -226,6 +238,8 @@ class MenuBuilder(QWidget):
 			li["name"] = child.text(0)
 			li["widget"] = child.text(1)
 			li["icon"] = child.text(3)
+			if child.checkState(5) == Qt.Checked: 
+				li['start'] = True 
 			if child.checkState(2) != 0:
 				li["children"] = self.tree_to_dict(child)
 			content.append(li)
@@ -241,7 +255,7 @@ class MenuBuilder(QWidget):
 			li['name'] = self.root.child(x).text(0)
 			li['widget'] = self.root.child(x).text(1)
 			li['icon'] = self.root.child(x).text(3)
-			if x == 0:
+			if self.root.child(x).checkState(5) == Qt.Checked: 
 				li['start'] = True 
 			if self.root.child(x).checkState(2) != 0:
 				li['children'] = self.tree_to_dict(self.root.child(x))
@@ -249,3 +263,15 @@ class MenuBuilder(QWidget):
 		
 		self.menu_settings.items = dictionary
 		self.menu_settings.serialize()
+	
+	def uncheckAll(self, parent, item, col):
+		childCount = parent.childCount()
+		if not childCount:
+			return 
+		for row in range(childCount):
+			child = parent.child(row)
+			if child != item:
+				if child.checkState(col) == Qt.Checked: 
+					child.setCheckState(col, Qt.Unchecked)
+			self.uncheckAll(child, item, col)
+			
