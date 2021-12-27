@@ -78,13 +78,13 @@ class AppBuilderCreateApp(Base_Class, Gen_Class):
 					)
 			
 				self.message_box.notify("success", "Create APP", f"{app_name} successfully created!")
-				timer=QTimer.singleShot(3000, lambda: self.message_box.close())
+				timer=QTimer.singleShot(1500, lambda: self.message_box.close())
 				
 				self.parent.parent.builder_center.searchApps()
 			else:
 				# show message
 				self.message_box.notify("error", "Create APP", f"{app_name} already exists!")
-				timer=QTimer.singleShot(3000, lambda: self.message_box.close())
+				timer=QTimer.singleShot(1500, lambda: self.message_box.close())
 			
 		
 	def reject(self):

@@ -28,8 +28,11 @@ class Settings(object):
 				# we are running in a normal Python environment
 				base_path = os.getcwd()
 				extDataDir = os.getcwd()
+				
 				self.json_file = f"{apps_path}/{app_name}/gui/settings/{type}_settings.json"
-		
+				#print("########################################################")
+				#print("########", self.json_file)
+				#print("########################################################")
 			self.settings_path = os.path.join(extDataDir, self.json_file)
 		
 		self.items = {}

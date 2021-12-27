@@ -1,4 +1,5 @@
 #rom xml.etree.ElementTree import Element
+from builder.app_builder_delete_theme import AppBuilderDeleteTheme
 from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
 from qt_core import *
@@ -29,7 +30,7 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		self.resize(size.width()-self.builder_settings.items['left_width']+1, self.builder_settings.items['bottom_height'])
 		self.move(self.builder_settings.items['left_width']-1, size.height()-self.builder_settings.items['bottom_height'])
 		
-		
+		self.themeRemover = AppBuilderDeleteTheme(self, self.ui)
 		#self.ui.move(399, -1)
 		#self.setWindowFlag(Qt.WindowStaysOnBottomHint)
 		
@@ -106,20 +107,15 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		theme = btn.objectName().replace("remove_","")
 		img = f"{self.apps_path}/{self.app_name}/gui/resources/imgs/themes/{theme}.png"
 		
-		theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
-		try:
-			del theme_settings.items["themes"][theme]
-			theme_settings.serialize()
-		except:
-			pass
+		if self.themeRemover.isVisible():
+			return 
+		self.themeRemover.img = img
+		self.themeRemover.theme = theme
+		self.themeRemover.app_name = self.app_name
+		self.themeRemover.apps_path = self.apps_path
 
-		if os.path.exists(img):
-			try:
-				os.remove(img)
-			except:
-				pass
-
-		self.loadThemesButtons()
+		self.themeRemover.show()
+		
 
 	def loadThemesButtons(self):
 		self.scrollFrame.hide()
@@ -159,7 +155,6 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 			themeName.setStyleSheet("padding: 5px;")
 			sublayout.addWidget(themeName)
 			if name != "no-theme":
-				
 				
 				icon = QPushButton(headerFrame)
 				icon.setObjectName(f"clone_{name}")

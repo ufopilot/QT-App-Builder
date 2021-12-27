@@ -1,3 +1,4 @@
+from builder.app_builder_delete_app import AppBuilderDeleteApp
 from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
 from qt_core import *
@@ -27,6 +28,8 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		if self.builder_settings.items['apps_path'].strip() == "":
 			self.parent.setAppsPath()
 
+		self.appRemover = AppBuilderDeleteApp(self, self.ui)
+
 		self.searchApps()
 	
 	def removeApp(self):
@@ -37,14 +40,10 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		el = self.sender()
 		app_name = el.objectName().replace("remove_", "")	
 		
+		self.appRemover.apps_path = apps_path
+		self.appRemover.app_name = app_name
+		self.appRemover.show()
 		
-		try:
-			print(os.path.join(apps_path, app_name))
-			if os.path.exists(os.path.join(apps_path, app_name)):
-				shutil.rmtree(os.path.join(apps_path, app_name))
-		except:
-			pass	
-		self.searchApps()
 
 	def searchApps(self, apps_path=None):
 		if apps_path == None:
@@ -61,9 +60,17 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		remove_icon = qta.icon("fa.trash", color=icon_color)
 
 		
-		i = 0; j = 0
+		i = 0; j = 0;
 
 		folders = os.listdir(apps_path)
+		
+		if len(folders) == 1:
+			mx = 4
+		elif len(folders) == 2:
+			mx = 2
+		else:
+			mx = 1
+
 		folders.insert(0,"template_app")
 		for app_name in folders:
 			print(app_name)
@@ -104,6 +111,10 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 			
 			if app_name == "template_app":
 				btn.setText(f"Template App")
+				j = 3
+				#layout.addWidget(icon)
+				self.myAppsLayout.addWidget(frame, 0, 0, 1, 4)
+
 			else:
 				icon.setProperty("type", "btn_app_mini")
 				icon.setCursor(QCursor(Qt.PointingHandCursor))
@@ -111,11 +122,10 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 				icon.setIcon(remove_icon)
 				icon.clicked.connect(self.removeApp)
 
-			icon.setStyleSheet("border: none;")
-			layout.addWidget(icon)
-
-			self.myAppsLayout.addWidget(frame, i, j, 1, 1)
-
+			#icon.setStyleSheet("border: none;")
+				layout.addWidget(icon)
+				self.myAppsLayout.addWidget(frame, i, j, 1, 1)
+			
 			j += 1
 			if j == 4: i += 1; j = 0
 	
