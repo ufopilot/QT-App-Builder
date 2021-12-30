@@ -154,7 +154,7 @@ class AppBuilder(Base_Class, Gen_Class):
 				self.builder_settings.items['apps_path'] = apps_path
 				self.builder_settings.serialize()
 				self.update_settings("builder")
-				self.builder_center.apps_path.setText(f"Path: {apps_path}")
+				self.builder_center_header.apps_path.setText(f"Path: {apps_path}")
 				self.builder_center.searchApps(apps_path)
 
 	def saveAll(self):
