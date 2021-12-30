@@ -26,7 +26,7 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.ui = parent
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
-		self.setWindowOpacity(0)
+		#self.setWindowOpacity(0)
 		
 		############################################################
 		# Load Settings
@@ -122,12 +122,13 @@ class AppBuilder(Base_Class, Gen_Class):
 		# load style
 		##############################################################
 		self.setStyle(self, "main")
-		
-		
 		self.showMaximized()
-		time.sleep(1)
-		self.setWindowOpacity(1)
-	
+		#self.setWindowOpacity(1)
+		self.check_apps_path()
+
+	def check_apps_path(self):
+		if not os.path.isdir(self.builder_settings.items['apps_path']):
+			self.setAppsPath()
 
 	def load_settings(self, type):
 		settings = Settings(type)
@@ -140,7 +141,8 @@ class AppBuilder(Base_Class, Gen_Class):
 	
 	def setAppsPath(self):
 		dialog = QFileDialog(self)
-		dialog.setFileMode(QFileDialog.Directory)  # ExistingFile
+		dialog.setFileMode(QFileDialog.Directory)
+		dialog.setWindowTitle('Choose a folder to save apps')
 		dialog.setOption(QFileDialog.DontUseNativeDialog, True)
 		dialog.setOption(QFileDialog.ShowDirsOnly, True)
 		
