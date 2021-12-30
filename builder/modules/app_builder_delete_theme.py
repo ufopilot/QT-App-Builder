@@ -29,6 +29,10 @@ class AppBuilderDeleteTheme(Base_Class, Gen_Class):
 	def accept(self):
 		
 		theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
+		builder_settings = Settings('builder')
+		if builder_settings.items['selected_theme'] == self.theme:
+			# select no-theme button"
+			self.parent.parent.builder_bottom.findChildren(QPushButton)[0].click()
 		try:
 			del theme_settings.items["themes"][self.theme]
 			theme_settings.serialize()
@@ -47,10 +51,3 @@ class AppBuilderDeleteTheme(Base_Class, Gen_Class):
 	def reject(self):
 		self.close()
 			
-if __name__ == '__main__':
-	import sys
-	app = QApplication(sys.argv)
-	app.setStyle("fusion")
-	w = AppBuilderDeleteTheme()
-	w.show()
-	sys.exit(app.exec())

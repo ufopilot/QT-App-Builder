@@ -39,11 +39,4 @@ class AppBuilderDeleteApp(Base_Class, Gen_Class):
 		
 	def reject(self):
 		self.close()
-			
-if __name__ == '__main__':
-	import sys
-	app = QApplication(sys.argv)
-	app.setStyle("fusion")
-	w = AppBuilderDeleteApp()
-	w.show()
-	sys.exit(app.exec())
+

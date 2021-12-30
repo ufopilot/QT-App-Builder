@@ -1,6 +1,6 @@
 #rom xml.etree.ElementTree import Element
-from builder.app_builder_center import AppBuilderCenter
-from builder.app_builder_message import AppBuilderMessage
+from .app_builder_center import AppBuilderCenter
+from .app_builder_message import AppBuilderMessage
 from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
 from qt_core import *
@@ -91,10 +91,3 @@ class AppBuilderCreateApp(Base_Class, Gen_Class):
 		self.parent.createNewApp.toggle()
 		self.close()
 			
-if __name__ == '__main__':
-	import sys
-	app = QApplication(sys.argv)
-	app.setStyle("fusion")
-	w = AppBuilderCreateApp()
-	w.show()
-	sys.exit(app.exec())

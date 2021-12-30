@@ -2,6 +2,8 @@ import platform
 import json
 import os
 import sys
+import shutil
+import time
 from functools import partial
 
 #from PySide2.QtCore import *
@@ -17,8 +19,8 @@ from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QScreen,
 	QFont, QFontDatabase, QGradient, QIcon, QFontMetrics, QMovie, QDrag,
 	QImage, QKeySequence, QLinearGradient, QPainter, QPen, QPaintEvent,
 	QPalette, QPixmap, QRadialGradient, QTransform, QStandardItem)
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QMenuBar, QSizePolicy, QGridLayout, QLineEdit, QComboBox, QSpinBox, QDialogButtonBox, QMessageBox,QFormLayout, QMenu, QStyledItemDelegate,QStyle,
-	QStatusBar, QWidget, QLabel, QButtonGroup, QAbstractButton, QPushButton, QGraphicsDropShadowEffect, QSizeGrip, QGroupBox, QSplashScreen, QTabWidget, QScrollArea, QTreeWidgetItemIterator, QStyleOptionButton,
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QMenuBar, QSizePolicy, QGridLayout, QLineEdit, QComboBox, QSpinBox, QDialogButtonBox, QMessageBox,QFormLayout, QMenu, QStyledItemDelegate,QStyle, QToolBar, QToolButton,
+	QStatusBar, QWidget, QLabel, QButtonGroup, QAbstractButton, QPushButton, QGraphicsDropShadowEffect, QSizeGrip, QGroupBox, QSplashScreen, QTabWidget, QScrollArea, QTreeWidgetItemIterator, QStyleOptionButton, QGraphicsOpacityEffect,
 	QVBoxLayout, QFrame, QHBoxLayout, QCheckBox, QTreeWidgetItem, QHeaderView, QAbstractItemView, QTreeWidget, QFileSystemModel, QTreeView, QDialog, QColorDialog, QFileDialog)
 from PyQt5.uic import loadUiType
 

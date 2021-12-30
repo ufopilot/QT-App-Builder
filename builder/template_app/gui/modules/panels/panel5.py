@@ -10,16 +10,23 @@ class Panel5(QWidget):
 		super(self.__class__, self).__init__(parent)
 		
 		self.ui = parent
-		self.ui_settings = Settings('ui')
+		settings = Settings('ui')
+		self.settings = settings.items
 		
 		
 		####################################################
 		# 
 		# ################################################## 
-		if self.ui_settings.items['panel5']['visible']:
+		if self.settings['panel5']['visible']:
+			self.resizePanel()
 			self.setup()
+
 		else:
 			self.ui.panel5.parent().hide()
-			
+
+	def resizePanel(self):
+		self.ui.parentPanel5.setMinimumSize(QSize(0, self.settings['panel5']['maximum']))
+		self.ui.parentPanel5.setMaximumSize(QSize(16777215, self.settings['panel5']['maximum']))
+
 	def setup(self):	
 		print("in Arbreit")

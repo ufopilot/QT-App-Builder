@@ -17,8 +17,15 @@ class Panel1(QWidget):
 		menu_settings = Settings('menu')
 		self.menu_data = menu_settings.items
 		self.setupMenu()
+		
 		if not self.settings['panel1']['visible']:
 			self.ui.panel1.parent().hide()
+		else:
+			self.resizePanel()
+
+	def resizePanel(self):
+		self.ui.parentPanel1.setMinimumSize(QSize(self.settings['panel1']['maximum'], 0))
+		self.ui.parentPanel1.setMaximumSize(QSize(self.settings['panel1']['maximum'], 16777215))
 
 	def setupMenu(self):
 		self.ui.menuTree.setFocusPolicy(Qt.NoFocus)
@@ -32,7 +39,7 @@ class Panel1(QWidget):
 		self.ui.menuTree.setAnimated(True)
 		self.ui.menuTree.setColumnHidden(2, True)
 		
-		self.ui.menuTree.setColumnWidth(0,200)
+		self.ui.menuTree.setColumnWidth(0,self.settings['panel1']['maximum']-90)
 		self.ui.menuTree.setColumnWidth(1,5)
 		#self.ui.menuTree.header().setDefaultSectionSize(0)
 	  	#self.tree.expandAll()

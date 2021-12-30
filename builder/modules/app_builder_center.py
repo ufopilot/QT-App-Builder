@@ -1,8 +1,8 @@
-from builder.app_builder_delete_app import AppBuilderDeleteApp
+from builder.modules.app_builder_delete_app import AppBuilderDeleteApp
 from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
 from qt_core import *
-import shutil
+
 		
 	
 Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/uis/app_builder_center.ui"))
@@ -10,28 +10,55 @@ Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/uis/ap
 class AppBuilderCenter(Base_Class, Gen_Class):
 	def __init__(self, parent=None, ui=None):
 		super(self.__class__, self).__init__(parent)
+		#############################################################
+		# Flags
+		#############################################################
+		self.setWindowFlag(Qt.FramelessWindowHint)
+		#############################################################
+		# Initial
+		#############################################################
 		self.ui = ui
 		self.parent = parent
-
-		settings = Settings('builder')
-		self.builder_settings = settings
-
 		self.setupUi(self)
-		self.setWindowFlag(Qt.FramelessWindowHint)
+		self.builder_settings = None
+		self.app = None
+		self.app_name = None
+		
+	def setup(self):
 		self.progressBar.setValue(0)
 		self.progressBar.hide()
-		screen = QApplication.primaryScreen()
-		size = screen.size()
-		self.resize(size.width()-self.builder_settings.items['left_width']-self.builder_settings.items['right_width'], size.height()-self.builder_settings.items['bottom_height'])
-		self.move(self.builder_settings.items['left_width']-1, 0)	
-	
+		self.appRemover = AppBuilderDeleteApp(self, self.ui)
 		if self.builder_settings.items['apps_path'].strip() == "":
 			self.parent.setAppsPath()
-
-		self.appRemover = AppBuilderDeleteApp(self, self.ui)
-
 		self.searchApps()
-	
+		self.resize_window()
+
+	def resize_window(self):
+		screen = QApplication.primaryScreen()
+		size = screen.size()
+		self.resize(
+			size.width()
+			-
+			self.builder_settings.items['left']['width']
+			- 
+			self.builder_settings.items['right']['width'] 
+			- 
+			self.builder_settings.items['center']['right'], 
+			size.height()
+			-
+			self.builder_settings.items['bottom']['height'] 
+			- 
+			self.builder_settings.items['center']['bottom']
+			-
+			self.builder_settings.items['center']['top']
+		)
+		self.move(
+			self.builder_settings.items['left']['width']
+			+
+			self.builder_settings.items['center']['left'], 
+			self.builder_settings.items['center']['top'], 
+		)
+
 	def removeApp(self):
 		builder_settings = Settings("builder")
 		apps_path = builder_settings.items['apps_path']
@@ -48,7 +75,7 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 	def searchApps(self, apps_path=None):
 		if apps_path == None:
 			apps_path = self.builder_settings.items['apps_path']
-			self.apps_path.setText(f"Path: {apps_path}")
+			self.parent.builder_center_header.apps_path.setText(f"Path: {apps_path}")
 	
 		if not os.path.isdir(apps_path):
 			return
@@ -104,10 +131,7 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 			
 			layout.addWidget(btn)
 
-			icon = QPushButton(frame)
-			icon.setObjectName(f"remove_{app_name}")
-			icon.setFlat(True)
-			icon.setIconSize(QSize(30, 30))
+			
 			
 			if app_name == "template_app":
 				btn.setText(f"Template App")
@@ -116,6 +140,10 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 				self.myAppsLayout.addWidget(frame, 0, 0, 1, 4)
 
 			else:
+				icon = QPushButton(frame)
+				icon.setObjectName(f"remove_{app_name}")
+				icon.setFlat(True)
+				icon.setIconSize(QSize(30, 30))
 				icon.setProperty("type", "btn_app_mini")
 				icon.setCursor(QCursor(Qt.PointingHandCursor))
 				icon.setToolTip(f"Delete App: {app_name}")
@@ -139,15 +167,5 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 		QTimer.singleShot(100, lambda: self.parent.loadApp(app_name))
 
 	def setSelectedApp(self, name=""):
-		settings = Settings('builder')
-		settings.items['selected_app'] = name
-		settings.serialize()
-		self.selected_app.setText(f"App: {name}")
+		self.parent.builder_center_header.selected_app.setText(f"App: {name}")
 	
-if __name__ == '__main__':
-	import sys
-	app = QApplication(sys.argv)
-	app.setStyle("fusion")
-	w = AppBuilderCenter()
-	w.show()
-	sys.exit(app.exec())

@@ -74,16 +74,6 @@ class MainWidget(Base_Class, Gen_Class):
 			self.cornerGrips[i].setStyleSheet("background: transparent;")
 		
 		####################################################################################
-		# MAIN-UI BTNS
-		####################################################################################
-		#self.reloadStylesheet.clicked.connect(lambda: SetStyle(self).setTheme(self.settings['theme_name']))
-		#self.reloadApp.clicked.connect(self.restart)
-		#SetControllerButtons(self)
-		self.controllerButtons = SetControllerButtons(self)
-		self.controllerButtons.handle_ui_btns()
-		self.controllerButtons.toggle_all()
-		#self.controllerButtons.disableToggleButtons()
-		####################################################################################
 		# SET STYLE AND THEME
 		####################################################################################
 		self.setAttribute(Qt.WA_TranslucentBackground, True)
@@ -126,6 +116,17 @@ class MainWidget(Base_Class, Gen_Class):
 		#####################################################################################
 		#Theming(self)
 		#Customizing(self)
+		
+		####################################################################################
+		# MAIN-UI BTNS
+		####################################################################################
+		#self.reloadStylesheet.clicked.connect(lambda: SetStyle(self).setTheme(self.settings['theme_name']))
+		#self.reloadApp.clicked.connect(self.restart)
+		#SetControllerButtons(self)
+		self.controllerButtons = SetControllerButtons(self)
+		self.controllerButtons.handle_ui_btns()
+		self.controllerButtons.toggle_all()
+		#self.controllerButtons.disableToggleButtons()
 		
 	def mousePressEvent(self, event):
 		if event.buttons() == Qt.RightButton:

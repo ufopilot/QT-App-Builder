@@ -4,7 +4,7 @@ from qt_core import *
 
 from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
-from .widgets.animated_check.animated_check import AnimatedCheck
+from ..widgets.animated_check.animated_check import AnimatedCheck
 
 
 
@@ -12,62 +12,61 @@ class MenuBuilder(QWidget):
 	_init = True
 	def __init__(self, parent=None, ui=None, apps_path=None, app_name=None):
 		super(self.__class__, self).__init__(parent)
-		
+		#############################################################
+		# Initial
+		#############################################################
 		self.ui = ui
 		self.parent = parent
-
 		self.apps_path = apps_path
 		self.app_name = app_name
-
-		#self.ui_settings = Settings('ui')
 		self.ui_settings = None
+		self.builder_settings = None
 		self.theme_settings = None
 		self.menu_settings = None
 		self.initial = False
 	
-	def menuInit(self, init=True):
+	def setup(self, init=True):
 		
-		#self.parent.menuTree.setFocusPolicy(Qt.NoFocus)
+		#self.parent.builder_left.menuTree.setFocusPolicy(Qt.NoFocus)
 		sizePolicy = QSizePolicy(QSizePolicy.Ignored, QSizePolicy.Ignored)
 		sizePolicy.setHorizontalStretch(0)
 		sizePolicy.setVerticalStretch(0)
-		sizePolicy.setHeightForWidth(self.parent.menuTree.sizePolicy().hasHeightForWidth())
-		self.parent.menuTree.setSizePolicy(sizePolicy)
-		self.parent.menuTree.setHeaderLabels(['Name', 'Object', 'Children', 'Icon', '', 'start'])
-		#self.parent.menuTree.setHeaderHidden(True); 
-		#self.parent.menuTree.setAnimated(True)
-		#self.parent.menuTree.setColumnHidden(2, True)
+		sizePolicy.setHeightForWidth(self.parent.builder_left.menuTree.sizePolicy().hasHeightForWidth())
+		self.parent.builder_left.menuTree.setSizePolicy(sizePolicy)
+		self.parent.builder_left.menuTree.setHeaderLabels(['Name', 'Object', 'Children', 'Icon', '', 'Start'])
+		#self.parent.builder_left.menuTree.setHeaderHidden(True); 
+		#self.parent.builder_left.menuTree.setAnimated(True)
+		#self.parent.builder_left.menuTree.setColumnHidden(2, True)
 		
-		self.parent.menuTree.setColumnWidth(0,150)
-		self.parent.menuTree.setColumnWidth(1,100)
-		self.parent.menuTree.setColumnWidth(2,60)
-		self.parent.menuTree.setColumnWidth(3,100)
-		self.parent.menuTree.setColumnWidth(4,40)
-		self.parent.menuTree.setColumnWidth(5,40)
+		self.parent.builder_left.menuTree.setColumnWidth(0,150)
+		self.parent.builder_left.menuTree.setColumnWidth(1,100)
+		self.parent.builder_left.menuTree.setColumnWidth(2,60)
+		self.parent.builder_left.menuTree.setColumnWidth(3,100)
+		self.parent.builder_left.menuTree.setColumnWidth(4,40)
+		self.parent.builder_left.menuTree.setColumnWidth(5,40)
 
-		self.parent.menuTree.expandAll()
-		self.parent.menuTree.setSelectionMode(QAbstractItemView.MultiSelection)
-		self.parent.menuTree.setDragEnabled(True)
-		self.parent.menuTree.viewport().setAcceptDrops(True)
-		self.parent.menuTree.setDropIndicatorShown(True)
+		self.parent.builder_left.menuTree.expandAll()
+		self.parent.builder_left.menuTree.setSelectionMode(QAbstractItemView.MultiSelection)
+		self.parent.builder_left.menuTree.setDragEnabled(True)
+		self.parent.builder_left.menuTree.viewport().setAcceptDrops(True)
+		self.parent.builder_left.menuTree.setDropIndicatorShown(True)
 
 		# itemchanged
-		self.parent.menuTree.itemChanged[QTreeWidgetItem, int].connect(self.get_item)
-		self.root = self.parent.menuTree.invisibleRootItem()
+		self.parent.builder_left.menuTree.itemChanged[QTreeWidgetItem, int].connect(self.get_item)
+		self.root = self.parent.builder_left.menuTree.invisibleRootItem()
 		# Connect the contextmenu
-		self.parent.menuTree.setContextMenuPolicy(Qt.CustomContextMenu)
-		self.parent.menuTree.customContextMenuRequested.connect(self.menuContextTree)
+		self.parent.builder_left.menuTree.setContextMenuPolicy(Qt.CustomContextMenu)
+		self.parent.builder_left.menuTree.customContextMenuRequested.connect(self.menuContextTree)
 
-	def setup(self, init=True):
+	def refresh(self, init=True):
 
 		self.theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
 		self.ui_settings = Settings('ui', apps_path=self.apps_path, app_name=self.app_name)
 		self.menu_settings = Settings('menu', apps_path=self.apps_path, app_name=self.app_name)
 		print(self.apps_path, self.app_name)
-		self.parent.menuTree.clear() 
+		self.parent.builder_left.menuTree.clear() 
 		self.drawMenu(self.menu_settings.items)
-		self.parent.menuTree.expandAll()
-		#self.menuToJson()
+		self.parent.builder_left.menuTree.expandAll()
 		
 	def get_item(self, item, column):
 		if  column == 2:
@@ -75,7 +74,7 @@ class MenuBuilder(QWidget):
 				item.setText(1, "")
 				item.setData(5, Qt.CheckStateRole, QVariant())
 				item.addChild(self.new_item("Menu Item", {"icon": "fa.circle-o", "widget":"ClassName"}))
-				self.parent.menuTree.expandAll()
+				self.parent.builder_left.menuTree.expandAll()
 			else:
 				#(item.parent() or self.root).removeChild(item)
 				for i in reversed(range(item.childCount())):
@@ -124,7 +123,7 @@ class MenuBuilder(QWidget):
 
 	def drawMenu(self, dat):
 		for el in dat:
-			self.add(self.parent.menuTree, el)
+			self.add(self.parent.builder_left.menuTree, el)
 
 	def add(self, p, ch):
 		k=ch['name']
@@ -141,12 +140,12 @@ class MenuBuilder(QWidget):
 	
 	def menuContextTree(self, point):
 		# Infos about the node selected.
-		index = self.parent.menuTree.indexAt(point)
+		index = self.parent.builder_left.menuTree.indexAt(point)
 
 		if not index.isValid():
 			return
 
-		item = self.parent.menuTree.itemAt(point)
+		item = self.parent.builder_left.menuTree.itemAt(point)
 		name = item.text(0)  # The text of the node.
 
 		# We build the menu.
@@ -174,7 +173,7 @@ class MenuBuilder(QWidget):
 		icon = qta.icon("mdi.close", color=icon_color)
 		delete = menu.addAction(icon, f"Remove {name}")
 
-		action = menu.exec_(self.parent.menuTree.mapToGlobal(point))
+		action = menu.exec_(self.parent.builder_left.menuTree.mapToGlobal(point))
 
 		if action == delete:
 			itemParent = item.parent() or self.root
@@ -186,7 +185,7 @@ class MenuBuilder(QWidget):
 			itemParent.addChild(self.new_item("Menu Item", {"icon": "fa.circle-o", "widget":"ClassName"}))
 			child = itemParent.takeChild(c);
 			itemParent.insertChild(index, child);
-			self.parent.menuTree.expandAll()
+			self.parent.builder_left.menuTree.expandAll()
 		elif action == appendItem:
 			itemParent = item.parent() or self.root
 			index = itemParent.indexOfChild(item)
@@ -194,7 +193,7 @@ class MenuBuilder(QWidget):
 			itemParent.addChild(self.new_item("Menu Item", {"icon": "fa.circle-o", "widget":"ClassName"}))
 			child = itemParent.takeChild(c);
 			itemParent.insertChild(index+1, child);
-			self.parent.menuTree.expandAll()
+			self.parent.builder_left.menuTree.expandAll()
 			
 		elif action == moveUp:
 			itemParent = item.parent() or self.root
@@ -203,7 +202,7 @@ class MenuBuilder(QWidget):
 				return
 			child = itemParent.takeChild(index)
 			itemParent.insertChild(index-1, child)
-			self.parent.menuTree.expandAll()
+			self.parent.builder_left.menuTree.expandAll()
 		elif action == moveDown:
 			itemParent = item.parent() or self.root
 			index = itemParent.indexOfChild(item)
@@ -211,20 +210,20 @@ class MenuBuilder(QWidget):
 				return
 			child = itemParent.takeChild(index);
 			itemParent.insertChild(index+1, child);
-			self.parent.menuTree.expandAll()
+			self.parent.builder_left.menuTree.expandAll()
 		elif action == moveToBottom:
 			itemParent = item.parent() or self.root
 			index = itemParent.indexOfChild(item)
 			bottomIndex = itemParent.childCount()
 			child = itemParent.takeChild(index);
 			itemParent.insertChild(bottomIndex-1, child);
-			self.parent.menuTree.expandAll()
+			self.parent.builder_left.menuTree.expandAll()
 		elif action == moveToTop:
 			itemParent = item.parent() or self.root
 			index = itemParent.indexOfChild(item)
 			child = itemParent.takeChild(index);
 			itemParent.insertChild(0, child);
-			self.parent.menuTree.expandAll()
+			self.parent.builder_left.menuTree.expandAll()
 
 	def tree_to_dict(self, parent):
 		childCount = parent.childCount()
@@ -246,7 +245,7 @@ class MenuBuilder(QWidget):
 		return content
 		
 	def menuToJson(self):
-		self.parent.menuTree.expandAll()
+		self.parent.builder_left.menuTree.expandAll()
 		dictionary = []
 
 		for x in range(self.root.childCount()):

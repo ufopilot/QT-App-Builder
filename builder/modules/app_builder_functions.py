@@ -55,24 +55,3 @@ class UIFunctions():
 			formated_stylesheet = base_stylesheet.format(**theme)
 			return formated_stylesheet
 			
-
-	def setGuiStyle(self, base_style, theme, target):
-		return
-		template_stylesheet = ""
-		with open(UIFunctions().resource_path(f'./app/gui/assets/style/{base_style}.qss')) as f:
-				base_stylesheet = f.read()  
-		if theme == "fusion":
-			print("set theme", theme)
-			target.setStyleSheet(f"{base_stylesheet}")
-		else:
-			print("set theme", theme)
-			with open(UIFunctions().resource_path(f'./app/gui/assets/style/colors.qss')) as f:
-				template_stylesheet = f.read()
-			with open(UIFunctions().resource_path(f'./app/gui/assets/themes/{theme}.json')) as f:
-				theme_stylesheet = json.load(f)
-				for key, value in theme_stylesheet.items():
-					template_stylesheet = template_stylesheet.replace(key, value)
-			#\n{template_stylesheet}
-			target.setStyleSheet(f"{base_stylesheet}")
-	
-	

@@ -4,39 +4,24 @@ from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
 import re
 
-class Worker(QRunnable):
-	def __init__(self, widget, settings, progress):
-		super().__init__()
-		self.widget = widget
-		self.settings = settings
-		self.progress = progress
-
-	def run(self):
-		
-		self.progress.hide()
-
 class ThemeBuilder(QWidget):
 	_init = True
 	def __init__(self, parent=None, ui=None, apps_path=None, app_name=None):
 		super(self.__class__, self).__init__(parent)
-		
+		#############################################################
+		# Initial
+		#############################################################
 		self.ui = ui
 		self.parent = parent
-
 		self.apps_path = apps_path
 		self.app_name = app_name
-
 		self.ui_settings = None
 		self.theme_settings = None
-		settings = Settings('builder')
-		self.builder_settings = settings
-
+		self.builder_settings = None
 		self.initial = False
 		self.reset = False
 
-		self.addProps()
-
-	def addProps(self):
+	def setup(self):
 
 		if 'icons_color' in self.builder_settings.items:
 			if self.builder_settings.items['icons_color'] != "":
@@ -44,7 +29,7 @@ class ThemeBuilder(QWidget):
 			else:
 				icon_color = "white"
 				
-		for frame in self.parent.Theming.findChildren(QFrame):
+		for frame in self.parent.builder_left.Theming.findChildren(QFrame):
 			try:
 				label1 = frame.findChildren(QLabel)[0]
 				label2 = frame.findChildren(QLabel)[1]
@@ -56,21 +41,18 @@ class ThemeBuilder(QWidget):
 				btn.setIcon(icon)
 			except:
 				pass
-		self.parent.changeSelectedFont.insertItem(0, "")
-		self.parent.changeSelectedFont.setCurrentIndex(0)
-
-	def setup(self):
-		#threadCount = QThreadPool.globalInstance().maxThreadCount()
-		#pool = QThreadPool.globalInstance()
-		settings = Settings('builder')
-		self.builder_settings = settings
+		self.parent.builder_left.changeSelectedFont.insertItem(0, "")
+		self.parent.builder_left.changeSelectedFont.setCurrentIndex(0)
+	
+	
+	def refresh(self):
 		self.theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
 		self.ui_settings = Settings('ui', apps_path=self.apps_path, app_name=self.app_name)
 		
 		valcount = self.countValues()
 		progress_step = 100 / valcount
 		
-		for button in self.parent.Theming.findChildren(QPushButton):
+		for button in self.parent.builder_left.Theming.findChildren(QPushButton):
 			button_name = button.objectName()
 			if "colorPicker" in button_name:
 				button.setCursor(QCursor(Qt.PointingHandCursor))
@@ -80,7 +62,7 @@ class ThemeBuilder(QWidget):
 					pass
 				button.clicked.connect(self.open_color_picker)
 
-		for combo in self.parent.Theming.findChildren(QComboBox):
+		for combo in self.parent.builder_left.Theming.findChildren(QComboBox):
 			combo.setCursor(QCursor(Qt.PointingHandCursor))
 			if "changeSelectedColor" in combo.objectName():
 				#self.fillColorsCombo(combo)
@@ -96,7 +78,7 @@ class ThemeBuilder(QWidget):
 				except:
 					pass 
 				combo.currentTextChanged.connect(self.handleFontFamily)
-		for spin in (self.parent.selectedTextSize, self.parent.selectedTitleSize):
+		for spin in (self.parent.builder_left.selectedTextSize, self.parent.builder_left.selectedTitleSize):
 			try:
 				spin.valueChanged.disconnect()
 			except:
@@ -116,11 +98,7 @@ class ThemeBuilder(QWidget):
 			):
 			
 			widget = self.parent.findChild(QWidget, f"theming_{area}")
-			#worker = Worker(widget, self.theme_settings.items['theme'][area], eval(f"self.parent.{area}_progressBar"))
-			#pool.start(worker)
-			
 		
-
 			for key, value in self.theme_settings.items['theme'][area].items():
 				try:
 					i += 1
@@ -136,18 +114,19 @@ class ThemeBuilder(QWidget):
 					pass
 
 		font_name = self.theme_settings.items['theme']['font']['family']
-		index = self.parent.changeSelectedFont.findText(font_name, Qt.MatchFixedString)
+		index = self.parent.builder_left.changeSelectedFont.findText(font_name, Qt.MatchFixedString)
 		if index >= 0:
-			self.parent.changeSelectedFont.setCurrentIndex(index)
+			self.parent.builder_left.changeSelectedFont.setCurrentIndex(index)
 		
-		self.parent.selectedTitleSize.setValue(self.theme_settings.items['theme']['font']['title_size'])
-		self.parent.selectedTextSize.setValue(self.theme_settings.items['theme']['font']['text_size'])
+		self.parent.builder_left.selectedTitleSize.setValue(self.theme_settings.items['theme']['font']['title_size'])
+		self.parent.builder_left.selectedTextSize.setValue(self.theme_settings.items['theme']['font']['text_size'])
 		
 		self.initial = False
 
 		#	if any(key in button_name for key in List3):
 		#		button.stateChanged.connect(self.changeBarIconsColor)
 
+	
 	def loadThemeColors(self):
 		self.initial = True
 		
@@ -192,8 +171,8 @@ class ThemeBuilder(QWidget):
 				self.parent.changeSelectedFont.setCurrentIndex(index)
 		except:
 			pass
-		self.parent.selectedTitleSize.setValue(selectedTheme['font']['title_size'])
-		self.parent.selectedTextSize.setValue(selectedTheme['font']['text_size'])
+		self.parent.builder_left.selectedTitleSize.setValue(selectedTheme['font']['title_size'])
+		self.parent.builder_left.selectedTextSize.setValue(selectedTheme['font']['text_size'])
 		
 		self.initial = False
 
@@ -215,8 +194,8 @@ class ThemeBuilder(QWidget):
 
 	def open_color_picker(self):
 		
-		settings = Settings('builder')
-		if settings.items['selected_app'] == "":
+		#settings = Settings('builder')
+		if self.builder_settings.items['selected_app'] == "":
 			return
 		
 		btn = self.sender()
@@ -228,8 +207,7 @@ class ThemeBuilder(QWidget):
 			return 
 		
 		# fill label
-		for label in btn.parent().findChildren(QLabel):
-
+		for label in btn.parent().findChildren(QLabel): 
 			if "selectedColor" in label.objectName():
 				#label.setStyleSheet(f"background: {color.name()}; border: 2px solid teal;border-radius: 12px; max-width: 24px; max-height: 24px")	
 				label.setStyleSheet(f"background: {color.name()}")	
@@ -242,7 +220,6 @@ class ThemeBuilder(QWidget):
 		color_list = []
 		#color_list.append(color.name())
 		qcolor = QColor(color.name())
-		
 		color_list.append(qcolor.darker(15).name())
 		color_list.append(qcolor.darker(30).name())
 		color_list.append(qcolor.darker(45).name())

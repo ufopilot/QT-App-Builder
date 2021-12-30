@@ -35,11 +35,3 @@ class AppBuilderMessage(Base_Class, Gen_Class):
 		self.icon.setIcon(icon)
 		self.icon.setIconSize(QSize(50, 50))
 		self.show()
-
-if __name__ == '__main__':
-	import sys
-	app = QApplication(sys.argv)
-	app.setStyle("fusion")
-	w = AppBuilderMessage()
-	w.show()
-	sys.exit(app.exec())

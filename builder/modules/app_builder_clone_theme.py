@@ -2,10 +2,10 @@
 from .app_builder_settings import Settings
 from .app_builder_functions import UIFunctions
 from qt_core import *
-	
+import shutil	
 Gen_Class, Base_Class = loadUiType(UIFunctions().resource_path("./builder/uis/app_builder_save_theme.ui"))
 
-class AppBuilderSaveTheme(Base_Class, Gen_Class):
+class AppBuilderCloneTheme(Base_Class, Gen_Class):
 	def __init__(self, parent=None, ui=None):
 		super(self.__class__, self).__init__(parent)
 		self.ui = ui
@@ -22,22 +22,28 @@ class AppBuilderSaveTheme(Base_Class, Gen_Class):
 		self.buttonBox.accepted.connect(self.accept)
 		self.buttonBox.rejected.connect(self.reject)	
 		self.lineEdit.returnPressed.connect(self.accept)
+
+		self.apps_path = None
+		self.app_name = None
+		self.theme = None
+		self.img = None
 		
 	def accept(self):
 		if self.lineEdit.text().strip() != "":
 			self.close()
-			self.parent.saveCurrentTheme.toggle()
-			QTimer.singleShot(200, lambda: self.parent.take_screenshot(self.lineEdit.text()))
+		target = self.lineEdit.text().strip()
+		try:
+			shutil.copy(self.img, f"{self.apps_path}/{self.app_name}/gui/resources/imgs/themes/{target}.png")
+		except:
+			pass
+
+		theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
+		
+		theme_settings.items['themes'][target] = theme_settings.items['themes'][self.theme]
+		theme_settings.serialize()
+		self.parent.loadThemesButtons()
 			
 		
 	def reject(self):
-		self.parent.saveCurrentTheme.toggle()
 		self.close()
 			
-if __name__ == '__main__':
-	import sys
-	app = QApplication(sys.argv)
-	app.setStyle("fusion")
-	w = AppBuilderSaveTheme()
-	w.show()
-	sys.exit(app.exec())

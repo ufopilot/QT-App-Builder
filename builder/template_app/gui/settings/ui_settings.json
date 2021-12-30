@@ -1,13 +1,13 @@
 {
     "window": {
         "app_name": "Template",
-        "description": "Python-QT Application Theme",
+        "description": "Python-QT Admin-Theme",
         "version": "Version: 1.0.0",
         "author": "By UFOPILOT",
         "year": "2021",
-        "icon": "app/gui/resources/imgs/appicon.ico",
-        "initial_width": 1290,
-        "initial_height": 824,
+        "icon": "builder/template_app/gui/resources/imgs/appicon.ico",
+        "initial_width": 1299,
+        "initial_height": 755,
         "minimum_width": 800,
         "minimum_height": 400,
         "frameless": true

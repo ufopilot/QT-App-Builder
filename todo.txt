@@ -50,3 +50,8 @@ Builder
 ###
 - select icon relative path 
 - copy selected icon to app imgs
+
+create app refresh apps apps_path
+
+
+# remove theme .. if theme is selected close app first (reload failure)
