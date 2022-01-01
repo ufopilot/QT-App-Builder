@@ -14,8 +14,6 @@ class FootballWidget(Base_Class, Gen_Class):
 		##########################################################################################
 		self.config = read_config()
 		change_tabs_direction(self, self.config['tabs_position'])
-		
-		#print(self.FirstTabLayout.count())
 	
 	
 if __name__ == '__main__':

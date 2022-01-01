@@ -13,6 +13,7 @@ class AppBuilderDeleteTheme(Base_Class, Gen_Class):
 
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
+		self.setStyle()
 		
 		screen = QApplication.primaryScreen()
 		size = screen.size()
@@ -25,7 +26,8 @@ class AppBuilderDeleteTheme(Base_Class, Gen_Class):
 		self.theme = None
 		self.app_name = None
 		self.apps_path = None
-
+		
+		
 	def accept(self):
 		
 		theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
@@ -50,4 +52,8 @@ class AppBuilderDeleteTheme(Base_Class, Gen_Class):
 		
 	def reject(self):
 		self.close()
-			
+	
+	def setStyle(self):
+		with open(f"builder/style/app_builder_theme_deleter.qss") as f:
+			stylesheet = f.read()
+			self.setStyleSheet(stylesheet)

@@ -13,6 +13,7 @@ class AppBuilderCloneTheme(Base_Class, Gen_Class):
 
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
+		self.setStyle()
 		
 		screen = QApplication.primaryScreen()
 		size = screen.size()
@@ -46,4 +47,9 @@ class AppBuilderCloneTheme(Base_Class, Gen_Class):
 		
 	def reject(self):
 		self.close()
+	
+	def setStyle(self):
+		with open(f"builder/style/app_builder_theme_saver.qss") as f:
+			stylesheet = f.read()
+			self.setStyleSheet(stylesheet)
 			

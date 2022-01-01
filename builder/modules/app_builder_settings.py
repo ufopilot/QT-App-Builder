@@ -21,8 +21,6 @@ class Settings(object):
 				# we are running in a |PyInstaller| bundle
 				base_path = sys._MEIPASS
 				extDataDir = os.getcwd()
-				print(base_path)
-				print(extDataDir)
 				self.json_file = f"settings/{type}_settings.json"
 			else:
 				# we are running in a normal Python environment
@@ -30,9 +28,6 @@ class Settings(object):
 				extDataDir = os.getcwd()
 				
 				self.json_file = f"{apps_path}/{app_name}/gui/settings/{type}_settings.json"
-				#print("########################################################")
-				#print("########", self.json_file)
-				#print("########################################################")
 			self.settings_path = os.path.join(extDataDir, self.json_file)
 		
 		self.items = {}

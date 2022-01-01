@@ -13,7 +13,7 @@ class AppBuilderSaveTheme(Base_Class, Gen_Class):
 
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
-		
+		self.setStyle()
 		screen = QApplication.primaryScreen()
 		size = screen.size()
 		self.resize(400, 50)
@@ -22,6 +22,7 @@ class AppBuilderSaveTheme(Base_Class, Gen_Class):
 		self.buttonBox.accepted.connect(self.accept)
 		self.buttonBox.rejected.connect(self.reject)	
 		self.lineEdit.returnPressed.connect(self.accept)
+		self.hide()
 		
 	def accept(self):
 		if self.lineEdit.text().strip() != "":
@@ -33,3 +34,9 @@ class AppBuilderSaveTheme(Base_Class, Gen_Class):
 	def reject(self):
 		self.parent.saveCurrentTheme.toggle()
 		self.close()
+
+	def setStyle(self):
+		with open(f"builder/style/app_builder_theme_saver.qss") as f:
+			stylesheet = f.read()
+			self.setStyleSheet(stylesheet)
+

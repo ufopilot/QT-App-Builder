@@ -20,19 +20,20 @@ class AppBuilderCreateApp(Base_Class, Gen_Class):
 
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
+		self.setStyle()
 		
 		screen = QApplication.primaryScreen()
 		size = screen.size()
 		self.resize(400, 50)
+		
 		self.move(size.width()/2, size.height()/2)
 		#self.setStyleSheet("min-width: 200px;")
 		self.message_box = AppBuilderMessage(self)
 		
-
 		self.buttonBox.accepted.connect(self.accept)
 		self.buttonBox.rejected.connect(self.reject)	
 		self.lineEdit.returnPressed.connect(self.accept)
-		
+
 	def accept(self):
 		settings = Settings('builder')
 		self.builder_settings = settings
@@ -90,4 +91,9 @@ class AppBuilderCreateApp(Base_Class, Gen_Class):
 	def reject(self):
 		self.parent.createNewApp.toggle()
 		self.close()
-			
+
+	def setStyle(self):
+		with open(f"builder/style/app_builder_app_creator.qss") as f:
+			stylesheet = f.read()
+			self.setStyleSheet(stylesheet)
+		

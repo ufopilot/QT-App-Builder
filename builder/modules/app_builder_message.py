@@ -18,7 +18,7 @@ class AppBuilderMessage(Base_Class, Gen_Class):
 		screen = QApplication.primaryScreen()
 		size = screen.size()
 		self.resize(400, 50)
-		self.move(size.width()/2, size.height()/2)
+		self.move(size.width()-400, size.height()-150)
 	
 	def notify(self, msg_type, title, message):
 		self.title.setText(title)

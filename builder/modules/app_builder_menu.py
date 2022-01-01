@@ -59,11 +59,9 @@ class MenuBuilder(QWidget):
 		self.parent.builder_left.menuTree.customContextMenuRequested.connect(self.menuContextTree)
 
 	def refresh(self, init=True):
-
 		self.theme_settings = Settings('theme', apps_path=self.apps_path, app_name=self.app_name)
 		self.ui_settings = Settings('ui', apps_path=self.apps_path, app_name=self.app_name)
 		self.menu_settings = Settings('menu', apps_path=self.apps_path, app_name=self.app_name)
-		print(self.apps_path, self.app_name)
 		self.parent.builder_left.menuTree.clear() 
 		self.drawMenu(self.menu_settings.items)
 		self.parent.builder_left.menuTree.expandAll()

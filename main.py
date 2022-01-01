@@ -57,8 +57,8 @@ class AppBuilder(Base_Class, Gen_Class):
 		# ------------------------------
 		icon = qta.icon("msc.chrome-minimize", color="white")
 		self.minimizeBtn.setCursor(QCursor(Qt.PointingHandCursor))
-		#self.minimizeBtn.clicked.connect(self.window().showMinimized)
-		self.minimizeBtn.clicked.connect(lambda : self.setStyle(self, "main"))
+		self.minimizeBtn.clicked.connect(self.window().showMinimized)
+		#self.minimizeBtn.clicked.connect(lambda : self.setStyle(self, "main"))
 		self.minimizeBtn.setIcon(icon)
 		############################################################
 		# initial
@@ -420,12 +420,6 @@ class AppBuilder(Base_Class, Gen_Class):
 		animation.setEndValue(1)
 		animation.start()
 	
-	def fadeAllIn(self):
-		group = QParallelAnimationGroup(self)
-        #group.addAnimation(geometry_animation)
-        #group.addAnimation(opacity_animation)
-        #group.start(QtCore.QAbstractAnimation.DeleteWhenStopped)
-	#
 	#def fadeOut(self, w):
 	#	for i in range(10):
 	#		i = i / 10

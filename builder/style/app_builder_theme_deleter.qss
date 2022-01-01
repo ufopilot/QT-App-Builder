@@ -1,0 +1,40 @@
+/* ######################################### */
+/* ThemeDeleter */
+/* ######################################### */
+#ThemeDeleter{
+	border: 1px  solid  rgb(49, 54, 72);
+	background: #1b202c;
+	color: #fff;
+	font-size: 14px;
+}
+
+
+#ThemeDeleter QLabel{
+	min-width: 100px;
+	color: #fff;
+	font-size: 14px;
+	background: transparent;
+}
+
+#ThemeDeleter QPushButton{
+	border: 2px solid #124078;
+    padding: 5px;
+	background: #2b579a;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+#ThemeDeleter QPushButton:hover{
+	border: 1px solid #124078;
+    background: #124078;
+	border-radius: 0px;
+}
+
+
+#ThemeDeleter QLineEdit{
+	border: 1px solid #555;
+	color: #fff;
+	background:  rgb(49, 54, 72);
+	font-size: 14px;
+}

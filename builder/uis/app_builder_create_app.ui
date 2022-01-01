@@ -6,44 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>386</width>
-    <height>96</height>
+    <width>800</width>
+    <height>140</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <property name="styleSheet">
-    <string notr="true">
-*{
-	background: #1b202c;
-	color: #fff;
-	font-size: 16px;
-}
- 
-
-#centralwidget{
-	border: 1px  solid  rgb(49, 54, 72);
-}
-
-
-QFrame{ 
-    border: 0px solid;
-}
-
-QLabel{
-	min-width: 100px;
-}
-
-
-QLineEdit{
-	border: 1px solid #555;
-	color: darkgray
-}
-
-</string>
-   </property>
+  <widget class="QWidget" name="AppCreator">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="label">

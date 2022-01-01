@@ -100,7 +100,6 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 
 		folders.insert(0,"template_app")
 		for app_name in folders:
-			print(app_name)
 			if app_name != "template_app":
 				if not os.path.isdir(os.path.join(apps_path, app_name)):
 					continue

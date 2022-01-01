@@ -33,9 +33,7 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.message_box = AppBuilderMessage(self)
 		self.initFormControl()
 		self.resize_window()
-		#self.parent.setStyle(self, "right")
 		self.show()
-		#self.parent.unfade(self)
 
 	def resize_window(self):
 		screen = QApplication.primaryScreen()
@@ -111,7 +109,11 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.add_icon(self.setAppsPath, "mdi.folder-table-outline")
 	
 	def adjust_app(self):
-		print("adjust")
+		if self.builder_settings.items['selected_app'] == "":
+			self.message_box.notify("warning", "Adjust App", "No App selected!")
+			timer=QTimer.singleShot(2000, lambda: self.message_box.close())
+			return
+
 		self.parent.app.move(
 			self.builder_settings.items['left']['width']
 			+
@@ -182,9 +184,9 @@ class AppBuilderRight(Base_Class, Gen_Class):
 
 		if not btn.isChecked():
 			return
-	
+
 		self.appCreator.show()
-	
+		
 	def highlighter(self, btn, e): 
 		btn_name = btn.objectName()
 		if btn_name == "setAppsPath":
