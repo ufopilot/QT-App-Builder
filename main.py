@@ -66,6 +66,20 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.app = None
 		self.app_name = None
 		# ------------------------------
+		# center Header
+		# ------------------------------
+		self.builder_center_header = AppBuilderCenterHeader(self, self.app)
+		self.builder_center_header.builder_settings = self.builder_settings
+		self.builder_center_header.setup()
+		# ------------------------------
+		# center
+		# ------------------------------
+		self.builder_center = AppBuilderCenter(self, self.app)
+		self.builder_center.builder_settings = self.builder_settings
+		self.builder_center.setup()
+		self.loadingProgress = self.builder_center.progressBar
+		#self.fadeIn(self.builder_center)
+		# ------------------------------
 		# left
 		# ------------------------------
 		self.builder_left = AppBuilderLeft(self, self.app)
@@ -84,20 +98,6 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.builder_right = AppBuilderRight(self, self.app)
 		self.builder_right.builder_settings = self.builder_settings
 		self.builder_right.setup()
-		# ------------------------------
-		# center Header
-		# ------------------------------
-		self.builder_center_header = AppBuilderCenterHeader(self, self.app)
-		self.builder_center_header.builder_settings = self.builder_settings
-		self.builder_center_header.setup()
-		# ------------------------------
-		# center
-		# ------------------------------
-		self.builder_center = AppBuilderCenter(self, self.app)
-		self.builder_center.builder_settings = self.builder_settings
-		self.builder_center.setup()
-		self.loadingProgress = self.builder_center.progressBar
-		#self.fadeIn(self.builder_center)
 		# ------------------------------
 		# bottom
 		# ------------------------------
@@ -125,6 +125,48 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.showMaximized()
 		#self.setWindowOpacity(1)
 		self.check_apps_path()
+
+		self.animate()
+
+	def animate(self):
+		opacity_left_header = QGraphicsOpacityEffect(self.builder_left_header)
+		self.builder_left_header.setGraphicsEffect(opacity_left_header)
+		left_header_animation = QPropertyAnimation(
+            opacity_left_header, b"opacity", duration=1000, startValue=0.0, endValue=1.0
+        )
+		opacity_left = QGraphicsOpacityEffect(self.builder_left)
+		self.builder_left.setGraphicsEffect(opacity_left)
+		left_animation = QPropertyAnimation(
+            opacity_left, b"opacity", duration=1000, startValue=0.0, endValue=1.0
+        )
+		opacity_center_header = QGraphicsOpacityEffect(self.builder_center_header)
+		self.builder_center_header.setGraphicsEffect(opacity_center_header)
+		center_header_animation = QPropertyAnimation(
+            opacity_center_header, b"opacity", duration=1000, startValue=0.0, endValue=1.0
+        )
+		opacity_center = QGraphicsOpacityEffect(self.builder_center)
+		self.builder_center.setGraphicsEffect(opacity_center)
+		center_animation = QPropertyAnimation(
+            opacity_center, b"opacity", duration=1000, startValue=0.0, endValue=1.0
+        )
+		opacity_bottom = QGraphicsOpacityEffect(self.builder_bottom)
+		self.builder_bottom.setGraphicsEffect(opacity_bottom)
+		bottom_animation = QPropertyAnimation(
+            opacity_bottom, b"opacity", duration=1000, startValue=0.0, endValue=1.0
+        )
+		opacity_right = QGraphicsOpacityEffect(self.builder_right)
+		self.builder_right.setGraphicsEffect(opacity_right)
+		right_animation = QPropertyAnimation(
+            opacity_right, b"opacity", duration=1000, startValue=0.0, endValue=1.0
+        )
+		group = QParallelAnimationGroup(self)
+		group.addAnimation(left_header_animation)
+		group.addAnimation(left_animation)
+		group.addAnimation(center_header_animation)
+		group.addAnimation(center_animation)
+		group.addAnimation(bottom_animation)
+		group.addAnimation(right_animation)
+		group.start(QAbstractAnimation.DeleteWhenStopped)
 
 	def check_apps_path(self):
 		if not os.path.isdir(self.builder_settings.items['apps_path']):
@@ -193,6 +235,7 @@ class AppBuilder(Base_Class, Gen_Class):
 				pass
 		self.settings.serialize()
 		self.menu_builder.menuToJson()
+		self.theme_builder.theme_settings.serialize()
 		self.showMessage("info", "Save all changes", "App-Settings successfully saved!")
 	
 	def showMessage(self, typos, title, message, time=3):

@@ -269,7 +269,7 @@ class ThemeBuilder(QWidget):
 			
 		target[area][genre] = color
 		
-		self.theme_settings.serialize()
+		#self.theme_settings.serialize()
 		self.reloadStyle(theme_name)
 	
 	def handleFontFamily(self):
@@ -285,7 +285,7 @@ class ThemeBuilder(QWidget):
 			theme_name = None
 			target = self.theme_settings.items['theme']
 		target['font']['family'] = font
-		self.theme_settings.serialize()
+		#self.theme_settings.serialize()
 		self.reloadStyle(theme_name)
 	
 	def handleFontSize(self, value):
@@ -305,14 +305,27 @@ class ThemeBuilder(QWidget):
 			theme_name = None
 			target = self.theme_settings.items['theme']
 		target['font'][genre] = value
-		self.theme_settings.serialize()
+		#self.theme_settings.serialize()
 		self.reloadStyle(theme_name)
 
 	def setInitFalse(self):
 		self._init = False
 
+	def getAppThemeCss(self, theme_name=None):
+		regex = r"\w+\(([^\)]+)\)"
+		with open(UIFunctions().resource_path(f'{self.apps_path}/{self.app_name}/gui/assets/style/base.qss'), "r", encoding='utf-8') as reader:
+			base_stylesheet = reader.read().replace("{","{{").replace("}","}}")
+			base_stylesheet = re.sub(regex, '{\\1}', base_stylesheet)
+			
+			if theme_name == None:
+				theme = self.theme_settings.items['theme']
+			else:
+				theme = self.theme_settings.items['themes'][theme_name]
+			formated_stylesheet = base_stylesheet.format(**theme)
+			return formated_stylesheet
+
 	def reloadStyle(self, theme_name):
-		stylesheet = UIFunctions().getAppTheme(self.theme_settings.items, self.apps_path, self.app_name, theme_name)
+		stylesheet = self.getAppThemeCss(theme_name)
 		self.ui.centralwidget.setStyleSheet(stylesheet)
 		
 	def component(self, name):

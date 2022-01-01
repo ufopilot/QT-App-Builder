@@ -30,28 +30,92 @@
     <number>1</number>
    </property>
    <item>
-    <widget class="LabelVertical" name="themes_label">
+    <widget class="QFrame" name="bottomHeader">
      <property name="minimumSize">
       <size>
-       <width>0</width>
+       <width>40</width>
        <height>0</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>30</width>
+       <width>40</width>
        <height>16777215</height>
       </size>
      </property>
-     <property name="styleSheet">
-      <string notr="true">#themes_label QLabel{
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="LabelVertical" name="themes_label">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#themes_label QLabel{
 	border-right: 1px solid #fff;
 	background: #aaa;
 }</string>
-     </property>
-     <property name="text">
-      <string>Themes</string>
-     </property>
+        </property>
+        <property name="text">
+         <string>Themes</string>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+       <widget class="QPushButton" name="toggleBottom">
+        <property name="minimumSize">
+         <size>
+          <width>34</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>34</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
    <item>
@@ -67,7 +131,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>918</width>
+        <width>908</width>
         <height>297</height>
        </rect>
       </property>
@@ -84,7 +148,7 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item alignment="Qt::AlignLeft">
+       <item>
         <widget class="QFrame" name="scrollFrame">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>

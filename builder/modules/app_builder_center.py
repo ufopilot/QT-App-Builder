@@ -35,16 +35,16 @@ class AppBuilderCenter(Base_Class, Gen_Class):
 
 	def resize_window(self):
 		screen = QApplication.primaryScreen()
-		size = screen.size()
+		self.size = screen.size()
 		self.resize(
-			size.width()
+			self.size.width()
 			-
 			self.builder_settings.items['left']['width']
 			- 
 			self.builder_settings.items['right']['width'] 
 			- 
 			self.builder_settings.items['center']['right'], 
-			size.height()
+			self.size.height()
 			-
 			self.builder_settings.items['bottom']['height'] 
 			- 

@@ -69,20 +69,6 @@ class AppBuilderLeft(Base_Class, Gen_Class):
 		
 	def selectIcon(self):
 		lineedit = self.sender()
-		#dialog = QFileDialog(self)
-		#options = dialog.Options()
-		#options |= dialog.DontUseNativeDialog
-		#
-		
-		#fileName, _ = dialog.getOpenFileName(self,"QFileDialog.getOpenFileName()", "","All Files (*);;Python Files (*.py)", options=options)
-		#if fileName:
-		#	lineedit.setText(os.path.basename(fileName))	
-		#
-		#AnyFile = getSaveFileName
-		#ExistingFile = getOpenFileName
-		#Directory = getExistingDirectory
-		#ExistingFiles = getOpenFileNames
-
 		if self.builder_settings.items['selected_app'] == "":
 			return
 		dialog = QFileDialog(self)
@@ -109,8 +95,6 @@ class AppBuilderLeft(Base_Class, Gen_Class):
 				pass
 	
 	def copy_selected_icon_to_app(self, iconfile, filename):
-		print(iconfile)
-		return True
 		try:
 			shutil.copyfile(iconfile, f"{self.builder_settings.items['apps_path']}/{self.builder_settings.items['selected_app']}/gui/resources/imgs/{filename}")
 			return True

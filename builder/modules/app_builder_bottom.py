@@ -33,8 +33,43 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 	def setup(self):
 		self.themeRemover = AppBuilderDeleteTheme(self, self.ui)
 		self.themeCloner = AppBuilderCloneTheme(self, self.ui)
+
+		icon = qta.icon("fa.arrow-circle-o-down", color="white")
+		self.toggleBottom.setIcon(icon)
+		self.toggleBottom.setIconSize(QSize(20, 20))
+		self.toggleBottom.setCursor(QCursor(Qt.PointingHandCursor))
+		self.toggleBottom.setCheckable(False)
+		self.toggleBottom.clicked.connect(self.toggle_bottom_panel)
+		self.origBottomHeight = self.parent.builder_settings.items['bottom']['height']
+		self.visible = True
+
 		self.resize_window()
 		self.loadThemesButtons()
+
+	def toggle_bottom_panel(self):
+		if self.visible:
+			icon = qta.icon("fa.arrow-circle-o-up", color="white")
+			self.visible = False
+			self.parent.builder_settings.items['bottom']['height'] = self.parent.builder_settings.items['bottom']['minimum']
+			self.parent.update_settings("builder")
+			self.themes_label.hide()
+			self.clearThemesButtons()
+		else:
+			icon = qta.icon("fa.arrow-circle-o-down", color="white")
+			self.visible = True
+			animate_dr = True
+			self.parent.builder_settings.items['bottom']['height'] = self.origBottomHeight
+			self.parent.update_settings("builder")
+			self.themes_label.show()
+			self.loadThemesButtons()
+		
+		
+		self.resize_window()
+		self.parent.builder_left.resize_window()
+		self.parent.builder_center.resize_window()
+		self.parent.builder_center_header.resize_window()
+		self.parent.builder_bottom.resize_window()
+		self.sender().setIcon(icon)
 	
 	def resize_window(self):
 		screen = QApplication.primaryScreen()
@@ -167,35 +202,49 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 			headerFrame.setObjectName(u"headerFrame")
 			headerFrame.setFrameShape(QFrame.StyledPanel)
 			headerFrame.setFrameShadow(QFrame.Raised)
+
 			sublayout = QHBoxLayout(headerFrame)
 			sublayout.setObjectName(u"sublayout")
-			sublayout.setContentsMargins(0, 0, 0, 0)
+			#sublayout.setContentsMargins(0, 0, 0, 0)
+			#sublayout.setSpacing(5)
 			themeName = QLabel(headerFrame)
 			themeName.setObjectName(u"label")
 			themeName.setText(name)
+
 			themeName.setStyleSheet("padding: 5px;")
 			sublayout.addWidget(themeName)
+
 			if name != "no-theme":
-				
+				#pushButton = QPushButton(headerFrame)
+				#pushButton.setObjectName(u"pushButton")
+				#pushButton.setMinimumSize(QSize(40, 0))
+				#pushButton.setMaximumSize(QSize(40, 16777215))
+
 				icon = QPushButton(headerFrame)
 				icon.setObjectName(f"clone_{name}")
+				#icon.setMinimumSize(QSize(40, 0))
+				#icon.setMaximumSize(QSize(40, 16777215))
+
 				icon.setIcon(clone_icon)
 				icon.setCursor(QCursor(Qt.PointingHandCursor))
 				icon.setFlat(True)
 				icon.setToolTip(f"Clone Theme: {name}")
 				icon.clicked.connect(self.cloneTheme)
 				icon.setStyleSheet("border: none;")
-				sublayout.addWidget(icon)
+				sublayout.addWidget(icon,0, Qt.AlignRight)
 
 				icon = QPushButton(headerFrame)
 				icon.setObjectName(f"remove_{name}")
+				#icon.setMinimumSize(QSize(40, 0))
+				#icon.setMaximumSize(QSize(40, 16777215))
+
 				icon.setIcon(remove_icon)
 				icon.setCursor(QCursor(Qt.PointingHandCursor))
 				icon.setFlat(True)
 				icon.setToolTip(f"Remove Theme: {name}")
 				icon.clicked.connect(self.removeTheme)
 				icon.setStyleSheet("border: none;")
-				sublayout.addWidget(icon)
+				sublayout.addWidget(icon,0, Qt.AlignRight)
 				
 			layout.addWidget(headerFrame)
 			pushButton = QPushButton(frame)

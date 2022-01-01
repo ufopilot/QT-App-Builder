@@ -2,18 +2,21 @@
     "apps_path": "D:\\DEVELOPEMENT\\PYTHON\\QT_APPS\\QT-App-Builder2\\apps",
     "selected_app": "",
     "selected_theme": "",
+    "animation_time": 500,
     "left": {
         "top": 80,
         "left": 0,
         "bottom": 48,
-        "width": 533
+        "width": 535,
+        "minimum": 44
     },
     "left_header": {
         "top": 36,
         "left": 0,
         "bottom": 48,
-        "width": 533,
-        "height": 38
+        "width": 535,
+        "height": 40,
+        "minimum": 44
     },
     "center": {
         "top": 79,
@@ -25,7 +28,7 @@
         "top": 36,
         "left": 5,
         "right": 11,
-        "height": 38
+        "height": 40
     },
     "right": {
         "top": 36,
@@ -38,7 +41,8 @@
         "left": 4,
         "right": 9,
         "bottom": 48,
-        "height": 180
+        "height": 180,
+        "minimum": 40
     },
     "app": {
         "left": 13,

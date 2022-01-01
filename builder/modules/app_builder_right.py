@@ -87,7 +87,6 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.createNewApp.clicked.connect(self.create_new_app)
 		self.createNewApp.enterEvent = lambda x: self.highlighter(self.createNewApp, "enter")
 		self.createNewApp.leaveEvent = lambda x: self.highlighter(self.createNewApp, "leave")
-		
 		self.add_icon(self.createNewApp, "mdi.new-box")
 
 		self.compileApp.setCheckable(True)
@@ -95,6 +94,13 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.compileApp.setCursor(QCursor(Qt.PointingHandCursor))
 		#self.compileApp.clicked.connect(self.create_new_app)
 		self.add_icon(self.compileApp, "ph.buildings-bold")
+
+		self.adjustApp.setCheckable(True)
+		self.adjustApp.setToolTip('Adjust app')
+		self.adjustApp.setCursor(QCursor(Qt.PointingHandCursor))
+		self.adjustApp.clicked.connect(self.adjust_app)
+		self.add_icon(self.adjustApp, "ei.adjust-alt")
+
 		
 		#self.setAppsPath.setCheckable(True)
 		self.setAppsPath.setToolTip('Set applications path ')
@@ -103,7 +109,32 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.setAppsPath.enterEvent = lambda x: self.highlighter(self.setAppsPath, "enter")
 		self.setAppsPath.leaveEvent = lambda x: self.highlighter(self.setAppsPath, "leave")
 		self.add_icon(self.setAppsPath, "mdi.folder-table-outline")
-		
+	
+	def adjust_app(self):
+		print("adjust")
+		self.parent.app.move(
+			self.builder_settings.items['left']['width']
+			+
+			self.builder_settings.items['center']['left'], 
+			self.builder_settings.items['center']['top'], 
+		)
+		self.parent.app.resize(
+			self.size.width()
+			-
+			self.builder_settings.items['left']['width']
+			- 
+			self.builder_settings.items['right']['width'] 
+			- 
+			self.builder_settings.items['center']['right'], 
+			self.size.height()
+			-
+			self.builder_settings.items['bottom']['height'] 
+			- 
+			self.builder_settings.items['center']['bottom']
+			-
+			self.builder_settings.items['center']['top']
+		)
+	
 	def add_icon(self, btn, icon_name):
 		if 'icons_color' in self.builder_settings.items:
 			if self.builder_settings.items['icons_color'] != "":

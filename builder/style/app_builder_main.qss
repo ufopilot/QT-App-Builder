@@ -211,20 +211,21 @@
     border: 0px solid;
 }
 
-#BuilderLeft QPushButton{
+#BuilderLeft #Themming QPushButton{
 	border: 2px solid teal;
 	border-radius: 12px;
 }
 
-#BuilderLeft QPushButton:hover{
+#BuilderLeft #Themming QPushButton:hover{
 	border: 3px solid cyan;
 }
 
-#BuilderLeft QPushButton:checked{
+#BuilderLeft #Themming QPushButton:checked{
 	border: 4px solid cyan;
 }
 
-#BuilderLeft QLabel{
+#BuilderLeft #Themming QLabel, 
+#BuilderLeft #Customizing QLabel{
 	min-width: 100px;
 }
 
@@ -256,7 +257,8 @@
     color: #fff;
 }
 
-#BuilderLeft QWidget{
+#BuilderLeft QToolBox QWidget,
+#BuilderLeft QTreeWidget{
 	color:#fff;
     font-size: 13px;
 	background: #1b202c;
@@ -273,10 +275,15 @@
 	color: darkgray
 }
 
-#BuilderLeft QHeaderView::section, QHeaderWidget::section {
+#BuilderLeft #Menu QHeaderView::section,  
+#BuilderLeft #Menu  QHeaderWidget::section {
     padding-left: 5px;
 	min-height: 40px;	
+	background: #272c37;
+	color: #fff;
+   	border: 1px  solid  rgb(49, 54, 72);
 }
+
 #BuilderLeft QHeaderWidget::Item, QTreeView::Item{
   	height: 30px;
 }
@@ -289,6 +296,32 @@
 
 #BuilderLeft QTreeWidget:indicator:unchecked { background:none;}
 #BuilderLeft QTreeWidget:indicator:checked { background:#2b579a;}
+
+#BuilderLeft QScrollBar {
+    background:  #313648;
+}
+
+#BuilderLeft QScrollBar::handle {
+    background:  #313648;
+}
+
+#BuilderLeft QScrollBar::add-line:vertical, 
+#BuilderLeft QScrollBar::add-line:horizontal  {
+    border: none;
+    background: none;
+}
+
+#BuilderLeft QScrollBar::sub-line:vertical, 
+#BuilderLeft QScrollBar::sub-line:horizontal  {
+    border: none;
+    background: none;
+  }
+
+#BuilderLeft QScrollBar::handle:hover:vertical, 
+#BuilderLeft QScrollBar::handle:hover:horizontal {
+    background: #2b579a;
+    
+}
 
 #BuilderLeft #Theming QPushButton { 
     border: 1px  solid  rgb(49, 54, 72);
@@ -305,10 +338,12 @@
 
 #BuilderLeft #Theming QLabel[type="color_label"]{
 	border: 2px solid teal;
-	border-radius: 12px;
+	border-radius: 10px;
 	background: transparent;
 	min-height: 20px;
 	max-height: 20px;
+	min-width: 20px;
+	max-width: 20px;
 }
 
 /*######################################*/
@@ -329,7 +364,7 @@
 #BuilderBottom #themes_label{
 	min-width: 40px;
 	max-width: 40px; 
-	border: 1px solid rgb(49, 54, 72); 
+	/* border: 1px solid rgb(49, 54, 72);  */
 	font-size: 16px;
 	font-weight: bold;
 	border-radius: 0px;
@@ -347,6 +382,39 @@
 
 #BuilderBottom QPushButton:checked{
 	border: 4px solid cyan;
+}
+
+#BuilderBottom #bottomHeader{
+	background: #272c37;
+   	border: 1px  solid  rgb(49, 54, 72);
+	border-radius: 0px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#BuilderBottom #bottomHeader QPushButton{
+	border-radius: 5px;
+	border: 1px  solid  rgb(49, 54, 72);
+	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #13161f, stop: 0.4 #161924,
+                                stop: 0.5 #171c26, stop: 1.0 #1b202c);
+}
+#BuilderBottom #bottomHeader QPushButton:hover{
+	border: none;
+   	background: rgb(49, 54, 72);
+  	border-radius: none;
+}
+
+#BuilderBottom #bottomHeader  QPushButton:checked{
+	border: 4px solid cyan;
+}
+
+#BuilderBottom #bottomHeader  QToolTip { 
+	background-color: #1b202c; 
+	color: #fff; 
+	border: 1px solid #333; 
+	border-radius: 3px;
+	font-size: 13px;
 }
 /*######################################*/
 /* RIGHT */
