@@ -34,9 +34,9 @@ class ThemeBuilder(QWidget):
 				label1 = frame.findChildren(QLabel)[0]
 				label2 = frame.findChildren(QLabel)[1]
 				btn = frame.findChild(QPushButton)
-
-				label1.setProperty("type", 1)
-				label2.setProperty("type", "color_label")
+				if label1.parent().parent().objectName() != "theming_font":
+					label1.setProperty("type", 1)
+					label2.setProperty("type", "color_label")
 				icon = qta.icon("fa.pencil", color=icon_color)
 				btn.setIcon(icon)
 			except:
