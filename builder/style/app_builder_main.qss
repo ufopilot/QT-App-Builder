@@ -338,12 +338,12 @@
 
 #BuilderLeft #Theming QLabel[type="color_label"]{
 	border: 2px solid teal;
-	border-radius: 10px;
+	/* border-radius: 10px; */
 	background: transparent;
 	min-height: 20px;
 	max-height: 20px;
-	min-width: 20px;
-	max-width: 20px;
+	min-width: 200px;
+	max-width: 200px;
 }
 
 /*######################################*/

@@ -45,7 +45,7 @@ class AppBuilderLeftHeader(Base_Class, Gen_Class):
 		
 
 	def addLeftButtons(self):
-		icon = qta.icon("ei.indent-right", color="white")
+		icon = qta.icon("mdi6.chevron-double-left", color="white")
 		self.toggleLeft.setIcon(icon)
 		self.toggleLeft.setIconSize(QSize(20, 20))
 		self.toggleLeft.setCursor(QCursor(Qt.PointingHandCursor))
@@ -66,7 +66,7 @@ class AppBuilderLeftHeader(Base_Class, Gen_Class):
 
 	def toggle_left_panel(self):
 		if self.visible:
-			icon = qta.icon("ei.indent-left", color="white")
+			icon = qta.icon("mdi6.chevron-double-right", color="white")
 			self.visible = False
 			animate_dr = False
 			self.parent.builder_settings.items['left']['width'] = self.parent.builder_settings.items['left']['minimum']
@@ -74,7 +74,7 @@ class AppBuilderLeftHeader(Base_Class, Gen_Class):
 			self.parent.update_settings("builder")
 			
 		else:
-			icon = qta.icon("ei.indent-right", color="white")
+			icon = qta.icon("mdi6.chevron-double-left", color="white")
 			self.visible = True
 			animate_dr = True
 			self.parent.builder_settings.items['left_header']['width'] = self.origLeftHeaderWidth

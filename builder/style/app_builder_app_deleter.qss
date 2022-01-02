@@ -5,6 +5,7 @@
 	background: #1b202c;
 	color: #fff;
 	font-size: 14px;
+	border-radius: 5px;
 }
 #AppDeleter QLabel{
 	min-width: 100px;

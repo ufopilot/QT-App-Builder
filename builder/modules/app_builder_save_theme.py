@@ -13,6 +13,7 @@ class AppBuilderSaveTheme(Base_Class, Gen_Class):
 
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
+		self.setAttribute(Qt.WA_TranslucentBackground)
 		self.setStyle()
 		screen = QApplication.primaryScreen()
 		size = screen.size()

@@ -78,14 +78,12 @@ class AppBuilder(Base_Class, Gen_Class):
 		self.builder_center.builder_settings = self.builder_settings
 		self.builder_center.setup()
 		self.loadingProgress = self.builder_center.progressBar
-		#self.fadeIn(self.builder_center)
 		# ------------------------------
 		# left
 		# ------------------------------
 		self.builder_left = AppBuilderLeft(self, self.app)
 		self.builder_left.builder_settings = self.builder_settings
 		self.builder_left.setup()
-		#self.fadeIn(self.builder_left)
 		# ------------------------------
 		# left Header
 		# ------------------------------

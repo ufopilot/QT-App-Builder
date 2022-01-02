@@ -25,6 +25,7 @@
 
 #centralwidget{
 	border: 1px  solid  rgb(49, 54, 72);
+	border-radius: 5px;
 }
 
 
@@ -57,25 +58,7 @@ QWidget{
 	color:#fff;
     font-size: 13px;
 }
-
-QToolBoxButton { 
-    font-size: 14px;
-   min-height: 40px
-   
-}
-
-QLineEdit{
-	border: 1px solid #555;
-	color: darkgray
-}
-
-QToolTip { 
-	background-color: #1b202c; 
-	color: #fff; 
-	border: 1px solid #333; 
-	border-radius: 3px;
-	font-size: 13px;
-}</string>
+</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
@@ -135,5 +118,6 @@ QToolTip {
    </layout>
   </widget>
  </widget>
+ <resources/>
  <connections/>
 </ui>

@@ -14,6 +14,7 @@ class AppBuilderMessage(Base_Class, Gen_Class):
 
 		self.setupUi(self)
 		self.setWindowFlag(Qt.FramelessWindowHint)
+		self.setAttribute(Qt.WA_TranslucentBackground)
 		
 		screen = QApplication.primaryScreen()
 		size = screen.size()

@@ -34,7 +34,7 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 		self.themeRemover = AppBuilderDeleteTheme(self, self.ui)
 		self.themeCloner = AppBuilderCloneTheme(self, self.ui)
 
-		icon = qta.icon("fa.arrow-circle-o-down", color="white")
+		icon = qta.icon("mdi6.chevron-double-down", color="white")
 		self.toggleBottom.setIcon(icon)
 		self.toggleBottom.setIconSize(QSize(20, 20))
 		self.toggleBottom.setCursor(QCursor(Qt.PointingHandCursor))
@@ -48,14 +48,14 @@ class AppBuilderBottom(Base_Class, Gen_Class):
 
 	def toggle_bottom_panel(self):
 		if self.visible:
-			icon = qta.icon("fa.arrow-circle-o-up", color="white")
+			icon = qta.icon("mdi6.chevron-double-up", color="white")
 			self.visible = False
 			self.parent.builder_settings.items['bottom']['height'] = self.parent.builder_settings.items['bottom']['minimum']
 			self.parent.update_settings("builder")
 			self.themes_label.hide()
 			self.clearThemesButtons()
 		else:
-			icon = qta.icon("fa.arrow-circle-o-down", color="white")
+			icon = qta.icon("mdi6.chevron-double-down", color="white")
 			self.visible = True
 			animate_dr = True
 			self.parent.builder_settings.items['bottom']['height'] = self.origBottomHeight
