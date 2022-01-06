@@ -109,33 +109,40 @@ class AppBuilderRight(Base_Class, Gen_Class):
 		self.add_icon(self.setAppsPath, "mdi.folder-table-outline")
 	
 	def adjust_app(self):
+		btn = self.sender()
+
 		if self.builder_settings.items['selected_app'] == "":
 			self.message_box.notify("warning", "Adjust App", "No App selected!")
 			timer=QTimer.singleShot(2000, lambda: self.message_box.close())
+			btn.toggle()
 			return
 
-		self.parent.app.move(
-			self.builder_settings.items['left']['width']
-			+
-			self.builder_settings.items['center']['left'], 
-			self.builder_settings.items['center']['top'], 
-		)
-		self.parent.app.resize(
-			self.size.width()
-			-
-			self.builder_settings.items['left']['width']
-			- 
-			self.builder_settings.items['right']['width'] 
-			- 
-			self.builder_settings.items['center']['right'], 
-			self.size.height()
-			-
-			self.builder_settings.items['bottom']['height'] 
-			- 
-			self.builder_settings.items['center']['bottom']
-			-
-			self.builder_settings.items['center']['top']
-		)
+		if btn.isChecked():
+			self.parent.app.move(
+				self.builder_settings.items['left']['width']
+				+
+				self.builder_settings.items['center']['left'], 
+				self.builder_settings.items['center']['top'], 
+			)
+			self.parent.app.resize(
+				self.size.width()
+				-
+				self.builder_settings.items['left']['width']
+				- 
+				self.builder_settings.items['right']['width'] 
+				- 
+				self.builder_settings.items['center']['right'], 
+				self.size.height()
+				-
+				self.builder_settings.items['bottom']['height'] 
+				- 
+				self.builder_settings.items['center']['bottom']
+				-
+				self.builder_settings.items['center']['top']
+			)
+		else:
+			self.parent.app.resize(self.parent.settings.items['window']['initial_width'], self.parent.settings.items['window']['initial_height'])
+			self.parent.move_app_to_center()
 	
 	def add_icon(self, btn, icon_name):
 		if 'icons_color' in self.builder_settings.items:
